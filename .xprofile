@@ -5,7 +5,7 @@
 # load per file configuration in ~/.config/xprofile.d
 if [ -d "${HOME}/.config/xprofile.d" ]; then
     for xfiles in "${HOME}/.config/xprofile.d/*.sh"; do
-        . "${xfiles}"
+        . "${xfiles}" &
     done
     unset xfiles
 fi
