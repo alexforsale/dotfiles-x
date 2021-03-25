@@ -16,7 +16,7 @@ case "${DISTRO}" in
             export SUDO_ASKPASS=/usr/bin/x11-ssh-askpass
 
         # polkit
-        if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
+        if [ ! "$(pgrep -u ${USER} -x polkit-gnome-au)" ];then
             sleep 1 && /usr/libexec/polkit-gnome-authentication-agent-1 &
         fi
         ;;
