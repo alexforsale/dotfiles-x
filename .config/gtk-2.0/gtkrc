@@ -1,7 +1,7 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ${GTK2_RC_FILES%%/gtkrc}/gtkrc.mine instead.
 
-include "~/.config/gtk-2.0/gtkrc.mine"
+include "gtkrc.mine"
 gtk-theme-name="Arc-Dark"
 gtk-icon-theme-name="Papirus"
 gtk-font-name="Fantasque Sans Mono 11"
