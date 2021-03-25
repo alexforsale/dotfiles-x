@@ -22,7 +22,8 @@ case "${DISTRO}" in
         ;;
     arch)
         if [ -f /usr/lib/ssh/x11-ssh-askpass ];then
-            ln -s /usr/lib/ssh/x11-ssh-askpass ~/.local/bin/ssh-askpass &
+            [ ! -L ~/.local/bin/ssh-askpass ] &&
+                ln -sf /usr/lib/ssh/x11-ssh-askpass ~/.local/bin/ssh-askpass
             export SSH_ASKPASS=ssh-askpass
             export SUDO_ASKPASS="${HOME}"/.local/bin/ssh-askpass
         fi
