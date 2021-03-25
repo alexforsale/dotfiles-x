@@ -1,0 +1,10 @@
+#!/bin/sh
+# wifi-helper script for calling available wireless gui app
+
+if [ $(command -v connman-gtk) ]; then
+    wifi_app=connman-gtk
+elif [ $(command -v nmtui) ]; then
+    wifi_app="$TERMINAL -e nmtui"
+fi
+
+exec ${wifi_app} 2>&1 >/dev/null
