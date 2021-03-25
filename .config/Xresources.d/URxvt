@@ -1,0 +1,37 @@
+! General settings
+
+! Save number lines in the scrollback buffer [default 64].
+URxvt.saveLines: 2000
+
+! Scrollback buffer in secondary screen
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! Scrollbars
+URxvt.scrollBar: False
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: rxvt
+
+! Specifies the terminal type name to be set in the TERM environment variable
+URxvt.termName: xterm-256color
+
+! Blink cursor
+URxvt.cursorBlink: True
+
+! Only with patched urxvt
+URxvt.secondaryWheel: 1
+
+! Fonts
+URxvt.font: xft:Fantasque\ Sans\ Mono:size=8
+! Copy and paste CTRL-SHIFT-c & CTRL-SHIFT-v
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
+
+! Turn off ISO 14755
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! bell command
+! https://wiki.archlinux.org/index.php/Rxvt-unicode/Tips_and_tricks
+URxvt.bell-command: canberra-gtk-play -i bell

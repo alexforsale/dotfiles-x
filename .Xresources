@@ -1,0 +1,2 @@
+#include ".config/Xresources.d/xterm"
+#include ".config/Xresources.d/URxvt"
