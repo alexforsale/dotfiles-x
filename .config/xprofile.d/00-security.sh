@@ -3,7 +3,8 @@
 # various ui-related security settings
 # <alexforsale@yahoo.com>
 
-if [ "$(command -v gnome-keyring-daemon)" ];then
+if [ "$(command -v gnome-keyring-daemon)" ] &&
+   [ ! $(pgrep -u ${USER} -x gnome-keyring-d) ];then
     eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
     export SSH_AUTH_SOCK GNOME_KEYRING_CONTROL
 fi
