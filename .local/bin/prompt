@@ -1,0 +1,17 @@
+#!/bin/sh
+# A dmenu binary prompt script.
+# Gives a dmenu prompt labeled with $1 to perform command $2.
+# For example:
+# `./prompt "Do you want to shutdown?" "shutdown -h now"`
+
+if [ "$(command -v rofi)" ];then
+    [ "$(printf "No\\nYes" | rofi -font "Fanstasque Sans Mono 10" \
+        -lines 2 -width 25 -hide-scrollbar true -bw 0 -line-padding 10 \
+        -padding 20 -xoffset 0 -yoffset 0 -location 0 -columns 2 -color-enabled true \
+        -dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
+elif [ "$(command -v dmenu)" ];then
+    [ "$(printf "No\\nYes" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
+else
+    notify-send -t 300 "${HOME}/.local/bin/prompt needs either rofi or dmenu installed!"
+    exit 1
+fi

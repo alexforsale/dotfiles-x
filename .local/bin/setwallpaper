@@ -1,0 +1,106 @@
+#!/bin/sh
+# Sets the background. If given an argument, will set file as background.
+_resolution="$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')"
+
+case "${DISTRO}" in
+    arch|gentoo|debian|ubuntu)
+        SHUF="$(command -v shuf)"
+        ;;
+    freebsd)
+        SHUF="$(command -v gshuf)"
+        ;;
+esac
+
+if [ "$(command -v pcmanfm)" ] &&
+   [ -z "${_NO_PCMANFM}" ]; then
+    WALL_APP=pcmanfm
+elif [ "$(command -v xwallpaper)" ]; then
+    WALL_APP=xwallpaper
+elif [ "$(command -v nitrogen)" ]; then
+    WALL_APP=nitrogen
+elif [ "$(command -v feh)" ]; then
+    WALL_APP=feh
+fi
+
+if [ -n "${1}" ];then
+    case ${WALL_APP} in
+        pcmanfm)
+            wal -i ${1} -n
+	    pcmanfm --wallpaper-mode=stretch -w $(< ~/.cache/wal/wal)
+            ;;
+        xwallpaper)
+            wal -i ${1} -n
+            xwallpaper --zoom $(< ~/.cache/wal/wal)
+            ;;
+        nitrogen)
+            wal -i ${1} -n
+            nitrogen --set-zoom-fill $(< ~/.cache/wal/wal)
+            ;;
+        feh)
+            wal -i ${1} -n
+            feh --bg-fill $(< ~/.cache/wal/wal)
+            ;;
+    esac
+    cp "${1}" ~/.config/wall.png && notify-send -i "${HOME}/.config/wall.png" "Wallpaper changed."
+else
+    case ${DISTRO} in
+        gentoo)
+            if [ -d "${XDG_DATA_HOME}/wallpapers/${DISTRO}-${_WM}" ];then
+                wp=$(${SHUF} -ezn 1 ~/.local/share/wallpapers/"${DISTRO}-${_WM}/*" | xargs -0)
+            elif [ -d "${XDG_DATA_HOME}/wallpapers/${DISTRO}" ];then
+                wp=$(${SHUF} -ezn 1 ~/.local/share/wallpapers/"${DISTRO}/*" | xargs -0)
+            elif [ -d /usr/share/pixmaps/gentoo ];then
+                if [ -d /usr/share/pixmaps/gentoo/"${_resolution}" ];then
+                    wp=$(${SHUF} -ezn 1 /usr/share/pixmaps/gentoo/"${_resolution}/*" | xargs -0)
+                else
+                    # pick 1280x1024
+                    wp=$(${SHUF} -ezn 1 /usr/share/pixmaps/gentoo/1280x1024/* | xargs -0)
+                fi
+            fi
+            ;;
+        arch)
+            if [ -d "${XDG_DATA_HOME}/wallpapers/${DISTRO}-${_WM}" ];then
+                wp=$(${SHUF} -ezn 1 ~/.local/share/wallpapers/"${DISTRO}-${_WM}/*" | xargs -0)
+            elif [ -d "${XDG_DATA_HOME}/wallpapers/${DISTRO}" ];then
+                wp=$(${SHUF} -ezn 1 ~/.local/share/wallpapers/"${DISTRO}/*" | xargs -0)
+            elif [ -d /usr/share/backgrounds/archlinux ];then
+                wp=$(${SHUF} -ezn 1 /usr/share/backgrounds/archlinux/* | xargs -0)
+            fi
+            ;;
+        freebsd)
+            if [ -d "${XDG_DATA_HOME}/wallpapers/${DISTRO}-${_WM}" ];then
+                wp=$(${SHUF} -ezn 1 ~/.local/share/wallpapers/"${DISTRO}-${_WM}/*" | xargs -0)
+            elif [ -d "${XDG_DATA_HOME}/wallpapers/${DISTRO}" ];then
+                wp=$(${SHUF} -ezn 1 ~/.local/share/wallpapers/"${DISTRO}/*" | xargs -0)
+            elif [ -d /usr/local/share/wallpapers/freebsd-8k-wallpapers ]; then
+                wp=$(${SHUF} -ezn 1 /usr/local/share/wallpapers/freebsd-8k-wallpapers/* | xargs -0)
+            fi
+            ;;
+        *)
+            wp=$(${SHUF} -ezn 1 "${XDG_DATA_HOME}"/wallpapers/common/* | xargs -0)
+            ;;
+    esac
+    cp "${wp}" ~/.config/wall.png && notify-send -i "${HOME}/.config/wall.png" "Wallpaper changed."
+    case ${WALL_APP} in
+        pcmanfm)
+            wal -i ${wp} -n
+            pcmanfm --wallpaper-mode=stretch -w $(< ~/.cache/wal/wal) ||
+                pcmanfm --wallpaper-mode=stretch -w $(cat ~/.cache/wal/wal)
+            ;;
+        xwallpaper)
+            wal -i ${wp} -n
+            xwallpaper --stretch $(< ~/.cache/wal/wal) ||
+                xwallpaper --stretch $(cat ~/.cache/wal/wal)
+            ;;
+        nitrogen)
+            wal -i ${wp} -n
+            nitrogen --set-zoom-fill $(< ~/.cache/wal/wal) ||
+                nitrogen --set-zoom-fill $(cat ~/.cache/wal/wal)
+            ;;
+        feh)
+            wal -i ${wp} -n
+            feh --bg-fill $(< ~/.cache/wal/wal) ||
+                feh --bg-fill $(cat ~/.cache/wal/wal)
+            ;;
+    esac
+fi
