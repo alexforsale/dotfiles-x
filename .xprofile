@@ -1,0 +1,15 @@
+#!/bin/sh
+# ~/.xprofile
+# <alexforsale@yahoo.com>
+
+# load per file configuration in ~/.config/xprofile.d
+if [ -d "${HOME}/.config/xprofile.d" ]; then
+    for xfiles in "${HOME}/.config/xprofile.d/*.sh"; do
+        . "${xfiles}"
+    done
+    unset xfiles
+fi
+
+# allow user override
+[ -f "${XDG_CONFIG_HOME}"/xprofile.local ] && . "${XDG_CONFIG_HOME}"/xprofile.local
+[ -f "${HOME}"/.xprofile.local ] && . "${HOME}"/.xprofile.local
