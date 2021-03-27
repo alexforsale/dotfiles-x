@@ -3,7 +3,7 @@
 # various networking app
 
 # nm-applet
-if [ "$(command -v nm-applet)" ] &&
-       [ -z "${_NO_NM_APPLET}" ];then
-    nm-applet &
-fi
+#if [ ! "$(pgrep -u ${USER} -x nm-applet)" ]; then
+#    [ -z "${_NO_NM_APPLET}" ] &&
+#        nm-applet &
+#fi
