@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+question=$(echo " lock| logout| reboot| shutdown" | rofi -sep "|" \
+    -dmenu -i -p 'System: ' "" \
+    -hide-scrollbar \
+    -eh 1 \
+    -width 25 \
+    -line-padding 10 \
+    -padding 20 \
+    -lines 4 \
+    -location 3 \
+    -xoffset 0 -yoffset 30 \
+    -font "Fantasque Sans Mono 10" \
+    -color-enabled true)
+
+case $question in
+    *lock)
+        i3lock
+        ;;
+    *logout)
+        #command -v gnome-session-quit 2>/dev/null 2>&1 || command -v session-logout >/dev/null 2>&1
+        command -v session-logout
+        ;;
+    *reboot)
+        systemctl reboot
+        ;;
+    *shutdown)
+        systemctl poweroff
+        ;;
+    *)
+        exit 0  # do nothing on wrong response
+        ;;
+esac
