@@ -33,3 +33,9 @@ fi
 # lightdm and such.
 [ -e ~/.Xresourses ] &&
     xrdb -merge "${HOME}"/.Xresources &
+
+# light-locker
+if [ $(pgrep -x lightdm) ] &&
+       [ $(command -v light-locker) ]; then
+    light-locker &
+fi

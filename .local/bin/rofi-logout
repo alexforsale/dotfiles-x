@@ -13,21 +13,27 @@ question=$(echo " lock| logout| reboot| shutdown" | rofi -sep "|" \
     -font "Fantasque Sans Mono 10" \
     -color-enabled true)
 
-case $question in
-    *lock)
-        i3lock
-        ;;
-    *logout)
-        #command -v gnome-session-quit 2>/dev/null 2>&1 || command -v session-logout >/dev/null 2>&1
-        command -v session-logout
-        ;;
-    *reboot)
-        systemctl reboot
-        ;;
-    *shutdown)
-        systemctl poweroff
-        ;;
-    *)
-        exit 0  # do nothing on wrong response
+case ${_WM} in
+    openbox)
+        case $question in
+            *lock)
+                if [ "$(pgrep -x lightdm)" ] && [ "$(command -v light-locker)" ]; then
+                    light-locker-command -l
+                fi
+                ;;
+            *logout)
+                #command -v gnome-session-quit 2>/dev/null 2>&1 || command -v session-logout >/dev/null 2>&1
+                openbox --exit
+                ;;
+            *reboot)
+                systemctl reboot
+                ;;
+            *shutdown)
+                systemctl poweroff
+                ;;
+            *)
+                exit 0  # do nothing on wrong response
+                ;;
+        esac
         ;;
 esac
