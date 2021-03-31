@@ -1,17 +1,35 @@
 #!/usr/bin/env bash
 
-question=$(echo " lock| logout| reboot| shutdown" | rofi -sep "|" \
-    -dmenu -i -p 'System: ' "" \
-    -hide-scrollbar \
-    -eh 1 \
-    -width 25 \
-    -line-padding 10 \
-    -padding 20 \
-    -lines 4 \
-    -location 3 \
-    -xoffset 0 -yoffset 30 \
-    -font "Fantasque Sans Mono 10" \
-    -color-enabled true)
+case ${_WM} in
+    openbox)
+        question=$(echo " lock| logout| reboot| shutdown" | rofi -sep "|" \
+            -dmenu -i -p 'System: ' "" \
+            -hide-scrollbar \
+            -eh 1 \
+            -width 25 \
+            -line-padding 10 \
+            -padding 20 \
+            -lines 4 \
+            -location 3 \
+            -xoffset 0 -yoffset 30 \
+            -font "Fantasque Sans Mono 10" \
+            -color-enabled true)
+        ;;
+    i3)
+        question=$(echo " lock| logout| reboot| shutdown" | rofi -sep "|" \
+            -dmenu -i -p 'System: ' "" \
+            -hide-scrollbar \
+            -eh 1 \
+            -width 25 \
+            -line-padding 10 \
+            -padding 20 \
+            -lines 4 \
+            -location 5 \
+            -xoffset 0 -yoffset -39 \
+            -font "Fantasque Sans Mono 10" \
+            -color-enabled true)
+        ;;
+esac
 
 case ${_WM} in
     openbox)
