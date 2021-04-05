@@ -59,8 +59,10 @@ if [ ! "$(pgrep lightdm)" ];then
                 freebsd)
                     if [ -e "${XDG_CONFIG_HOME}"/i3/config-freebsd.local ];then
                         exec i3 -c "${XDG_CONFIG_HOME}"/i3/config-freebsd.local
-                    else
+                    elif [ -e "${XDG_CONFIG_HOME}"/i3/config-freebsd ]; then
                         exec i3 -c "${XDG_CONFIG_HOME}"/i3/config-freebsd
+                    else
+                        exec i3 -c "${XDG_CONFIG_HOME}"/i3/config
                     fi
                     ;;
                 gentoo)
