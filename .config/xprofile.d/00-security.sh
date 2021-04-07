@@ -5,7 +5,7 @@
 
 if [ "$(command -v gnome-keyring-daemon)" ] &&
    [ ! $(pgrep -u ${USER} -x gnome-keyring-d) ];then
-    eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
+    eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)" >/dev/null 2>&1
     export SSH_AUTH_SOCK GNOME_KEYRING_CONTROL
 fi
 
@@ -45,5 +45,8 @@ case "${DISTRO}" in
         if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
             sleep 1 && /usr/local/libexec/polkit-gnome-authentication-agent-1 &
         fi
+        # keyring
+        [ "$(command -v dbus-update-activation-environment)" ] &&
+            dbus-update-activation-environment DISPLAY
         ;;
 esac
