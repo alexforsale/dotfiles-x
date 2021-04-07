@@ -31,27 +31,29 @@ case ${_WM} in
         ;;
 esac
 
-case ${_WM} in
-    openbox)
-        case $question in
-            *lock)
-                if [ "$(pgrep -x lightdm)" ] && [ "$(command -v light-locker)" ]; then
-                    light-locker-command -l
-                fi
-                ;;
-            *logout)
-                #command -v gnome-session-quit 2>/dev/null 2>&1 || command -v session-logout >/dev/null 2>&1
+case $question in
+    *lock)
+        if [ "$(pgrep -x lightdm)" ] && [ "$(command -v light-locker)" ]; then
+            light-locker-command -l
+        fi
+        ;;
+    *logout)
+        case ${_WM} in
+            openbox)
                 openbox --exit
                 ;;
-            *reboot)
-                systemctl reboot
-                ;;
-            *shutdown)
-                systemctl poweroff
-                ;;
-            *)
-                exit 0  # do nothing on wrong response
+            i3)
+                i3-msg exit
                 ;;
         esac
+        ;;
+    *reboot)
+        shutdown -r now
+        ;;
+    *shutdown)
+        poweroff
+        ;;
+    *)
+        exit 0  # do nothing on wrong response
         ;;
 esac
