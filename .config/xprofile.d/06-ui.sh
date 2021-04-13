@@ -20,12 +20,6 @@ fi
 [ "$(command -v unclutter)" ] &&
     unclutter &
 
-# picom
-if [ "$(command -v picom)" ] &&
-    [ -e "${XDG_CONFIG_HOME}/picom/picom.conf" ]; then
-    picom -b --config "${XDG_CONFIG_HOME}"/picom/picom.conf &
-fi
-
 # also merge Xresources here in case using
 # lightdm and such.
 [ -e ~/.Xresourses ] &&
