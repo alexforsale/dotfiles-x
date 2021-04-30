@@ -57,8 +57,8 @@ if [ ! "$(pgrep lightdm)" ];then
                     fi
                     ;;
                 freebsd)
-                    if [ -e "${XDG_CONFIG_HOME}"/i3/config-freebsd.local ];then
-                        exec i3 -c "${XDG_CONFIG_HOME}"/i3/config-freebsd.local
+                    if [ -e "${XDG_CONFIG_HOME}"/i3/config-freebsd-$(uname -n) ]; then
+                        exec i3 -c "${XDG_CONFIG_HOME}"/i3/config-freebsd-$(uname -n)
                     elif [ -e "${XDG_CONFIG_HOME}"/i3/config-freebsd ]; then
                         exec i3 -c "${XDG_CONFIG_HOME}"/i3/config-freebsd
                     else
