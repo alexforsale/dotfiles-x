@@ -15,7 +15,3 @@ if [ "${DISTRO}" != "freebsd" ] &&
        [ $(command -v qutebrowser) ]; then
     export QUTEWAL_DYNAMIC_LOADING=1
 fi
-
-# unclutter
-[ "$(command -v unclutter)" ] &&
-    unclutter
