@@ -5,6 +5,6 @@
 
 # start emacs as daemon
 # only when _NO_EMACS_DAEMON is unset
-if [ -z "${_NO_EMACS_DAEMON}" ] && [ ! "$(pgrep -u ${USER} -x emacs)" ];then
+if [ -z "${_NO_EMACS_DAEMON}" ] && [ ! "$(pgrep -u ${USER} emacs)" ];then
     emacs --daemon &
 fi
