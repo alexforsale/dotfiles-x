@@ -18,15 +18,4 @@ fi
 
 # unclutter
 [ "$(command -v unclutter)" ] &&
-    unclutter &
-
-# wal
-if ( [ -n "${_WAL}" ] && [ $(command -v wal) ] ) &&
-       [ -z "${SSH_CLIENT}" ]; then
-    wal -R >/dev/null 2>&1
-fi
-
-# also merge Xresources here in case using
-# lightdm and such.
-[ -e ~/.Xresourses ] &&
-    xrdb -merge "${HOME}"/.Xresources &
+    unclutter
