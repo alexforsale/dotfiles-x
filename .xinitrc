@@ -42,42 +42,31 @@ if [ "${DISTRO}" = "freebsd" ];then
     . "${HOME}"/.profile
 fi
 
-# TODO: perhaps this should be in ~/.xsession
-if [ ! "$(pgrep lightdm)" ];then
-    case "${_WM}" in
-        i3)
-            # start i3-wm
-            case "${DISTRO}" in
-                arch)
-                    mkdir -p "${XDG_DATA_HOME}"/i3
-                    if [ -e "${XDG_CONFIG_HOME}"/i3/config.local ];then
-                        exec i3 -c "${XDG_CONFIG_HOME}"/i3/config.local -V >> "${XDG_DATA_HOME}"/i3/i3-"$(date +%F_%H-%M-%S)"
-                    else
-                        exec i3 -V >> "${XDG_DATA_HOME}"/i3/i3-"$(date +%F_%H-%M-%S)"
-                    fi
-                    ;;
-                freebsd)
-                    if [ -e "${XDG_CONFIG_HOME}"/i3/config-freebsd-$(uname -n) ]; then
-                        exec i3 -c "${XDG_CONFIG_HOME}"/i3/config-freebsd-$(uname -n)
-                    elif [ -e "${XDG_CONFIG_HOME}"/i3/config-freebsd ]; then
-                        exec i3 -c "${XDG_CONFIG_HOME}"/i3/config-freebsd
-                    else
-                        exec i3 -c "${XDG_CONFIG_HOME}"/i3/config
-                    fi
-                    ;;
-                gentoo)
-                    if [ -e "${XDG_CONFIG_HOME}"/i4/config-gentoo ];then
-                        dbus-launch --exit-with-session i3 -c "${XDG_CONFIG_HOME}"/i3/config-gentoo
-                    elif [ -e "${XDG_CONFIG_HOME}"/i3/config-gentoo.local ];then
-                        dbus-launch --exit-with-session i3 -c "${XDG_CONFIG_HOME}"-i3/config-gentoo.local
-                    else
-                        dbus-launch --exit-with-session i3
-                    fi
-                    ;;
-            esac
-            ;;
-        openbox)
-	    dbus-launch --exit-with-session openbox-session
-            ;;
-    esac
-fi
+case "${_WM}" in
+    i3)
+        if [ "$(command -v dbus-launch)" ]; then
+            if [ -f "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}" ]; then
+                dbus-launch --exit-with-session i3 -c "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}"
+            elif [ -f "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}".local ]; then
+                dbus-launch --exit-with-session i3 -c "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}".local
+            else
+                continue
+            fi
+        fi
+        ;;
+    openbox)
+        if [ "$(command -v dbus-launch)" ]; then
+            dbus-launch --exit-with-session openbox-session
+        fi
+        ;;
+    *)
+        # default settings
+        if [ "$(command -v dbus-launch)" ]; then
+            if [ "$(command -v i3)" ];then
+                dbus-launch --exit-with-session i3
+            elif [ "$(command -v openbox-session)" ]; then
+                dbus-launch --exit-with-session openbox-session
+            fi
+        fi
+        ;;
+esac
