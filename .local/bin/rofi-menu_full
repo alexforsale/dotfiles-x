@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Launch Rofi
+rofi -no-lazy-grab -show drun \
+    -display-drun "Applications :" -drun-display-format "{name}" \
+    -theme themes/fullscreen.rasi

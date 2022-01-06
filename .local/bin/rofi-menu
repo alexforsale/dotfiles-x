@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case ${DESKTOP_SESSION} in
+    i3)
+        # i3 set polybar top
+        rofi -no-lazy-grab -show drun \
+            -display-drun "Applications :" -drun-display-format "{name}" \
+            -theme themes/bottom-left.rasi
+        ;;
+    openbox)
+        # Launch Rofi
+        rofi -no-lazy-grab -show drun \
+            -display-drun "Applications :" -drun-display-format "{name}" \
+            -theme themes/openbox-appmenu.rasi
+        ;;
+esac
