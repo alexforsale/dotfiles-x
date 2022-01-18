@@ -1,4 +1,3 @@
-#!/bin/sh
 # ~/.config/xprofile.d/00-security.sh
 # various ui-related security settings
 # <alexforsale@yahoo.com>

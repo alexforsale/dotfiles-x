@@ -1,4 +1,3 @@
-#!/bin/sh
 # ~/.config/xprofile.d/04-bluetooth.sh
 # bluetooth configuration
 

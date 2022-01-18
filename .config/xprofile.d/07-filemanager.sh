@@ -1,4 +1,3 @@
-#!/bin/sh
 # ~/.config/xprofile.d/07-filemanager.sh
 # file manager configuration
 

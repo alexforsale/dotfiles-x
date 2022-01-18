@@ -1,4 +1,3 @@
-#!/bin/sh
 # ~/.config/xprofile.d/03-sxhkd.sh
 # sxhkd settings
 # <alexforsale@yahoo.com>

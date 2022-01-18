@@ -1,4 +1,3 @@
-#!/bin/sh
 # ~/.config/xprofile.d/02-notification.sh
 # notification settings
 # <alexforsale@yahoo.com>
