@@ -45,31 +45,19 @@ if [ "${DISTRO}" = "freebsd" ];then
     . "${HOME}"/.profile
 fi
 
-case "${_WM}" in
-    i3)
+case ${1} in
+    qtile)
         if [ "$(command -v dbus-launch)" ]; then
-            if [ -f "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}" ]; then
-                dbus-launch --exit-with-session i3 -c "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}"
-            elif [ -f "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}".local ]; then
-                dbus-launch --exit-with-session i3 -c "${XDG_CONFIG_HOME}"/i3/config-"${DISTRO}".local
-            else
-                continue
-            fi
-        fi
-        ;;
-    openbox)
-        if [ "$(command -v dbus-launch)" ]; then
-            dbus-launch --exit-with-session openbox-session
+            dbus-launch --exit-with-session ${1} start
+        else
+            exec ${1} start
         fi
         ;;
     *)
-        # default settings
         if [ "$(command -v dbus-launch)" ]; then
-            if [ "$(command -v i3)" ];then
-                dbus-launch --exit-with-session i3
-            elif [ "$(command -v openbox-session)" ]; then
-                dbus-launch --exit-with-session openbox-session
-            fi
+            dbus-launch --exit-with-session ${1}
+        else
+            exec ${1}
         fi
         ;;
 esac
