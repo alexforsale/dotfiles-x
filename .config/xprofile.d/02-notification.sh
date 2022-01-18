@@ -6,7 +6,7 @@
 if [ "$(command -v dunst)" ];then
     case "${DISTRO}" in
         arch)
-            if [ ! $(pgrep -u ${USER} -x dunst) ] &&
+            if [ ! $(pgrep -u ${USER} dunst) ] &&
                    [ -e ${XDG_CONFIG_HOME}/dunst/dunstrc ]; then
                 dbus-launch --sh-syntax --exit-with-session dunst -conf ${XDG_CONFIG_HOME}/dunst/dunstrc &
             fi
