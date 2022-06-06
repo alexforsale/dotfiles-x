@@ -1,17 +1,26 @@
 #!/bin/sh
+# ~/.xinitrc
+# Configuration script for manual X session.
+# <alexforsale@yahoo.com>
 userresources=${HOME}/.Xresources
 usermodmap=${HOME}/.Xmodmap
+OS=$(uname -s)
 
-# $DISTRO is set by "~/.profile"
-if [ "${DISTRO}" = "ubuntu" ]; then
-    sysresources=/etc/X11/xinit/Xresources
-    sysmodmap=/etc/X11/xinit/Xmodmap
-else
-    sysresources=/etc/X11/xinit/.Xresources
-    sysmodmap=/etc/X11/xinit/.Xmodmap
-fi
-# merge in defaults and keymaps
-
+case "${OS}" in
+    "Linux")
+        if [ "${DISTRO}" = "ubuntu" ]; then
+            sysresources=/etc/X11/xinit/Xresources
+            sysmodmap=/etc/X11/xinit/Xmodmap
+        else
+            sysresources=/etc/X11/xinit/.Xresources
+            sysmodmap=/etc/X11/xinit/.Xmodmap
+        fi
+        ;;
+    "FreeBSD")
+        sysresources=/usr/local/etc/X11/xinit/.Xresources
+        sysmodmap=/usr/local/etc/X11/xinit/.Xmodmap
+        ;;
+esac
 [ -f "${sysresources}" ] &&
     xrdb -merge "${sysresources}"
 
@@ -23,8 +32,6 @@ fi
 
 [ -f "${usermodmap}" ] &&
     xmodmap "${usermodmap}"
-
-# start some nice programs
 # shellcheck disable=1090
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -32,32 +39,36 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     done
     unset f
 fi
-
-# Make sure this is before the 'exec' command or it won't be sourced.
-# shellcheck disable=1091
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f "${HOME}"/.xprofile ] && . "${HOME}"/.xprofile
+[ -z ${DESKTOP_SESSION} ] && export DESKTOP_SESSION=${1:-exwm}
+# for archlinux
+[ -d /usr/share/backgrounds/archlinux/ ] &&
+    feh -zr --bg-fill /usr/share/backgrounds/archlinux/
+# FreeBSD
+[ -d /usr/local/share/wallpapers/freebsd-8k-wallpapers/ ] &&
+    feh -zr --bg-fill /usr/local/share/wallpapers/freebsd-8k-wallpapers/
+for chemacs_profile in ~/.emacs-profile ~/.config/chemacs/profile; do
+    if [ -e ${chemacs_profile} ]; then
+        export CHEMACS_PROFILE=`cat ${chemacs_profile}`
+    fi
+done
 
-if [ "${DISTRO}" = "freebsd" ];then
-    # need to source ~/.profile again to make sure all
-    # XDG_* are defined
-    # shellcheck disable=1091
-    . "${HOME}"/.profile
+if [ -n "${CHEMACS_PROFILE}" ]; then
+    _emacs_args="-s ${CHEMACS_PROFILE}"
 fi
-
-case ${1} in
-    qtile)
-        if [ "$(command -v dbus-launch)" ]; then
-            dbus-launch --exit-with-session ${1} start
-        else
-            exec ${1} start
-        fi
+case $DESKTOP_SESSION in
+    "exwm")
+        exec emacs --debug-init -l ~/.config/exwm/config
         ;;
-    *)
-        if [ "$(command -v dbus-launch)" ]; then
-            dbus-launch --exit-with-session ${1}
-        else
-            exec ${1}
+    "qtile")
+        exec qtile start
+        ;;
+    "stumpwm")
+        if [ $(command -v ros) ]; then
+            exec ros run -- --load /usr/local/bin/startstumpwm
+        elif [ $(command -v sbcl) ]; then
+            exec sbcl --load /usr/local/bin/startstumpwm
         fi
         ;;
 esac

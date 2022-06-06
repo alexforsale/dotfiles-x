@@ -1,8 +1,8 @@
 #!/bin/sh
 # ~/.xprofile
+# user X session startup file.
 # <alexforsale@yahoo.com>
 
-# load per file configuration in ~/.config/xprofile.d
 if [ -d "${HOME}/.config/xprofile.d" ]; then
     for xfiles in "${HOME}"/.config/xprofile.d/*.sh; do
         # shellcheck disable=1090
@@ -11,7 +11,6 @@ if [ -d "${HOME}/.config/xprofile.d" ]; then
     unset xfiles
 fi
 
-# allow user override
 # shellcheck disable=1091
 [ -f "${XDG_CONFIG_HOME}"/xprofile.local ] && . "${XDG_CONFIG_HOME}"/xprofile.local
 # shellcheck disable=1091
