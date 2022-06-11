@@ -169,6 +169,12 @@
      # shellcheck disable=1091
      [ -f "${HOME}"/.xprofile.local ] && . "${HOME}"/.xprofile.local
    #+end_src
+** Stumpwm specifics
+   #+begin_src sh
+     [ -n "${CHEMACS_PROFILE}" ] && _args="-s ${CHEMACS_PROFILE}"
+     # run emacs in stumpwm
+     [ "${DESKTOP_SESSION}" == "stumpwm" ] && emacsclient -t "${_args}"
+   #+end_src
 * ~/.config/xprofile.d
 ** 00-security.sh
    :PROPERTIES:
