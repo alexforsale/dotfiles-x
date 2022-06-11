@@ -14,7 +14,7 @@
 #+startup: fold
 * ~/.Xresources
   :PROPERTIES:
-  :header-args: :tangle .Xresources
+  :header-args: :tangle ~/.Xresources
   :END:
 ** header
    #+begin_src conf
@@ -31,7 +31,7 @@
 * ~/.config/Xresources.d
 ** URxvt
    :PROPERTIES:
-   :header-args: :tangle .config/Xresources.d/URxvt :mkdirp t :padline no
+   :header-args: :tangle ~/.config/Xresources.d/URxvt :mkdirp t :padline no
    :END:
 *** heading
     #+begin_src conf
@@ -92,7 +92,7 @@
     #+end_src
 ** xterm
    :PROPERTIES:
-   :header-args: :tangle .config/Xresources.d/xterm :mkdirp t :padline no
+   :header-args: :tangle ~/.config/Xresources.d/xterm :mkdirp t :padline no
    :END:
 *** heading
     #+begin_src conf
@@ -142,7 +142,7 @@
     #+end_src
 * ~/.Xprofile
   :PROPERTIES:
-  :header-args: :tangle .xprofile :shebang #!/bin/sh
+  :header-args: :tangle ~/.xprofile :shebang #!/bin/sh
   :END:
   This script will allows you to execute commands at the beginning of X user session.
 ** header
@@ -258,7 +258,7 @@
     #+end_src
 * ~/.xinitrc
   :PROPERTIES:
-  :header-args: :tangle .xinitrc :shebang #!/bin/sh :padline no
+  :header-args: :tangle ~/.xinitrc :shebang #!/bin/sh :padline no
   :END:
 ** heading
    #+begin_src sh
