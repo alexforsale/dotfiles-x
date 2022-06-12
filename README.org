@@ -203,20 +203,22 @@
                   export SUDO_ASKPASS=/usr/bin/x11-ssh-askpass
 
               # polkit
-              if [ ! "$(pgrep -u ${USER} -x polkit-gnome-au)" ];then
-                  sleep 1 && /usr/libexec/polkit-gnome-authentication-agent-1 &
+              if [ ! "$(pgrep -u ${USER} -x polkit-gnome-au)" ] &&
+                     [ -e /usr/libexec/polkit-gnome-authentication-agent-1 ];then
+                    sleep 1 && /usr/libexec/polkit-gnome-authentication-agent-1 &
               fi
               ;;
           arch)
               if [ -f /usr/lib/ssh/x11-ssh-askpass ];then
-                  [ ! -L ~/.local/bin/ssh-askpass ] &&
-                      ln -sf /usr/lib/ssh/x11-ssh-askpass ~/.local/bin/ssh-askpass
-                  export SSH_ASKPASS=ssh-askpass
-                  export SUDO_ASKPASS="${HOME}"/.local/bin/ssh-askpass
+                    [ ! -L ~/.local/bin/ssh-askpass ] &&
+                        ln -sf /usr/lib/ssh/x11-ssh-askpass ~/.local/bin/ssh-askpass
+                    export SSH_ASKPASS=ssh-askpass
+                    export SUDO_ASKPASS="${HOME}"/.local/bin/ssh-askpass
               fi
               # polkit
-              if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
-                  sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+              if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ] &&
+                     [ -e /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ];then
+                    sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
               fi
 
               # keyring
@@ -229,8 +231,9 @@
                   export SUDO_ASKPASS=/usr/local/bin/x11-ssh-askpass
 
               # polkit
-              if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
-                  sleep 1 && /usr/local/libexec/polkit-gnome-authentication-agent-1 &
+              if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ] &&
+                     [ -e /usr/local/libexec/polkit-gnome-authentication-agent-1 ];then
+                    sleep 1 && /usr/local/libexec/polkit-gnome-authentication-agent-1 &
               fi
               # keyring
               [ "$(command -v dbus-update-activation-environment)" ] &&
