@@ -178,7 +178,7 @@
 * ~/.config/xprofile.d
 ** 00-security.sh
    :PROPERTIES:
-   :header-args: tangle .config/xprofile.d/00-security.sh :mkdirp t :shebang #!/bin/sh :padline no
+   :header-args: :tangle ~/.config/xprofile.d/00-security.sh :mkdirp t :shebang #!/bin/sh :padline no
    :END:
 *** header
     #+begin_src sh
@@ -243,7 +243,7 @@
     #+end_src
 ** 01-gtk-path.sh
    :PROPERTIES:
-   :header-args: tangle .config/xprofile.d/01-gtk-path.sh :mkdirp t :shebang #!/bin/sh :padline no
+   :header-args: :tangle ~/.config/xprofile.d/01-gtk-path.sh :mkdirp t :shebang #!/bin/sh :padline no
    :END:
 *** header
     #+begin_src sh
