@@ -362,10 +362,13 @@
              ;;
          "stumpwm")
              if [ $(command -v ros) ]; then
-                 exec ros run -- --load /usr/local/bin/startstumpwm
+                   exec ros run -- --load /usr/local/bin/startstumpwm
              elif [ $(command -v sbcl) ]; then
-                 exec sbcl --load /usr/local/bin/startstumpwm
+                   exec sbcl --load /usr/local/bin/startstumpwm
              fi
+             ;;
+         "i3")
+             exec i3 -V >> /tmp/i3.log
              ;;
      esac
    #+end_src
