@@ -38,6 +38,10 @@
      Xft.antialias: 1
      Xft.rgba: rgb
    #+end_src
+** cursor theme
+   #+begin_src conf
+     Xcursor.theme: ComixCursors-Blue
+   #+end_src
 * ~/.config/Xresources.d
 ** URxvt
    :PROPERTIES:
