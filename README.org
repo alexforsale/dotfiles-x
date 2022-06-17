@@ -186,6 +186,24 @@
      [ "${DESKTOP_SESSION}" == "stumpwm" ] && emacsclient -t "${_args}"
    #+end_src
 * ~/.config/xprofile.d
+** 00-display.sh
+   :PROPERTIES:
+   :header-args: :tangle ~/.config/xprofile.d/00-display.sh :mkdirp t :shebang #!/bin/sh :padline no
+   :END:
+*** header
+    #+begin_src sh
+      # ~/.config/xprofile.d/00-display.sh
+      # various ui-related security settings
+      # <alexforsale@yahoo.com>
+    #+end_src
+*** set scaling based on hostname
+    #+begin_src sh
+      case "${HOSTNAME}" in
+          "arch-server")
+              xrandr --output VGA1 --scale 1.25x1.25
+              ;;
+      esac
+    #+end_src
 ** 00-security.sh
    :PROPERTIES:
    :header-args: :tangle ~/.config/xprofile.d/00-security.sh :mkdirp t :shebang #!/bin/sh :padline no
