@@ -351,6 +351,11 @@
    #+begin_src sh
      setxkbmap -option terminate:ctrl_alt_bksp
    #+end_src
+** Change X shaped default cursor
+   from arch [[https://wiki.archlinux.org/title/Cursor_themes#X_resources][wiki]]:
+   #+begin_src conf
+     xsetroot -cursor_name left_ptr
+   #+end_src
 ** source xprofile
    #+begin_src sh
      [ -f /etc/xprofile ] && . /etc/xprofile
