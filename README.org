@@ -30,16 +30,18 @@
 #include ".config/Xresources.d/URxvt"
 #+end_src
 ** global settings
-#+begin_src conf
-Xft.dpi: 72
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
-
-Xcursor.theme: ComixCursors-Blue
-#+end_src
+   #+begin_src conf
+     Xft.dpi: 72
+     Xft.lcdfilter:  lcddefault
+     Xft.hintstyle:  hintfull
+     Xft.hinting: 1
+     Xft.antialias: 1
+     Xft.rgba: rgb
+   #+end_src
+** cursor
+   #+begin_src conf
+     Xcursor.theme: ComixCursors-Green
+   #+end_src
 * ~/.config/Xresources.d
 ** URxvt
 :PROPERTIES:
