@@ -2,10 +2,10 @@
 # Any customization should be done in ${GTK2_RC_FILES%%/gtkrc}/gtkrc.mine instead.
 
 include "gtkrc.mine"
-gtk-theme-name="Arc-Dark"
+gtk-theme-name="Materia-dark"
 gtk-icon-theme-name="Papirus"
-gtk-font-name="Fantasque Sans Mono 11"
-gtk-cursor-theme-name="Adwaita"
+gtk-font-name="Fira Code Retina 10"
+gtk-cursor-theme-name="ComixCursors-Slim-Green"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
