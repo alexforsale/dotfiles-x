@@ -59,7 +59,7 @@ if [ -n "${CHEMACS_PROFILE}" ]; then
 fi
 case $DESKTOP_SESSION in
     "exwm")
-        exec emacs --debug-init -l ~/.config/exwm/config
+        exec emacs --debug-init -l ~/.exwm
         ;;
     "qtile")
         exec qtile start
