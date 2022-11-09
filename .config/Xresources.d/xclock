@@ -1,5 +1,3 @@
-! xclock ---------------------------------------------------------------------
-
 xclock*update:            1
 xclock*analog:            false
 xclock*Foreground:        white

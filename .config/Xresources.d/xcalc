@@ -1,5 +1,3 @@
-!xcalc-----------------------------------------------------------------------
-
 xcalc*geometry:                        200x275
 xcalc.ti.bevel.background:             #111111
 xcalc.ti.bevel.screen.background:      #000000
@@ -24,8 +22,6 @@ xcalc.ti.button5.background:  Orange3
 xcalc.ti.button19.background: #611161
 xcalc.ti.button18.background: #611161
 xcalc.ti.button20.background: #611111
-!uncomment to change label on division button
-!xcalc.ti.button20.label:      /
 xcalc.ti.button25.background: #722222
 xcalc.ti.button30.background: #833333
 xcalc.ti.button35.background: #944444
