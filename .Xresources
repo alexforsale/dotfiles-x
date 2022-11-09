@@ -6,3 +6,12 @@
 
 #include ".config/Xresources.d/xterm"
 #include ".config/Xresources.d/URxvt"
+
+! cursor theme
+Xcursor.theme: Breeze-BlueLH
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintmedium
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
