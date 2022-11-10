@@ -5,12 +5,12 @@ case ${DESKTOP_SESSION} in
         # i3 set polybar top
         rofi -no-lazy-grab -show drun \
             -display-drun "Applications :" -drun-display-format "{name}" \
-            -theme themes/bottom-left.rasi
+            -theme themes/current.rasi
         ;;
     openbox)
         # Launch Rofi
         rofi -no-lazy-grab -show drun \
             -display-drun "Applications :" -drun-display-format "{name}" \
-            -theme themes/openbox-appmenu.rasi
+            -theme themes/current.rasi
         ;;
 esac
