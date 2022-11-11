@@ -5,11 +5,11 @@
 # `./prompt "Do you want to shutdown?" "shutdown -h now"`
 set -x
 
-if [ "$(command -v rofi)" ];then
-    [ "$(printf "No\\nYes" | rofi -theme default \
+if [ "$(command -v rofi)" ]; then
+    [ "$(printf "No\\nYes" | rofi -theme current \
         -dmenu -i -p "$1")" = "Yes" ] && $2
-elif [ "$(command -v dmenu)" ];then
-    [ "$(printf "No\\nYes" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
+elif [ "$(command -v dmenu)" ]; then
+    [ "$(printf "No\\nYes" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray)" = "Yes" ] && $2
 else
     notify-send -t 300 "${HOME}/.local/bin/prompt needs either rofi or dmenu installed!"
     exit 1
