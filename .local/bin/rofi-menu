@@ -13,4 +13,9 @@ case ${DESKTOP_SESSION} in
             -display-drun "Applications :" -drun-display-format "{name}" \
             -theme themes/current.rasi
         ;;
+    stumpwm)
+        rofi -no-lazy-grab -show drun \
+            -display-drun "Applications :" -drun-display-format "{name}" \
+            -theme themes/stump.rasi
+        ;;
 esac
