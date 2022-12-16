@@ -1,3 +1,5 @@
+! arch package (aur): urxvt-resize-font-git
+URxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
 URxvt.saveLines: 2000
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
@@ -11,6 +13,10 @@ URxvt.secondaryWheel: 1
 URxvt.font: xft:Fira\ Code\ Retina:size=8
 URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
 URxvt.keysym.C-S-0x56: eval:paste_clipboard
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-plus: resize-font:bigger
+URxvt.keysym.C-equal: resize-font:reset
+URxvt.keysym.C-question: resize-font:show
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.bell-command: canberra-gtk-play -i bell
