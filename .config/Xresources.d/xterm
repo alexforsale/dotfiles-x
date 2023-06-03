@@ -6,6 +6,7 @@ xterm*.LoginShell: True
 xterm*rightScrollBar: False
 xterm*scrollTtyOutput: False
 xterm.selectToClipboard: true
+xterm.*backarrowKey: false
 xterm*translations: #override \
 Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
 Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD) \n\
