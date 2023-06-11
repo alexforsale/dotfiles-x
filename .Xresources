@@ -4,6 +4,7 @@
 #include ".config/Xresources.d/xcalc"
 #include ".config/Xresources.d/xclock"
 #include ".config/Xresources.d/xscreensaver"
+#include ".config/Xresources.d/colors"
 
 ! cursor theme
 Xcursor.theme: Breeze-BlueLH
