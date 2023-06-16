@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if [ "$(command -v hostnamectl)" ]; then
+    _HOSTNAME="$(hostnamectl hostname)"
+elif [ -n "${HOSTNAME}" ]; then
+     _HOSTNAME="${HOSTNAME}"
+elif [ -f /etc/hostname ]; then
+    _HOSTNAME="$(cat /etc/hostname)"
+fi
+
+case ${_HOSTNAME} in
+    "somalia*")
+        extern=HDMI2
+        intern=eDP1
+        if [ "$(xrandr |grep ${extern} disconnected)" ]; then
+            xrandr --output "${extern}" --off output "${intern}" --auto
+        else
+            xrandr --output "${intern}" --auto --output "${extern}" --auto --left-of "${intern}"
+        fi
+        ;;
+esac
