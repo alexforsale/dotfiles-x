@@ -15,3 +15,13 @@ fi
 [ -f "${XDG_CONFIG_HOME}"/xprofile.local ] && . "${XDG_CONFIG_HOME}"/xprofile.local
 # shellcheck disable=1091
 [ -f "${HOME}"/.xprofile.local ] && . "${HOME}"/.xprofile.local
+
+# monitor setups
+# per WM
+case "${DESKTOP_SESSION}" in
+    qtile)
+        if [ -x "${HOME}/.local/bin/monitor-setup " ]; then
+            ~/.local/bin/monitor-setup &
+        fi
+        ;;
+esac

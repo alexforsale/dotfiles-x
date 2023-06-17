@@ -17,5 +17,6 @@ case ${_HOSTNAME} in
         else
             xrandr --output "${intern}" --auto --output "${extern}" --auto --left-of "${intern}"
         fi
+        xrandr --output "${intern}" --scale 1.25x1.25
         ;;
 esac
