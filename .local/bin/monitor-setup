@@ -9,13 +9,13 @@ elif [ -f /etc/hostname ]; then
 fi
 
 case ${_HOSTNAME} in
-    "somalia*")
-        extern=HDMI2
-        intern=eDP1
-        if [ "$(xrandr |grep ${extern} disconnected)" ]; then
+    somalia*)
+        extern=HDMI-2
+        intern=eDP-1
+        if [ $(xrandr |grep -q "${extern} disconnected") ]; then
             xrandr --output "${extern}" --off output "${intern}" --auto
         else
-            xrandr --output "${intern}" --auto --output "${extern}" --auto --left-of "${intern}"
+            xrandr --output "${intern}" --auto --scale 1.25x1.25 --output "${extern}" --auto --left-of "${intern}"
         fi
         xrandr --output "${intern}" --scale 1.25x1.25
         ;;
