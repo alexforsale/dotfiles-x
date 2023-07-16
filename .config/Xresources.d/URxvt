@@ -10,7 +10,7 @@ URxvt.scrollstyle: rxvt
 URxvt.termName: xterm-256color
 URxvt.cursorBlink: True
 URxvt.secondaryWheel: 1
-URxvt.font: xft:Fira\ Code\ Retina:size=8
+URxvt.font: xft:OverpassM\ Nerd\ Font\ Mono:size=8
 URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
 URxvt.keysym.C-S-0x56: eval:paste_clipboard
 URxvt.keysym.C-minus: resize-font:smaller

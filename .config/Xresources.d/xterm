@@ -20,5 +20,5 @@ xterm*eightBitInput: false
 xterm*metaSendsEscape: true
 xterm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
 xterm*renderFont: true
-xterm*faceName: Fira Code Retina
+xterm*faceName: OverpassM Nerd Font Mono
 xterm*faceSize: 12
