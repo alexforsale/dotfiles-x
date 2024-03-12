@@ -26,4 +26,4 @@
 </a>
 #+end_html
 * About
-Collection of configuration files for X11-related applications.
+Collection of configuration files for X11-related applications. Intended to be used with [[https://www.gnu.org/software/stow/][GNU Stow]].
