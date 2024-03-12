@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-12 Tue 05:03 -->
+<!-- 2024-03-12 Tue 05:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X11 Configuration Files</title>
@@ -23,53 +23,53 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1b49af0">1. About</a></li>
-<li><a href="#org546b4b8">2. Xprofile</a>
+<li><a href="#orga426d49">About</a></li>
+<li><a href="#org369d1de">Xprofile</a>
 <ul>
-<li><a href="#orgc90d785">2.1. <code>.xprofile</code></a></li>
+<li><a href="#org8acc828"><code>.xprofile</code></a></li>
 </ul>
 </li>
-<li><a href="#org96d0b9e">3. Xinit</a>
+<li><a href="#org25721e8">Xinit</a>
 <ul>
-<li><a href="#org2986c7b">3.1. <code>.xinitrc</code></a></li>
+<li><a href="#org9b8a75b"><code>.xinitrc</code></a></li>
 </ul>
 </li>
-<li><a href="#org7f6e680">4. Xresources</a>
+<li><a href="#org223d9e0">Xresources</a>
 <ul>
-<li><a href="#org3377ddb">4.1. <code>.Xresouces</code></a></li>
-<li><a href="#org4a9233b">4.2. Modules</a>
+<li><a href="#org0cd68d5"><code>.Xresouces</code></a></li>
+<li><a href="#org82d0f08">Modules</a>
 <ul>
-<li><a href="#org10fc7e8">4.2.1. xterm</a></li>
-<li><a href="#orgf09bdb5">4.2.2. URxvt</a></li>
-<li><a href="#orgf608d9d">4.2.3. x11-ssh-askpass</a></li>
-<li><a href="#orgea56410">4.2.4. xcalc</a></li>
-<li><a href="#org4d464d9">4.2.5. xclock</a></li>
-<li><a href="#org3e738a3">4.2.6. xscreensaver</a></li>
-<li><a href="#org59c5dd5">4.2.7. colors</a></li>
+<li><a href="#orgdf87ff7">xterm</a></li>
+<li><a href="#org0d8e153">URxvt</a></li>
+<li><a href="#org1d364aa">x11-ssh-askpass</a></li>
+<li><a href="#org92544ec">xcalc</a></li>
+<li><a href="#org8168040">xclock</a></li>
+<li><a href="#orgdd8a93b">xscreensaver</a></li>
+<li><a href="#orge690800">colors</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge5e2ffe">5. Xsettingsd</a></li>
-<li><a href="#org2929919">6. Scripts</a>
+<li><a href="#org4291a31">Xsettingsd</a></li>
+<li><a href="#orgebf7840">Scripts</a>
 <ul>
-<li><a href="#org51479e9">6.1. <code>monitor-setup</code></a></li>
-<li><a href="#org04e49d4">6.2. <code>showclip</code></a></li>
+<li><a href="#org8e5919c"><code>monitor-setup</code></a></li>
+<li><a href="#org7b2dcdd"><code>showclip</code></a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1b49af0" class="outline-2">
-<h2 id="org1b49af0"><span class="section-number-2">1</span> About</h2>
+<div id="outline-container-orga426d49" class="outline-2">
+<h2 id="orga426d49">About</h2>
 </div>
-<div id="outline-container-org546b4b8" class="outline-2">
-<h2 id="org546b4b8"><span class="section-number-2">2</span> Xprofile</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org369d1de" class="outline-2">
+<h2 id="org369d1de">Xprofile</h2>
+<div class="outline-text-2" id="text-org369d1de">
 </div>
-<div id="outline-container-orgc90d785" class="outline-3">
-<h3 id="orgc90d785"><span class="section-number-3">2.1</span> <code>.xprofile</code></h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org8acc828" class="outline-3">
+<h3 id="org8acc828"><code>.xprofile</code></h3>
+<div class="outline-text-3" id="text-org8acc828">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xprofile</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">user X session startup file.</span>
@@ -90,11 +90,11 @@
 </pre>
 </div>
 </div>
-<ol class="org-ol">
-<li><a id="org74cbd3c"></a>Modules<br />
-<ol class="org-ol">
-<li><a id="org975d12a"></a><code>00-security.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-1">
+<ul class="org-ul">
+<li><a id="orgd46f53b"></a>Modules<br />
+<ul class="org-ul">
+<li><a id="orgc094f85"></a><code>00-security.sh</code><br />
+<div class="outline-text-6" id="text-orgc094f85">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui-related security settings</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a></span>
@@ -149,8 +149,8 @@
 </div>
 </div>
 </li>
-<li><a id="org340edfe"></a><code>01-gtk-path.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-2">
+<li><a id="orgfddccb5"></a><code>01-gtk-path.sh</code><br />
+<div class="outline-text-6" id="text-orgfddccb5">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/01-gtk-path.sh</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">set new location for GTK and GTK2</span>
@@ -167,8 +167,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgdb9b86f"></a><code>02-notification.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-3">
+<li><a id="org5c14b14"></a><code>02-notification.sh</code><br />
+<div class="outline-text-6" id="text-org5c14b14">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/02-notification.sh</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">notification settings</span>
@@ -189,8 +189,8 @@
 </div>
 </div>
 </li>
-<li><a id="org404b910"></a><code>03-sxhkd.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-4">
+<li><a id="org4fa3866"></a><code>03-sxhkd.sh</code><br />
+<div class="outline-text-6" id="text-org4fa3866">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/03-sxhkd.sh</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">sxhkd settings</span>
@@ -210,8 +210,8 @@
 </div>
 </div>
 </li>
-<li><a id="org2a6cf81"></a><code>04-bluetooth.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-5">
+<li><a id="org750ed64"></a><code>04-bluetooth.sh</code><br />
+<div class="outline-text-6" id="text-org750ed64">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/04-bluetooth.sh</span>
 <span class="linenr">2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">bluetooth configuration</span>
@@ -226,8 +226,8 @@
 </div>
 </div>
 </li>
-<li><a id="org094ce83"></a><code>05-network.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-6">
+<li><a id="org2d03dce"></a><code>05-network.sh</code><br />
+<div class="outline-text-6" id="text-org2d03dce">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/05-network.sh</span>
 <span class="linenr">2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various networking app</span>
@@ -235,8 +235,8 @@
 </div>
 </div>
 </li>
-<li><a id="org03e59e0"></a><code>06-ui.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-7">
+<li><a id="org25eec7a"></a><code>06-ui.sh</code><br />
+<div class="outline-text-6" id="text-org25eec7a">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/06-ui.sh</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui settings</span>
@@ -263,8 +263,8 @@
 </div>
 </div>
 </li>
-<li><a id="org043ae16"></a><code>07-filemanager.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-8">
+<li><a id="org217994c"></a><code>07-filemanager.sh</code><br />
+<div class="outline-text-6" id="text-org217994c">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/07-filemanager.sh</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">file manager configuration</span>
@@ -284,8 +284,8 @@
 </div>
 </div>
 </li>
-<li><a id="org3497e37"></a><code>08-multimedia.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-9">
+<li><a id="org1fec812"></a><code>08-multimedia.sh</code><br />
+<div class="outline-text-6" id="text-org1fec812">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/08-multimedia.sh</span>
 <span class="linenr">2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various multimedia app</span>
@@ -298,8 +298,8 @@
 </div>
 </div>
 </li>
-<li><a id="org873469f"></a><code>09-x0vnc.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-10">
+<li><a id="orge61f661"></a><code>09-x0vnc.sh</code><br />
+<div class="outline-text-6" id="text-orge61f661">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/09-x0vnc.sh</span>
 <span style="color: #b22222;"># </span><span style="color: #b22222;">x0vnc</span>
@@ -313,8 +313,8 @@
 </div>
 </div>
 </li>
-<li><a id="orgd62fb19"></a><code>99-ddgr.sh</code><br />
-<div class="outline-text-6" id="text-2-1-0-1-11">
+<li><a id="org4e08a68"></a><code>99-ddgr.sh</code><br />
+<div class="outline-text-6" id="text-org4e08a68">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/99-ddgr.sh</span>
 <span style="color: #b22222;"># </span><span style="color: #b22222;">duckduckgo rofi</span>
@@ -325,18 +325,18 @@
 </div>
 </div>
 </li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 </div>
 </div>
-<div id="outline-container-org96d0b9e" class="outline-2">
-<h2 id="org96d0b9e"><span class="section-number-2">3</span> Xinit</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org25721e8" class="outline-2">
+<h2 id="org25721e8">Xinit</h2>
+<div class="outline-text-2" id="text-org25721e8">
 </div>
-<div id="outline-container-org2986c7b" class="outline-3">
-<h3 id="org2986c7b"><span class="section-number-3">3.1</span> <code>.xinitrc</code></h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org9b8a75b" class="outline-3">
+<h3 id="org9b8a75b"><code>.xinitrc</code></h3>
+<div class="outline-text-3" id="text-org9b8a75b">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xinitrc</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">Configuration script for manual X session.</span>
@@ -416,13 +416,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org7f6e680" class="outline-2">
-<h2 id="org7f6e680"><span class="section-number-2">4</span> Xresources</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org223d9e0" class="outline-2">
+<h2 id="org223d9e0">Xresources</h2>
+<div class="outline-text-2" id="text-org223d9e0">
 </div>
-<div id="outline-container-org3377ddb" class="outline-3">
-<h3 id="org3377ddb"><span class="section-number-3">4.1</span> <code>.Xresouces</code></h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org0cd68d5" class="outline-3">
+<h3 id="org0cd68d5"><code>.Xresouces</code></h3>
+<div class="outline-text-3" id="text-org0cd68d5">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xterm"</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/URxvt"</span>
@@ -446,13 +446,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org4a9233b" class="outline-3">
-<h3 id="org4a9233b"><span class="section-number-3">4.2</span> Modules</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org82d0f08" class="outline-3">
+<h3 id="org82d0f08">Modules</h3>
+<div class="outline-text-3" id="text-org82d0f08">
 </div>
-<div id="outline-container-org10fc7e8" class="outline-4">
-<h4 id="org10fc7e8"><span class="section-number-4">4.2.1</span> xterm</h4>
-<div class="outline-text-4" id="text-4-2-1">
+<div id="outline-container-orgdf87ff7" class="outline-4">
+<h4 id="orgdf87ff7">xterm</h4>
+<div class="outline-text-4" id="text-orgdf87ff7">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xterm*termName: xterm-256color
 <span class="linenr"> 2: </span>xterm.vt100.geometry: 80x24
@@ -482,9 +482,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgf09bdb5" class="outline-4">
-<h4 id="orgf09bdb5"><span class="section-number-4">4.2.2</span> URxvt</h4>
-<div class="outline-text-4" id="text-4-2-2">
+<div id="outline-container-org0d8e153" class="outline-4">
+<h4 id="org0d8e153">URxvt</h4>
+<div class="outline-text-4" id="text-org0d8e153">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xterm*termName: xterm-256color
 <span class="linenr"> 2: </span>xterm.vt100.geometry: 80x24
@@ -514,9 +514,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgf608d9d" class="outline-4">
-<h4 id="orgf608d9d"><span class="section-number-4">4.2.3</span> x11-ssh-askpass</h4>
-<div class="outline-text-4" id="text-4-2-3">
+<div id="outline-container-org1d364aa" class="outline-4">
+<h4 id="org1d364aa">x11-ssh-askpass</h4>
+<div class="outline-text-4" id="text-org1d364aa">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>! -*- eval (rainbow-mode 1) -*-
 <span class="linenr">2: </span>x11-ssh-askpass*background:             <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
@@ -531,9 +531,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgea56410" class="outline-4">
-<h4 id="orgea56410"><span class="section-number-4">4.2.4</span> xcalc</h4>
-<div class="outline-text-4" id="text-4-2-4">
+<div id="outline-container-org92544ec" class="outline-4">
+<h4 id="org92544ec">xcalc</h4>
+<div class="outline-text-4" id="text-org92544ec">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>xcalc*geometry:                        200x275
@@ -582,9 +582,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org4d464d9" class="outline-4">
-<h4 id="org4d464d9"><span class="section-number-4">4.2.5</span> xclock</h4>
-<div class="outline-text-4" id="text-4-2-5">
+<div id="outline-container-org8168040" class="outline-4">
+<h4 id="org8168040">xclock</h4>
+<div class="outline-text-4" id="text-org8168040">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>xclock*update:            1
 <span class="linenr">2: </span>xclock*analog:            false
@@ -594,9 +594,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org3e738a3" class="outline-4">
-<h4 id="org3e738a3"><span class="section-number-4">4.2.6</span> xscreensaver</h4>
-<div class="outline-text-4" id="text-4-2-6">
+<div id="outline-container-orgdd8a93b" class="outline-4">
+<h4 id="orgdd8a93b">xscreensaver</h4>
+<div class="outline-text-4" id="text-orgdd8a93b">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
 <span class="linenr"> 2: </span>xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
@@ -625,9 +625,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org59c5dd5" class="outline-4">
-<h4 id="org59c5dd5"><span class="section-number-4">4.2.7</span> colors</h4>
-<div class="outline-text-4" id="text-4-2-7">
+<div id="outline-container-orge690800" class="outline-4">
+<h4 id="orge690800">colors</h4>
+<div class="outline-text-4" id="text-orge690800">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>! X colors.
@@ -704,9 +704,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orge5e2ffe" class="outline-2">
-<h2 id="orge5e2ffe"><span class="section-number-2">5</span> Xsettingsd</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org4291a31" class="outline-2">
+<h2 id="org4291a31">Xsettingsd</h2>
+<div class="outline-text-2" id="text-org4291a31">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>Gtk/CursorThemeName <span style="color: #bc8f8f;">"Bibata-Modern-Classic"</span>
 <span class="linenr"> 2: </span>Net/CursorBlink 1
@@ -728,13 +728,13 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org2929919" class="outline-2">
-<h2 id="org2929919"><span class="section-number-2">6</span> Scripts</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgebf7840" class="outline-2">
+<h2 id="orgebf7840">Scripts</h2>
+<div class="outline-text-2" id="text-orgebf7840">
 </div>
-<div id="outline-container-org51479e9" class="outline-3">
-<h3 id="org51479e9"><span class="section-number-3">6.1</span> <code>monitor-setup</code></h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-org8e5919c" class="outline-3">
+<h3 id="org8e5919c"><code>monitor-setup</code></h3>
+<div class="outline-text-3" id="text-org8e5919c">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(command -v hostnamectl)"</span> ]; <span style="color: #4169e1;">then</span>
 <span class="linenr"> 2: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"$(hostnamectl hostname)"</span>
@@ -760,9 +760,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org04e49d4" class="outline-3">
-<h3 id="org04e49d4"><span class="section-number-3">6.2</span> <code>showclip</code></h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-org7b2dcdd" class="outline-3">
+<h3 id="org7b2dcdd"><code>showclip</code></h3>
+<div class="outline-text-3" id="text-org7b2dcdd">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">Display contents of selection via dunst if running.</span>
 <span class="linenr">2: </span>
@@ -780,7 +780,7 @@
 <div id="postamble" class="status">
 <p class="date">Date: 2024-03-12 Tue 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2024-03-12 Tue 05:03</p>
+<p class="date">Created: 2024-03-12 Tue 05:05</p>
 </div>
 </body>
 </html>
