@@ -1,0 +1,10 @@
+^/README.*
+^/index.*
+^/assets
+^/\.git.*
+^/public
+^/publish.*
+\.packages
+^/content
+^/build.*
+^/LICENSE.*

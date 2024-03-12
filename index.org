@@ -1,0 +1,692 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+options: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+options: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+title: X11 Configuration Files
+#+date: <2024-03-12 Tue>
+#+author: Kristian Alexander P
+#+email: alexforsale@yahoo.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 29.2 (Org mode 9.6.15)
+#+cite_export:
+#+startup: indent fold
+#+export_file_name: index.html
+#+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+* About
+* Xprofile
+** =.xprofile=
+:PROPERTIES:
+:header-args: :tangle .xprofile :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.xprofile
+  # user X session startup file.
+  # <alexforsale@yahoo.com>
+
+  if [ -d "${HOME}/.config/xprofile.d" ]; then
+      for xfiles in "${HOME}"/.config/xprofile.d/*.sh; do
+          # shellcheck disable=1090
+          . "${xfiles}"
+      done
+      unset xfiles
+  fi
+
+  # shellcheck disable=1091
+  [ -f "${XDG_CONFIG_HOME}"/xprofile.local ] && . "${XDG_CONFIG_HOME}"/xprofile.local
+  # shellcheck disable=1091
+  [ -f "${HOME}"/.xprofile.local ] && . "${HOME}"/.xprofile.local
+#+end_src
+**** Modules
+***** =00-security.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # various ui-related security settings
+  # <alexforsale@yahoo.com>
+
+  if [ "$(command -v gnome-keyring-daemon)" ] &&
+         [ ! $(pgrep -u ${USER} -x gnome-keyring-d) ];then
+      eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)" >/dev/null 2>&1
+      export SSH_AUTH_SOCK GNOME_KEYRING_CONTROL
+  fi
+  case "${DISTRO}" in
+      gentoo)
+          [ -f /usr/bin/x11-ssh-askpass ] &&
+              export SSH_ASKPASS=/usr/bin/x11-ssh-askpass &&
+              export SUDO_ASKPASS=/usr/bin/x11-ssh-askpass
+
+          # polkit
+          if [ ! "$(pgrep -u ${USER} -x polkit-gnome-au)" ];then
+              sleep 1 && /usr/libexec/polkit-gnome-authentication-agent-1 &
+          fi
+          ;;
+      arch)
+          if [ -f /usr/lib/ssh/x11-ssh-askpass ];then
+              [ ! -L ~/.local/bin/ssh-askpass ] &&
+                  ln -sf /usr/lib/ssh/x11-ssh-askpass ~/.local/bin/ssh-askpass
+              export SSH_ASKPASS=ssh-askpass
+              export SUDO_ASKPASS="${HOME}"/.local/bin/ssh-askpass
+          fi
+          # polkit
+          if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
+              sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+          fi
+
+          # keyring
+          [ "$(command -v dbus-update-activation-environment)" ] &&
+              dbus-update-activation-environment --systemd DISPLAY
+          ;;
+      freebsd)
+          [ -f /usr/local/bin/x11-ssh-askpass  ] &&
+              export SSH_ASKPASS=/usr/local/bin/x11-ssh-askpass &&
+              export SUDO_ASKPASS=/usr/local/bin/x11-ssh-askpass
+
+          # polkit
+          if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
+              sleep 1 && /usr/local/libexec/polkit-gnome-authentication-agent-1 &
+          fi
+          # keyring
+          [ "$(command -v dbus-update-activation-environment)" ] &&
+              dbus-update-activation-environment DISPLAY
+          ;;
+  esac
+#+end_src
+***** =01-gtk-path.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/01-gtk-path.sh
+  # set new location for GTK and GTK2
+  # https://wiki.archlinux.org/title/XDG_Base_Directory
+  # <alexforsale@yahoo.com>
+
+  export GTK_RC_FILES="${XDG_CONFIG_HOME}"/gtk-1.0/gtkrc
+  [ -d "${GTK_RC_FILES%%/gtkrc}" ] && mkdir -p "${GTK_RC_FILES%%/gtkrc}"
+  export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
+  [ -d "${GTK2_RC_FILES%%/gtkrc}" ] && mkdir -p "${GTK2_RC_FILES%%/gtkrc}"
+
+  [ -z "${GTK_THEME}" ] && export GTK_THEME=Breeze-Dark
+#+end_src
+***** =02-notification.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/02-notification.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/02-notification.sh
+  # notification settings
+  # <alexforsale@yahoo.com>
+
+  # dunst
+  if [ "$(command -v dunst)" ];then
+      case "${DISTRO}" in
+          arch)
+              if [ ! $(pgrep -u ${USER} dunst) ] &&
+                     [ -e ${XDG_CONFIG_HOME}/dunst/dunstrc ]; then
+                  dbus-launch --sh-syntax --exit-with-session dunst -conf ${XDG_CONFIG_HOME}/dunst/dunstrc &
+              fi
+              ;;
+      esac
+  fi
+#+end_src
+***** =03-sxhkd.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/03-sxhkd.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/03-sxhkd.sh
+  # sxhkd settings
+  # <alexforsale@yahoo.com>
+
+  if [ -z "${_NO_SXHKD}" ] && [ ! $(pgrep -u ${USER} -x sxhkd) ] &&
+     [ $(command -v sxhkd) ]; then
+      if [ -e "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc.local ];then # per-user configuration
+          sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc.local &
+      elif [ -e "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc-"${DISTRO}" ];then # per-distro configuration, i.e. sxhkdrc-arch
+          sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc-"${DISTRO}" &
+      else
+          sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc &
+      fi
+  fi
+#+end_src
+***** =04-bluetooth.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/04-bluetooth.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/04-bluetooth.sh
+  # bluetooth configuration
+
+  # blueman-tray
+  if [ "$(command -v blueman-tray)" ] &&
+         [ ! $(pgrep -u ${USER} -x blueman-tray) ] &&
+         [ -z "${_NO_BLUEMAN_TRAY}" ]; then
+      blueman-tray &
+  fi
+#+end_src
+***** =05-network.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/05-network.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/05-network.sh
+  # various networking app
+#+end_src
+***** =06-ui.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/06-ui.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/06-ui.sh
+  # various ui settings
+  # monitor
+  _count=0
+  for i in $(xrandr | grep " connected"| awk '{print $1}');do
+      _count=$((_count+1))
+      export MONITOR${_count}=${i}
+  done
+  unset _count
+
+  if [[ -z "${XCURSOR_THEME}" ]]; then
+      export XCURSOR_THEME="Bibata-Modern-Classic"
+  fi
+
+  if [[ -z "${XCURSOR_SIZE}" ]]; then
+      export XCURSOR_SIZE=24
+  fi
+
+  if [[ -z "${XCURSOR_PATH}" ]]; then
+      export XCURSOR_PATH=${XCURSOR_PATH}:/usr/share/icons:~/.local/share/icons
+  fi
+#+end_src
+***** =07-filemanager.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/07-filemanager.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/07-filemanager.sh
+  # file manager configuration
+
+  [ "$(command -v udiskie)" ] &&
+      udiskie &
+
+  [ "${_WM}" = "i3" ] &&
+      export _NO_PCMANFM=1
+
+  # pcmanfm
+  if [ $(command -v pcmanfm) ] &&
+         [ -z ${_NO_PCMANFM} ]; then
+      pcmanfm --desktop -d &
+  fi
+#+end_src
+***** =08-multimedia.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/08-multimedia.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.config/xprofile.d/08-multimedia.sh
+  # various multimedia app
+
+  # mpd
+  if [ $(command -v mpd) ] && [ ! $(pgrep -u ${USER} mpd) ];then
+      [ ! -e "${XDG_CONFIG_HOME}"/mpd/pid ] && mpd "${mpd_conf_file}" &
+  fi
+#+end_src
+***** =09-x0vnc.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/09-x0vnc.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh
+  # ~/.config/xprofile.d/09-x0vnc.sh
+  # x0vnc
+
+  case "${HOSTNAME}" in
+      "tanzania")
+          x0vncserver -rfbauth ~/.vnc/passwd -UseIPv6 -rfbport 5912 &
+          ;;
+  esac
+#+end_src
+***** =99-ddgr.sh=
+:PROPERTIES:
+:header-args: :tangle .config/xprofile.d/99-ddgr.sh :shebang #!/bin/sh
+:END:
+
+#+begin_src sh
+  # ~/.config/xprofile.d/99-ddgr.sh
+  # duckduckgo rofi
+  if [ $(command -v ddgr) ] && [ $(command -v rofi-search) ]; then
+      export ROFI_SEARCH=ddgr
+  fi
+#+end_src
+* Xinit
+** =.xinitrc=
+:PROPERTIES:
+:header-args: :tangle .xinitrc :shebang #!/bin/sh
+:END:
+
+#+begin_src sh -n
+  # ~/.xinitrc
+  # Configuration script for manual X session.
+  # <alexforsale@yahoo.com>
+  userresources=${HOME}/.Xresources
+  usermodmap=${HOME}/.Xmodmap
+  OS=$(uname -s)
+
+  case "${OS}" in
+      "Linux")
+          if [ "${DISTRO}" = "ubuntu" ]; then
+              sysresources=/etc/X11/xinit/Xresources
+              sysmodmap=/etc/X11/xinit/Xmodmap
+          else
+              sysresources=/etc/X11/xinit/.Xresources
+              sysmodmap=/etc/X11/xinit/.Xmodmap
+          fi
+          ;;
+      "FreeBSD")
+          sysresources=/usr/local/etc/X11/xinit/.Xresources
+          sysmodmap=/usr/local/etc/X11/xinit/.Xmodmap
+          ;;
+  esac
+  [ -f "${sysresources}" ] &&
+      xrdb -merge "${sysresources}"
+
+  [ -f "${sysmodmap}" ] &&
+      xmodmap "${sysmodmap}"
+
+  [ -f "${userresources}" ] &&
+      xrdb -merge "${userresources}"
+
+  [ -f "${usermodmap}" ] &&
+      xmodmap "${usermodmap}"
+  # shellcheck disable=1090
+  if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+      for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+          [ -x "${f}" ] && . "${f}"
+      done
+      unset f
+  fi
+  [ -f /etc/xprofile ] && . /etc/xprofile
+  [ -f "${HOME}"/.xprofile ] && . "${HOME}"/.xprofile
+  [ -z ${DESKTOP_SESSION} ] && export DESKTOP_SESSION=${1:-exwm}
+  # for archlinux
+  [ -d /usr/share/backgrounds/archlinux/ ] &&
+      feh -zr --bg-fill /usr/share/backgrounds/archlinux/
+  # FreeBSD
+  [ -d /usr/local/share/wallpapers/freebsd-8k-wallpapers/ ] &&
+      feh -zr --bg-fill /usr/local/share/wallpapers/freebsd-8k-wallpapers/
+  for chemacs_profile in ~/.emacs-profile ~/.config/chemacs/profile; do
+      if [ -e ${chemacs_profile} ]; then
+          export CHEMACS_PROFILE=`cat ${chemacs_profile}`
+      fi
+  done
+
+  if [ -n "${CHEMACS_PROFILE}" ]; then
+      _emacs_args="-s ${CHEMACS_PROFILE}"
+  fi
+  case $DESKTOP_SESSION in
+      "exwm")
+          exec emacs --debug-init -l ~/.exwm
+          ;;
+      "qtile")
+          exec qtile start
+          ;;
+      "stumpwm")
+          if [ $(command -v ros) ]; then
+              exec ros run -- --load /usr/local/bin/startstumpwm
+          elif [ $(command -v sbcl) ]; then
+              exec sbcl --load /usr/local/bin/startstumpwm
+          fi
+          ;;
+  esac
+#+end_src
+* Xresources
+** =.Xresouces=
+:PROPERTIES:
+:header-args: :tangle .Xresources
+:END:
+
+#+begin_src conf -n
+  #include ".config/Xresources.d/xterm"
+  #include ".config/Xresources.d/URxvt"
+  #include ".config/Xresources.d/x11-ssh-askpass"
+  #include ".config/Xresources.d/xcalc"
+  #include ".config/Xresources.d/xclock"
+  #include ".config/Xresources.d/xscreensaver"
+  #include ".config/Xresources.d/colors"
+
+  ! cursor theme
+  Xcursor.theme: Bibata-Modern-Classic
+  Xcursor.size: 24
+  Xft.autohint: 0
+  Xft.lcdfilter: lcddefault
+  Xft.hintstyle: hintslight
+  Xft.hinting: 1
+  Xft.antialias: 1
+  Xft.rgba: rgb
+  Xft.dpi: 96
+#+end_src
+** Modules
+*** xterm
+:PROPERTIES:
+:header-args: :tangle .config/Xresources.d/xterm :mkdirp t
+:END:
+
+#+begin_src conf -n
+  xterm*termName: xterm-256color
+  xterm.vt100.geometry: 80x24
+  xterm*saveLines: 4096
+  xterm*scrollBar: False
+  xterm*.LoginShell: True
+  xterm*rightScrollBar: False
+  xterm*scrollTtyOutput: False
+  xterm.selectToClipboard: true
+  xterm.*backarrowKey: false
+  xterm*translations: #override \
+  Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+  Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD) \n\
+  Ctrl <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY) \n\
+  ~Meta Shift<Key>Tab: string(\033[Z) \n\
+  Meta Shift<Key>Tab: string(\033\033[Z) \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font() \n\
+  Ctrl <Key> 0: set-vt-font(d)
+  xterm*eightBitInput: false
+  xterm*metaSendsEscape: true
+  xterm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+  xterm*renderFont: true
+  xterm*faceName: OverpassM Nerd Font Mono
+  xterm*faceSize: 12
+#+end_src
+*** URxvt
+:PROPERTIES:
+:header-args: :tangle .config/Xresources.d/URxvt
+:END:
+
+#+begin_src conf -n
+  xterm*termName: xterm-256color
+  xterm.vt100.geometry: 80x24
+  xterm*saveLines: 4096
+  xterm*scrollBar: False
+  xterm*.LoginShell: True
+  xterm*rightScrollBar: False
+  xterm*scrollTtyOutput: False
+  xterm.selectToClipboard: true
+  xterm.*backarrowKey: false
+  xterm*translations: #override \
+  Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+  Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD) \n\
+  Ctrl <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY) \n\
+  ~Meta Shift<Key>Tab: string(\033[Z) \n\
+  Meta Shift<Key>Tab: string(\033\033[Z) \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font() \n\
+  Ctrl <Key> 0: set-vt-font(d)
+  xterm*eightBitInput: false
+  xterm*metaSendsEscape: true
+  xterm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+  xterm*renderFont: true
+  xterm*faceName: OverpassM Nerd Font Mono
+  xterm*faceSize: 12
+#+end_src
+*** x11-ssh-askpass
+:PROPERTIES:
+:header-args: :tangle .config/Xresources.d/x11-ssh-askpass
+:END:
+
+#+begin_src conf -n
+  ! -*- eval (rainbow-mode 1) -*-
+  x11-ssh-askpass*background:             #000000
+  x11-ssh-askpass*foreground:             #ffffff
+  x11-ssh-askpass.Button*background:      #000000
+  x11-ssh-askpass.Indicator*foreground:   #ff9900
+  x11-ssh-askpass.Indicator*background:   #090909
+  x11-ssh-askpass*topShadowColor:         #000000
+  x11-ssh-askpass*bottomShadowColor:      #000000
+  x11-ssh-askpass.*borderWidth:           1
+#+end_src
+*** xcalc
+:PROPERTIES:
+:header-args: :tangle .config/Xresources.d/xcalc
+:END:
+
+#+begin_src conf -n
+  ! -*- eval (rainbow-mode 1) -*-
+  xcalc*geometry:                        200x275
+  xcalc.ti.bevel.background:             #111111
+  xcalc.ti.bevel.screen.background:      #000000
+  xcalc.ti.bevel.screen.DEG.background:  #000000
+  xcalc.ti.bevel.screen.DEG.foreground:  LightSeaGreen
+  xcalc.ti.bevel.screen.GRAD.background: #000000
+  xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
+  xcalc.ti.bevel.screen.RAD.background:  #000000
+  xcalc.ti.bevel.screen.RAD.foreground:  LightSeaGreen
+  xcalc.ti.bevel.screen.INV.background:  #000000
+  xcalc.ti.bevel.screen.INV.foreground:  Red
+  xcalc.ti.bevel.screen.LCD.background:  #000000
+  xcalc.ti.bevel.screen.LCD.foreground:  LightSeaGreen
+  xcalc.ti.bevel.screen.LCD.shadowWidth: 0
+  xcalc.ti.bevel.screen.M.background:    #000000
+  xcalc.ti.bevel.screen.M.foreground:    LightSeaGreen
+  xcalc.ti.bevel.screen.P.background:    #000000
+  xcalc.ti.bevel.screen.P.foreground:    Yellow
+  xcalc.ti.Command.foreground:  White
+  xcalc.ti.Command.background:  #777777
+  xcalc.ti.button5.background:  Orange3
+  xcalc.ti.button19.background: #611161
+  xcalc.ti.button18.background: #611161
+  xcalc.ti.button20.background: #611111
+  xcalc.ti.button25.background: #722222
+  xcalc.ti.button30.background: #833333
+  xcalc.ti.button35.background: #944444
+  xcalc.ti.button40.background: #a55555
+  xcalc.ti.button22.background: #222262
+  xcalc.ti.button23.background: #222262
+  xcalc.ti.button24.background: #222272
+  xcalc.ti.button27.background: #333373
+  xcalc.ti.button28.background: #333373
+  xcalc.ti.button29.background: #333373
+  xcalc.ti.button32.background: #444484
+  xcalc.ti.button33.background: #444484
+  xcalc.ti.button34.background: #444484
+  xcalc.ti.button37.background: #555595
+  xcalc.ti.button38.background: #555595
+  xcalc.ti.button39.background: #555595
+  XCalc*Cursor:                 hand2
+  XCalc*ShapeStyle:             rectangle
+#+end_src
+*** xclock
+:PROPERTIES:
+:header-args: :tangle .config/Xresources.d/xclock
+:END:
+
+#+begin_src conf -n
+  xclock*update:            1
+  xclock*analog:            false
+  xclock*Foreground:        white
+  xclock*background:        black
+#+end_src
+*** xscreensaver
+:PROPERTIES:
+:header-args: :tangle .config/Xresources.d/xscreensaver
+:END:
+
+#+begin_src conf -n
+  xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+  xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+  xscreensaver.Dialog.labelFont:          -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+  xscreensaver.Dialog.unameFont:          -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+  xscreensaver.Dialog.buttonFont:         -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+  xscreensaver.Dialog.dateFont:           -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+  xscreensaver.passwd.passwdFont:         -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+  xscreensaver.Dialog.foreground:         #ffffff
+  xscreensaver.Dialog.background:         #111111
+  xscreensaver.Dialog.topShadowColor:     #111111
+  xscreensaver.Dialog.bottomShadowColor:  #111111
+  xscreensaver.Dialog.Button.foreground:  #666666
+  xscreensaver.Dialog.Button.background:  #ffffff
+  !username/password input box and date text colour
+  xscreensaver.Dialog.text.foreground:    #666666
+  xscreensaver.Dialog.text.background:    #ffffff
+  xscreensaver.Dialog.internalBorderWidth:24
+  xscreensaver.Dialog.borderWidth:        20
+  xscreensaver.Dialog.shadowThickness:    2
+  xscreensaver.passwd.thermometer.foreground:  #ff0000
+  xscreensaver.passwd.thermometer.background:  #000000
+  xscreensaver.passwd.thermometer.width:       8
+  xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
+#+end_src
+*** colors
+:PROPERTIES:
+:header-args: :tangle .config/Xresources.d/colors
+:END:
+
+#+begin_src conf -n
+  ! -*- eval (rainbow-mode 1) -*-
+  ! X colors.
+  ! Generated by 'wal'
+  ,*foreground:        #fdf6e3
+  ,*background:        #292d3e
+  ,*.foreground:       #fdf6e3
+  ,*.background:       #292d3e
+  emacs*foreground:   #fdf6e3
+  emacs*background:   #073642
+  URxvt*foreground:   #fdf6e3
+  XTerm*foreground:   #fdf6e3
+  UXTerm*foreground:  #fdf6e3
+  URxvt*background:   [100]#073642
+  XTerm*background:   #073642
+  UXTerm*background:  #073642
+  URxvt*cursorColor:  #dc322f
+  XTerm*cursorColor:  #dc322f
+  UXTerm*cursorColor: #dc322f
+  URxvt*borderColor:  [100]#073642
+
+  ! Colors 0-15.
+  ,*.color0: #073642
+  ,*color0:  #073642
+  ,*.color1: #dc322f
+  ,*color1:  #dc322f
+  ,*.color2: #859900
+  ,*color2:  #859900
+  ,*.color3: #b58900
+  ,*color3:  #b58900
+  ,*.color4: #268bd2
+  ,*color4:  #268bd2
+  ,*.color5: #d33682
+  ,*color5:  #d33682
+  ,*.color6: #2aa198
+  ,*color6:  #2aa198
+  ,*.color7: #eee8d5
+  ,*color7:  #eee8d5
+  ,*.color8: #6c7c80
+  ,*color8:  #6c7c80
+  ,*.color9: #dc322f
+  ,*color9:  #dc322f
+  ,*.color10: #859900
+  ,*color10:  #859900
+  ,*.color11: #b58900
+  ,*color11:  #b58900
+  ,*.color12: #268bd2
+  ,*color12:  #268bd2
+  ,*.color13: #d33682
+  ,*color13:  #d33682
+  ,*.color14: #2aa198
+  ,*color14:  #2aa198
+  ,*.color15: #eee8d5
+  ,*color15:  #eee8d5
+
+  ! Black color that will not be affected by bold highlighting.
+  ,*.color66: #073642
+  ,*color66:  #073642
+
+  ! Xclock colors.
+  XClock*foreground: #fdf6e3
+  XClock*background: #073642
+  XClock*majorColor:  rgba:ee/e8/d5/ff
+  XClock*minorColor:  rgba:ee/e8/d5/ff
+  XClock*hourColor:   rgba:ee/e8/d5/ff
+  XClock*minuteColor: rgba:ee/e8/d5/ff
+  XClock*secondColor: rgba:ee/e8/d5/ff
+
+  ! Set depth to make transparency work.
+  URxvt*depth: 32
+#+end_src
+* Xsettingsd
+:PROPERTIES:
+:header-args: :tangle .config/xsettingsd/xsettingsd.conf :mkdirp t
+:END:
+
+#+begin_src conf -n
+  Gtk/CursorThemeName "Bibata-Modern-Classic"
+  Net/CursorBlink 1
+  Net/CursorBlinkTime 1200
+  Net/DndDragThreshold 8
+  Net/DoubleClickDistance 5
+  Net/DoubleClickTime 250
+  Net/EnableEventSounds 1
+  Net/EnableInputFeedbackSounds 1
+  Net/IconThemeName "Papirus"
+  Net/SoundThemeName "freedesktop"
+  Net/ThemeName "Breeze-dark"
+  Xft/Antialias 1
+  Xft/DPI -1
+  Xft/HintStyle "hintslight"
+  Xft/Hinting 1
+  Xft/RGBA "rgb"
+#+end_src
+* Scripts
+** =monitor-setup=
+:PROPERTIES:
+:header-args: :tangle .local/bin/monitor-setup :shebang #!/bin/sh :mkdirp t
+:END:
+
+#+begin_src sh -n
+  if [ "$(command -v hostnamectl)" ]; then
+      _HOSTNAME="$(hostnamectl hostname)"
+  elif [ -n "${HOSTNAME}" ]; then
+       _HOSTNAME="${HOSTNAME}"
+  elif [ -f /etc/hostname ]; then
+      _HOSTNAME="$(cat /etc/hostname)"
+  fi
+
+  case ${_HOSTNAME} in
+      somalia*)
+          extern=HDMI-2
+          intern=eDP-1
+          if [ $(xrandr |grep -q "${extern} disconnected") ]; then
+              xrandr --output "${extern}" --off output "${intern}" --auto
+          else
+              xrandr --output "${intern}" --auto --scale 1.25x1.25 --output "${extern}" --auto --left-of "${intern}"
+          fi
+          xrandr --output "${intern}" --scale 1.25x1.25
+          ;;
+  esac
+#+end_src
+** =showclip=
+:PROPERTIES:
+:header-args: :tangle .local/bin/showclip :shebang #!/bin/sh :mkdirp t
+:END:
+
+#+begin_src sh -n
+  # Display contents of selection via dunst if running.
+
+  clip=$(xclip -o -selection clipboard)
+  prim=$(xclip -o -selection primary)
+
+  [ -n "$clip" ] && notify-send -t 1000 "Clipboard:" "$clip"
+  [ -n "$prim" ] && notify-send -t 1000 "Primary:" "$prim"
+#+end_src
