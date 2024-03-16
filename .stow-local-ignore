@@ -8,3 +8,4 @@
 ^/content
 ^/build.*
 ^/LICENSE.*
+^/\.dir-locals.*

@@ -42,7 +42,7 @@
 **** Modules
 ***** =00-security.sh=
 :PROPERTIES:
-:header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh
+:header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh :mkdirp t
 :END:
 
 #+begin_src sh -n

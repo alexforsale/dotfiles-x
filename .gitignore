@@ -4,3 +4,6 @@ public/
 .local/
 .config/
 .packages/
+.Xresources
+.xinitrc
+.xprofile
