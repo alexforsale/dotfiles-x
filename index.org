@@ -210,6 +210,10 @@ if [[ -z "${XCURSOR_PATH}" ]]; then
     export XCURSOR_PATH=${XCURSOR_PATH}:/usr/share/icons:~/.local/share/icons
 fi
 
+# if [[ -x "${HOME}/.local/bin/monitor-setup" ]]; then
+#     "${HOME}/.local/bin/monitor-setup"
+# fi
+
 if [[ -x "${HOME}/.fehbg" ]]; then
     "${HOME}/.fehbg"
 fi
@@ -668,7 +672,7 @@ elif [ -f /etc/hostname ]; then
 fi
 
 case ${_HOSTNAME} in
-    somalia*)
+    liberia*)
         extern=HDMI-2
         intern=eDP-1
         if [ $(xrandr |grep -q "${extern} disconnected") ]; then
