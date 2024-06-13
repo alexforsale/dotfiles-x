@@ -61,8 +61,8 @@ case "${DISTRO}" in
             export SUDO_ASKPASS=/usr/bin/x11-ssh-askpass
 
         # polkit
-        if [ ! "$(pgrep -u ${USER} -x polkit-gnome-au)" ];then
-            sleep 1 && /usr/libexec/polkit-gnome-authentication-agent-1 &
+        if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
+            sleep 1 && /usr/libexec/polkit-kde-authentication-agent-1 &
         fi
         ;;
     arch)
@@ -73,8 +73,8 @@ case "${DISTRO}" in
             export SUDO_ASKPASS="${HOME}"/.local/bin/ssh-askpass
         fi
         # polkit
-        if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
-            sleep 1 && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+        if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
+            sleep 1 && /usr/lib/polkit-kde-authentication-agent-1 &
         fi
 
         # keyring
@@ -87,9 +87,9 @@ case "${DISTRO}" in
             export SUDO_ASKPASS=/usr/local/bin/x11-ssh-askpass
 
         # polkit
-        if [ ! "$(pgrep -u ${USER} -x polkit-gnome-authentication-agent-1)" ];then
-            sleep 1 && /usr/local/libexec/polkit-gnome-authentication-agent-1 &
-        fi
+        if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
+            sleep 1 && /usr/local/libexec/polkit-kde-authentication-agent-1 &
+        
         # keyring
         [ "$(command -v dbus-update-activation-environment)" ] &&
             dbus-update-activation-environment DISPLAY
