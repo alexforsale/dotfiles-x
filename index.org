@@ -16,7 +16,7 @@
 #+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 * About
 * Xprofile
-** =.xprofile=
+** .xprofile
 :PROPERTIES:
 :header-args: :tangle .xprofile :shebang #!/bin/sh
 :END:
@@ -40,7 +40,7 @@ fi
 [ -f "${HOME}"/.xprofile.local ] && . "${HOME}"/.xprofile.local
 #+end_src
 **** Modules
-***** =00-security.sh=
+***** 00-security.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh :mkdirp t
 :END:
@@ -96,7 +96,7 @@ case "${DISTRO}" in
         ;;
 esac
 #+end_src
-***** =01-gtk-path.sh=
+***** 01-gtk-path.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh
 :END:
@@ -114,7 +114,7 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
 
 [ -z "${GTK_THEME}" ] && export GTK_THEME=Breeze-Dark
 #+end_src
-***** =02-notification.sh=
+***** 02-notification.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/02-notification.sh :shebang #!/bin/sh
 :END:
@@ -136,7 +136,7 @@ if [ "$(command -v dunst)" ];then
     esac
 fi
 #+end_src
-***** =03-sxhkd.sh=
+***** 03-sxhkd.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/03-sxhkd.sh :shebang #!/bin/sh
 :END:
@@ -157,7 +157,7 @@ if [ -z "${_NO_SXHKD}" ] && [ ! $(pgrep -u ${USER} -x sxhkd) ] &&
     fi
 fi
 #+end_src
-***** =04-bluetooth.sh=
+***** 04-bluetooth.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/04-bluetooth.sh :shebang #!/bin/sh
 :END:
@@ -173,7 +173,7 @@ if [ "$(command -v blueman-applet)" ] &&
     blueman-tray &
 fi
 #+end_src
-***** =05-network.sh=
+***** 05-network.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/05-network.sh :shebang #!/bin/sh
 :END:
@@ -182,7 +182,7 @@ fi
 # ~/.config/xprofile.d/05-network.sh
 # various networking app
 #+end_src
-***** =06-ui.sh=
+***** 06-ui.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/06-ui.sh :shebang #!/bin/sh
 :END:
@@ -218,7 +218,7 @@ if [[ -x "${HOME}/.fehbg" ]]; then
     "${HOME}/.fehbg"
 fi
 #+end_src
-***** =07-filemanager.sh=
+***** 07-filemanager.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/07-filemanager.sh :shebang #!/bin/sh
 :END:
@@ -239,7 +239,7 @@ if [ $(command -v pcmanfm) ] &&
     pcmanfm --desktop -d &
 fi
 #+end_src
-***** =08-multimedia.sh=
+***** 08-multimedia.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/08-multimedia.sh :shebang #!/bin/sh
 :END:
@@ -253,7 +253,7 @@ if [ $(command -v mpd) ] && [ ! $(pgrep -u ${USER} mpd) ];then
     [ ! -e "${XDG_CONFIG_HOME}"/mpd/pid ] && mpd "${mpd_conf_file}" &
 fi
 #+end_src
-***** =09-x0vnc.sh=
+***** 09-x0vnc.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/09-x0vnc.sh :shebang #!/bin/sh
 :END:
@@ -268,7 +268,7 @@ case "${HOSTNAME}" in
         ;;
 esac
 #+end_src
-***** =99-ddgr.sh=
+***** 99-ddgr.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/99-ddgr.sh :shebang #!/bin/sh
 :END:
@@ -281,7 +281,7 @@ if [ $(command -v ddgr) ] && [ $(command -v rofi-search) ]; then
 fi
 #+end_src
 * Xinit
-** =.xinitrc=
+** .xinitrc
 :PROPERTIES:
 :header-args: :tangle .xinitrc :shebang #!/bin/sh
 :END:
@@ -362,7 +362,7 @@ case $DESKTOP_SESSION in
 esac
 #+end_src
 * Xresources
-** =.Xresouces=
+** .Xresouces
 :PROPERTIES:
 :header-args: :tangle .Xresources
 :END:
@@ -657,7 +657,7 @@ Xft/Hinting 1
 Xft/RGBA "rgb"
 #+end_src
 * Scripts
-** =monitor-setup=
+** monitor-setup
 :PROPERTIES:
 :header-args: :tangle .local/bin/monitor-setup :shebang #!/bin/sh :mkdirp t
 :END:
@@ -684,7 +684,7 @@ case ${_HOSTNAME} in
         ;;
 esac
 #+end_src
-** =showclip=
+** showclip
 :PROPERTIES:
 :header-args: :tangle .local/bin/showclip :shebang #!/bin/sh :mkdirp t
 :END:
