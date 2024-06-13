@@ -167,9 +167,9 @@ fi
 # bluetooth configuration
 
 # blueman-tray
-if [ "$(command -v blueman-tray)" ] &&
-       [ ! $(pgrep -u ${USER} -x blueman-tray) ] &&
-       [ -z "${_NO_BLUEMAN_TRAY}" ]; then
+if [ "$(command -v blueman-applet)" ] &&
+       [ ! $(pgrep -u ${USER} -x blueman-applet) ] &&
+       [ -z "${_NO_BLUEMAN_APPLET}" ]; then
     blueman-tray &
 fi
 #+end_src
