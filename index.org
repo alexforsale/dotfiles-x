@@ -640,6 +640,9 @@ fi
 
 #+begin_src conf -n
   Gtk/CursorThemeName "Bibata-Modern-Classic"
+  Gtk/CursorThemeSize 24
+  Gtk/EnableAnimations 1
+  Gtk/FontName "OverpassM Nerd Font Mono,  12"
   Net/CursorBlink 1
   Net/CursorBlinkTime 1200
   Net/DndDragThreshold 8
