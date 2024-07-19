@@ -46,55 +46,56 @@
 :END:
 
 #+begin_src sh -n
-# various ui-related security settings
-# <alexforsale@yahoo.com>
+  # various ui-related security settings
+  # <alexforsale@yahoo.com>
 
-if [ "$(command -v gnome-keyring-daemon)" ] &&
-       [ ! $(pgrep -u ${USER} -x gnome-keyring-d) ];then
-    eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)" >/dev/null 2>&1
-    export SSH_AUTH_SOCK GNOME_KEYRING_CONTROL
-fi
-case "${DISTRO}" in
-    gentoo)
-        [ -f /usr/bin/x11-ssh-askpass ] &&
-            export SSH_ASKPASS=/usr/bin/x11-ssh-askpass &&
-            export SUDO_ASKPASS=/usr/bin/x11-ssh-askpass
+  if [ "$(command -v gnome-keyring-daemon)" ] &&
+         [ ! $(pgrep -u ${USER} -x gnome-keyring-d) ];then
+      eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)" >/dev/null 2>&1
+      export SSH_AUTH_SOCK GNOME_KEYRING_CONTROL
+  fi
+  case "${DISTRO}" in
+      gentoo)
+          [ -f /usr/bin/x11-ssh-askpass ] &&
+              export SSH_ASKPASS=/usr/bin/x11-ssh-askpass &&
+              export SUDO_ASKPASS=/usr/bin/x11-ssh-askpass
 
-        # polkit
-        if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
-            sleep 1 && /usr/libexec/polkit-kde-authentication-agent-1 &
-        fi
-        ;;
-    arch)
-        if [ -f /usr/lib/ssh/x11-ssh-askpass ];then
-            [ ! -L ~/.local/bin/ssh-askpass ] &&
-                ln -sf /usr/lib/ssh/x11-ssh-askpass ~/.local/bin/ssh-askpass
-            export SSH_ASKPASS=ssh-askpass
-            export SUDO_ASKPASS="${HOME}"/.local/bin/ssh-askpass
-        fi
-        # polkit
-        if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
-            sleep 1 && /usr/lib/polkit-kde-authentication-agent-1 &
-        fi
+          # polkit
+          if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
+              sleep 1 && /usr/libexec/polkit-kde-authentication-agent-1 &
+          fi
+          ;;
+      arch)
+          if [ -f /usr/lib/ssh/x11-ssh-askpass ];then
+              [ ! -L ~/.local/bin/ssh-askpass ] &&
+                  ln -sf /usr/lib/ssh/x11-ssh-askpass ~/.local/bin/ssh-askpass
+              export SSH_ASKPASS=ssh-askpass
+              export SUDO_ASKPASS="${HOME}"/.local/bin/ssh-askpass
+          fi
+          # polkit
+          if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
+              sleep 1 && /usr/lib/polkit-kde-authentication-agent-1 &
+          fi
 
-        # keyring
-        [ "$(command -v dbus-update-activation-environment)" ] &&
-            dbus-update-activation-environment --systemd DISPLAY
-        ;;
-    freebsd)
-        [ -f /usr/local/bin/x11-ssh-askpass  ] &&
-            export SSH_ASKPASS=/usr/local/bin/x11-ssh-askpass &&
-            export SUDO_ASKPASS=/usr/local/bin/x11-ssh-askpass
+          # keyring
+          [ "$(command -v dbus-update-activation-environment)" ] &&
+              dbus-update-activation-environment --systemd DISPLAY
+          ;;
+      freebsd)
+          [ -f /usr/local/bin/x11-ssh-askpass  ] &&
+              export SSH_ASKPASS=/usr/local/bin/x11-ssh-askpass &&
+              export SUDO_ASKPASS=/usr/local/bin/x11-ssh-askpass
 
-        # polkit
-        if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
-            sleep 1 && /usr/local/libexec/polkit-kde-authentication-agent-1 &
-        
-        # keyring
-        [ "$(command -v dbus-update-activation-environment)" ] &&
-            dbus-update-activation-environment DISPLAY
-        ;;
-esac
+          # polkit
+          if [ ! "$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)" ];then
+              sleep 1 && /usr/local/libexec/polkit-kde-authentication-agent-1 &
+          fi
+              
+          # keyring
+          [ "$(command -v dbus-update-activation-environment)" ] &&
+              dbus-update-activation-environment DISPLAY
+          ;;
+  esac
 #+end_src
 ***** 01-gtk-path.sh
 :PROPERTIES:
@@ -358,6 +359,9 @@ fi
           elif [ $(command -v sbcl) ]; then
               exec sbcl --load /usr/local/bin/startstumpwm
           fi
+          ;;
+      "i3")
+          exec i3
           ;;
   esac
 #+end_src
@@ -659,6 +663,10 @@ fi
   Xft/Hinting 1
   Xft/RGBA "rgb"
 #+end_src
+- =OverpassM Nerd Font Mono= is packaged in =otf-overpass-nerd= which in turns grouped in the =nerd-fonts= package group.
+- =Papirus= is in =papirus-icon-theme=.
+- =Bibata-Modern-Classic= is from =bibata-cursor-theme=.
+- =Breeze-dark= is from =breeze= and for =breeze-gtk= for gtk applications.
 * Scripts
 ** monitor-setup
 :PROPERTIES:
