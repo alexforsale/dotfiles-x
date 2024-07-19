@@ -99,7 +99,7 @@
 #+end_src
 ***** 01-gtk-path.sh
 :PROPERTIES:
-:header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh
+:header-args: :tangle .config/xprofile.d/01-gtk-path.sh :shebang #!/bin/sh
 :END:
 
 #+begin_src sh -n
