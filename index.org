@@ -129,21 +129,22 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
 
 For most distribution that uses /systemd/, this should be run with ~systemctl --user start dunst~, I'm just too lazy to add a condition for it.
 #+begin_src sh -n
-# ~/.config/xprofile.d/02-notification.sh
-# notification settings
-# <alexforsale@yahoo.com>
+  # ~/.config/xprofile.d/02-notification.sh
+  # notification settings
+  # <alexforsale@yahoo.com>
 
-# dunst
-if [ "$(command -v dunst)" ];then
-    case "${DISTRO}" in
-        arch)
-            if [ ! $(pgrep -u ${USER} dunst) ] &&
-                   [ -e ${XDG_CONFIG_HOME}/dunst/dunstrc ]; then
-                dbus-launch --sh-syntax --exit-with-session dunst -conf ${XDG_CONFIG_HOME}/dunst/dunstrc &
-            fi
-            ;;
-    esac
-fi
+  # dunst
+  if [ "$(command -v dunst)" ];then
+      case "${DISTRO}" in
+          arch)
+              case "$(systemctl --user is-active dunst)" in
+                  "inactive")
+                      systemctl --user start dunst
+                      ;;
+              esac
+              ;;
+      esac
+  fi
 #+end_src
 ***** 03-sxhkd.sh
 :PROPERTIES:
