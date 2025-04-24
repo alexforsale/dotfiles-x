@@ -25,6 +25,7 @@
 :header-args: :tangle .xprofile :shebang #!/bin/sh
 :END:
 
+This file (and also =/etc/xprofile= if exists) will be executed at the beginning of X user session, before the window manager starts.
 #+begin_src sh -n
   # ~/.xprofile
   # user X session startup file.
@@ -49,6 +50,7 @@
 :header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh :mkdirp t
 :END:
 
+This script will set up any security-related environment variables, start various programs and /dbus/-related settings.
 #+begin_src sh -n
   # various ui-related security settings
   # <alexforsale@yahoo.com>
@@ -106,6 +108,7 @@
 :header-args: :tangle .config/xprofile.d/01-gtk-path.sh :shebang #!/bin/sh
 :END:
 
+Most /GTK/ settings uses the =gsetting= command, but some application still uses environment variable when looking for /GTK/ theme. And for /GTK-2.0/, sets the configuration to the ~/.config/~ directory.
 #+begin_src sh -n
 # ~/.config/xprofile.d/01-gtk-path.sh
 # set new location for GTK and GTK2
@@ -124,6 +127,7 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
 :header-args: :tangle .config/xprofile.d/02-notification.sh :shebang #!/bin/sh
 :END:
 
+For most distribution that uses /systemd/, this should be run with ~systemctl --user start dunst~, I'm just too lazy to add a condition for it.
 #+begin_src sh -n
 # ~/.config/xprofile.d/02-notification.sh
 # notification settings
@@ -146,6 +150,7 @@ fi
 :header-args: :tangle .config/xprofile.d/03-sxhkd.sh :shebang #!/bin/sh
 :END:
 
+/sxhkd/ is a simple X hotkey daemon. It will react to input events by executing commands.
 #+begin_src sh -n
 # ~/.config/xprofile.d/03-sxhkd.sh
 # sxhkd settings
@@ -218,10 +223,6 @@ fi
 # if [[ -x "${HOME}/.local/bin/monitor-setup" ]]; then
 #     "${HOME}/.local/bin/monitor-setup"
 # fi
-
-if [[ -x "${HOME}/.fehbg" ]]; then
-    "${HOME}/.fehbg"
-fi
 #+end_src
 ***** 07-filemanager.sh
 :PROPERTIES:
