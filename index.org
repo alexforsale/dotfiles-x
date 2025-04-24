@@ -127,7 +127,7 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
 :header-args: :tangle .config/xprofile.d/02-notification.sh :shebang #!/bin/sh
 :END:
 
-For most distribution that uses /systemd/. For those who doesn't, it should be set in their own init.
+For most distribution that uses /systemd/, to avoid race with dbus. For those who doesn't, it should be set in their own init.
 #+begin_src sh -n
   # ~/.config/xprofile.d/02-notification.sh
   # notification settings
