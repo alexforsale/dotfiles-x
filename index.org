@@ -127,7 +127,7 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
 :header-args: :tangle .config/xprofile.d/02-notification.sh :shebang #!/bin/sh
 :END:
 
-For most distribution that uses /systemd/, this should be run with ~systemctl --user start dunst~, I'm just too lazy to add a condition for it.
+For most distribution that uses /systemd/. For those who doesn't, it should be set in their own init.
 #+begin_src sh -n
   # ~/.config/xprofile.d/02-notification.sh
   # notification settings
@@ -166,22 +166,6 @@ if [ -z "${_NO_SXHKD}" ] && [ ! $(pgrep -u ${USER} -x sxhkd) ] &&
     else
         sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc &
     fi
-fi
-#+end_src
-***** 04-bluetooth.sh
-:PROPERTIES:
-:header-args: :tangle .config/xprofile.d/04-bluetooth.sh :shebang #!/bin/sh
-:END:
-
-#+begin_src sh -n
-# ~/.config/xprofile.d/04-bluetooth.sh
-# bluetooth configuration
-
-# blueman-tray
-if [ "$(command -v blueman-applet)" ] &&
-       [ ! $(pgrep -u ${USER} -x blueman-applet) ] &&
-       [ -z "${_NO_BLUEMAN_APPLET}" ]; then
-    blueman-tray &
 fi
 #+end_src
 ***** 05-network.sh
