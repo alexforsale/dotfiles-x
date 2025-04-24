@@ -219,10 +219,6 @@ fi
 if [[ -z "${XCURSOR_PATH}" ]]; then
     export XCURSOR_PATH=${XCURSOR_PATH}:/usr/share/icons:~/.local/share/icons
 fi
-
-# if [[ -x "${HOME}/.local/bin/monitor-setup" ]]; then
-#     "${HOME}/.local/bin/monitor-setup"
-# fi
 #+end_src
 ***** 07-filemanager.sh
 :PROPERTIES:
