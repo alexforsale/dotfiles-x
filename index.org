@@ -139,7 +139,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
           arch)
               case "$(systemctl --user is-active dunst)" in
                   "inactive")
-                      systemctl --user start dunst
+                      [ -n "${DISPLAY}" ] && systemctl --user start dunst
                       ;;
               esac
               ;;
