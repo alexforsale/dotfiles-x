@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-28 Mon 10:14 -->
+<!-- 2025-04-28 Mon 10:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X11 Configuration Files</title>
@@ -28,54 +28,54 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org45660fd">About</a></li>
-<li><a href="#org5127ff6">Xprofile</a>
+<li><a href="#org27c6114">About</a></li>
+<li><a href="#org8ad62fd">Xprofile</a>
 <ul>
-<li><a href="#orgfdecda7">.xprofile</a></li>
+<li><a href="#org5db4570">.xprofile</a></li>
 </ul>
 </li>
-<li><a href="#orgf1ae8ff">Xinit</a>
+<li><a href="#org3c93232">Xinit</a>
 <ul>
-<li><a href="#orgccebfbc">.xinitrc</a></li>
+<li><a href="#org7117770">.xinitrc</a></li>
 </ul>
 </li>
-<li><a href="#orga40ed84">Xresources</a>
+<li><a href="#orgceef850">Xresources</a>
 <ul>
-<li><a href="#orgf6e5209">.Xresouces</a></li>
-<li><a href="#orgc89a38c">Modules</a>
+<li><a href="#org47000b5">.Xresouces</a></li>
+<li><a href="#orge2a085c">Modules</a>
 <ul>
-<li><a href="#orge8f1efa">xterm</a></li>
-<li><a href="#orgeb79d22">URxvt</a></li>
-<li><a href="#org8d4e1c4">x11-ssh-askpass</a></li>
-<li><a href="#org35ffc8e">xcalc</a></li>
-<li><a href="#orgdb3309b">xclock</a></li>
-<li><a href="#orgd129c84">xscreensaver</a></li>
-<li><a href="#orgeb8b36e">colors</a></li>
+<li><a href="#org870be1c">xterm</a></li>
+<li><a href="#orga459a1f">URxvt</a></li>
+<li><a href="#org692778d">x11-ssh-askpass</a></li>
+<li><a href="#orgcb7e013">xcalc</a></li>
+<li><a href="#orgcfe5ae6">xclock</a></li>
+<li><a href="#org457a116">xscreensaver</a></li>
+<li><a href="#orgddf6cbc">colors</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgca93de0">Xsettingsd</a></li>
-<li><a href="#org59f867e">Scripts</a>
+<li><a href="#org21a5893">Xsettingsd</a></li>
+<li><a href="#org31da460">Scripts</a>
 <ul>
-<li><a href="#org853bc36">monitor-setup</a></li>
-<li><a href="#org313416b">showclip</a></li>
+<li><a href="#org80baf3e">monitor-setup</a></li>
+<li><a href="#org11f5893">showclip</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org45660fd" class="outline-2">
-<h2 id="org45660fd">About</h2>
+<div id="outline-container-org27c6114" class="outline-2">
+<h2 id="org27c6114">About</h2>
 </div>
-<div id="outline-container-org5127ff6" class="outline-2">
-<h2 id="org5127ff6">Xprofile</h2>
-<div class="outline-text-2" id="text-org5127ff6">
+<div id="outline-container-org8ad62fd" class="outline-2">
+<h2 id="org8ad62fd">Xprofile</h2>
+<div class="outline-text-2" id="text-org8ad62fd">
 </div>
-<div id="outline-container-orgfdecda7" class="outline-3">
-<h3 id="orgfdecda7">.xprofile</h3>
-<div class="outline-text-3" id="text-orgfdecda7">
+<div id="outline-container-org5db4570" class="outline-3">
+<h3 id="org5db4570">.xprofile</h3>
+<div class="outline-text-3" id="text-org5db4570">
 <p>
 This file (and also <code>/etc/xprofile</code> if exists) will be executed at the beginning of X user session, before the window manager starts.
 </p>
@@ -100,10 +100,10 @@ This file (and also <code>/etc/xprofile</code> if exists) will be executed at th
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="orgacd24a9"></a>Modules<br />
+<li><a id="org751b06b"></a>Modules<br />
 <ul class="org-ul">
-<li><a id="org956dee5"></a>00-security.sh<br />
-<div class="outline-text-6" id="text-org956dee5">
+<li><a id="org019698b"></a>00-security.sh<br />
+<div class="outline-text-6" id="text-org019698b">
 <p>
 This script will set up any security-related environment variables, start various programs and <i>dbus</i>-related settings.
 </p>
@@ -162,8 +162,8 @@ This script will set up any security-related environment variables, start variou
 </div>
 </div>
 </li>
-<li><a id="orga5b1524"></a>01-gtk-path.sh<br />
-<div class="outline-text-6" id="text-orga5b1524">
+<li><a id="org069c1f1"></a>01-gtk-path.sh<br />
+<div class="outline-text-6" id="text-org069c1f1">
 <p>
 Most <i>GTK</i> settings uses the <code>gsetting</code> command, but some application still uses environment variable when looking for <i>GTK</i> theme. And for <i>GTK-2.0</i>, sets the configuration to the <code>/.config/</code> directory.
 </p>
@@ -183,8 +183,8 @@ Most <i>GTK</i> settings uses the <code>gsetting</code> command, but some applic
 </div>
 </div>
 </li>
-<li><a id="org7e57af2"></a>02-notification.sh<br />
-<div class="outline-text-6" id="text-org7e57af2">
+<li><a id="orgb53caab"></a>02-notification.sh<br />
+<div class="outline-text-6" id="text-orgb53caab">
 <p>
 For most distribution that uses <i>systemd</i>, to avoid race with dbus. For those who doesn't, it should be set in their own init.
 </p>
@@ -199,7 +199,7 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 <span class="linenr"> 8: </span>        arch)
 <span class="linenr"> 9: </span>            <span style="color: #4169e1;">case</span> <span style="color: #bc8f8f;">"$(systemctl --user is-active dunst)"</span><span style="color: #4169e1;"> in</span>
 <span class="linenr">10: </span>                <span style="color: #bc8f8f;">"inactive"</span>)
-<span class="linenr">11: </span>                    systemctl --user start dunst
+<span class="linenr">11: </span>                    [ -n <span style="color: #bc8f8f;">"${DISPLAY}"</span> ] &amp;&amp; systemctl --user start dunst
 <span class="linenr">12: </span>                    ;;
 <span class="linenr">13: </span>            <span style="color: #4169e1;">esac</span>
 <span class="linenr">14: </span>            ;;
@@ -209,8 +209,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="orgeeb2eff"></a>03-sxhkd.sh<br />
-<div class="outline-text-6" id="text-orgeeb2eff">
+<li><a id="orgae809c2"></a>03-sxhkd.sh<br />
+<div class="outline-text-6" id="text-orgae809c2">
 <p>
 <i>sxhkd</i> is a simple X hotkey daemon. It will react to input events by executing commands.
 </p>
@@ -233,8 +233,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org775ec06"></a>05-network.sh<br />
-<div class="outline-text-6" id="text-org775ec06">
+<li><a id="orgd64b25b"></a>05-network.sh<br />
+<div class="outline-text-6" id="text-orgd64b25b">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/05-network.sh</span>
 <span class="linenr">2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various networking app</span>
@@ -242,8 +242,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org2ad7d96"></a>06-ui.sh<br />
-<div class="outline-text-6" id="text-org2ad7d96">
+<li><a id="org5d2e52f"></a>06-ui.sh<br />
+<div class="outline-text-6" id="text-org5d2e52f">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/06-ui.sh</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui settings</span>
@@ -270,8 +270,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org6093505"></a>07-filemanager.sh<br />
-<div class="outline-text-6" id="text-org6093505">
+<li><a id="org0d287dd"></a>07-filemanager.sh<br />
+<div class="outline-text-6" id="text-org0d287dd">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/07-filemanager.sh</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">file manager configuration</span>
@@ -291,8 +291,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org4440e54"></a>08-multimedia.sh<br />
-<div class="outline-text-6" id="text-org4440e54">
+<li><a id="orgab4b5f7"></a>08-multimedia.sh<br />
+<div class="outline-text-6" id="text-orgab4b5f7">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/08-multimedia.sh</span>
 <span class="linenr">2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various multimedia app</span>
@@ -305,8 +305,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org8806916"></a>09-x0vnc.sh<br />
-<div class="outline-text-6" id="text-org8806916">
+<li><a id="org30af2db"></a>09-x0vnc.sh<br />
+<div class="outline-text-6" id="text-org30af2db">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/09-x0vnc.sh</span>
 <span style="color: #b22222;"># </span><span style="color: #b22222;">x0vnc</span>
@@ -320,8 +320,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org0726171"></a>99-ddgr.sh<br />
-<div class="outline-text-6" id="text-org0726171">
+<li><a id="org0473238"></a>99-ddgr.sh<br />
+<div class="outline-text-6" id="text-org0473238">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/99-ddgr.sh</span>
 <span style="color: #b22222;"># </span><span style="color: #b22222;">duckduckgo rofi</span>
@@ -337,13 +337,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf1ae8ff" class="outline-2">
-<h2 id="orgf1ae8ff">Xinit</h2>
-<div class="outline-text-2" id="text-orgf1ae8ff">
+<div id="outline-container-org3c93232" class="outline-2">
+<h2 id="org3c93232">Xinit</h2>
+<div class="outline-text-2" id="text-org3c93232">
 </div>
-<div id="outline-container-orgccebfbc" class="outline-3">
-<h3 id="orgccebfbc">.xinitrc</h3>
-<div class="outline-text-3" id="text-orgccebfbc">
+<div id="outline-container-org7117770" class="outline-3">
+<h3 id="org7117770">.xinitrc</h3>
+<div class="outline-text-3" id="text-org7117770">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xinitrc</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">Configuration script for manual X session.</span>
@@ -426,13 +426,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orga40ed84" class="outline-2">
-<h2 id="orga40ed84">Xresources</h2>
-<div class="outline-text-2" id="text-orga40ed84">
+<div id="outline-container-orgceef850" class="outline-2">
+<h2 id="orgceef850">Xresources</h2>
+<div class="outline-text-2" id="text-orgceef850">
 </div>
-<div id="outline-container-orgf6e5209" class="outline-3">
-<h3 id="orgf6e5209">.Xresouces</h3>
-<div class="outline-text-3" id="text-orgf6e5209">
+<div id="outline-container-org47000b5" class="outline-3">
+<h3 id="org47000b5">.Xresouces</h3>
+<div class="outline-text-3" id="text-org47000b5">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xterm"</span>
 <span class="linenr"> 2: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/URxvt"</span>
@@ -456,13 +456,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgc89a38c" class="outline-3">
-<h3 id="orgc89a38c">Modules</h3>
-<div class="outline-text-3" id="text-orgc89a38c">
+<div id="outline-container-orge2a085c" class="outline-3">
+<h3 id="orge2a085c">Modules</h3>
+<div class="outline-text-3" id="text-orge2a085c">
 </div>
-<div id="outline-container-orge8f1efa" class="outline-4">
-<h4 id="orge8f1efa">xterm</h4>
-<div class="outline-text-4" id="text-orge8f1efa">
+<div id="outline-container-org870be1c" class="outline-4">
+<h4 id="org870be1c">xterm</h4>
+<div class="outline-text-4" id="text-org870be1c">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xterm*termName: xterm-256color
 <span class="linenr"> 2: </span>xterm.vt100.geometry: 80x24
@@ -492,9 +492,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgeb79d22" class="outline-4">
-<h4 id="orgeb79d22">URxvt</h4>
-<div class="outline-text-4" id="text-orgeb79d22">
+<div id="outline-container-orga459a1f" class="outline-4">
+<h4 id="orga459a1f">URxvt</h4>
+<div class="outline-text-4" id="text-orga459a1f">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! arch package (aur): urxvt-resize-font-git
 <span class="linenr"> 2: </span>URxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
@@ -523,9 +523,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org8d4e1c4" class="outline-4">
-<h4 id="org8d4e1c4">x11-ssh-askpass</h4>
-<div class="outline-text-4" id="text-org8d4e1c4">
+<div id="outline-container-org692778d" class="outline-4">
+<h4 id="org692778d">x11-ssh-askpass</h4>
+<div class="outline-text-4" id="text-org692778d">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>! -*- eval (rainbow-mode 1) -*-
 <span class="linenr">2: </span>x11-ssh-askpass*background:             <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
@@ -540,9 +540,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org35ffc8e" class="outline-4">
-<h4 id="org35ffc8e">xcalc</h4>
-<div class="outline-text-4" id="text-org35ffc8e">
+<div id="outline-container-orgcb7e013" class="outline-4">
+<h4 id="orgcb7e013">xcalc</h4>
+<div class="outline-text-4" id="text-orgcb7e013">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>xcalc*geometry:                        200x275
@@ -591,9 +591,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgdb3309b" class="outline-4">
-<h4 id="orgdb3309b">xclock</h4>
-<div class="outline-text-4" id="text-orgdb3309b">
+<div id="outline-container-orgcfe5ae6" class="outline-4">
+<h4 id="orgcfe5ae6">xclock</h4>
+<div class="outline-text-4" id="text-orgcfe5ae6">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>xclock*update:            1
 <span class="linenr">2: </span>xclock*analog:            false
@@ -603,9 +603,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgd129c84" class="outline-4">
-<h4 id="orgd129c84">xscreensaver</h4>
-<div class="outline-text-4" id="text-orgd129c84">
+<div id="outline-container-org457a116" class="outline-4">
+<h4 id="org457a116">xscreensaver</h4>
+<div class="outline-text-4" id="text-org457a116">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
 <span class="linenr"> 2: </span>xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
@@ -634,9 +634,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgeb8b36e" class="outline-4">
-<h4 id="orgeb8b36e">colors</h4>
-<div class="outline-text-4" id="text-orgeb8b36e">
+<div id="outline-container-orgddf6cbc" class="outline-4">
+<h4 id="orgddf6cbc">colors</h4>
+<div class="outline-text-4" id="text-orgddf6cbc">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>! X colors.
@@ -713,9 +713,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgca93de0" class="outline-2">
-<h2 id="orgca93de0">Xsettingsd</h2>
-<div class="outline-text-2" id="text-orgca93de0">
+<div id="outline-container-org21a5893" class="outline-2">
+<h2 id="org21a5893">Xsettingsd</h2>
+<div class="outline-text-2" id="text-org21a5893">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>Gtk/CursorThemeName <span style="color: #bc8f8f;">"Bibata-Modern-Classic"</span>
 <span class="linenr"> 2: </span>Gtk/CursorThemeSize 24
@@ -746,13 +746,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </ul>
 </div>
 </div>
-<div id="outline-container-org59f867e" class="outline-2">
-<h2 id="org59f867e">Scripts</h2>
-<div class="outline-text-2" id="text-org59f867e">
+<div id="outline-container-org31da460" class="outline-2">
+<h2 id="org31da460">Scripts</h2>
+<div class="outline-text-2" id="text-org31da460">
 </div>
-<div id="outline-container-org853bc36" class="outline-3">
-<h3 id="org853bc36">monitor-setup</h3>
-<div class="outline-text-3" id="text-org853bc36">
+<div id="outline-container-org80baf3e" class="outline-3">
+<h3 id="org80baf3e">monitor-setup</h3>
+<div class="outline-text-3" id="text-org80baf3e">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(command -v hostnamectl)"</span> ]; <span style="color: #4169e1;">then</span>
 <span class="linenr"> 2: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"$(hostnamectl hostname)"</span>
@@ -778,9 +778,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org313416b" class="outline-3">
-<h3 id="org313416b">showclip</h3>
-<div class="outline-text-3" id="text-org313416b">
+<div id="outline-container-org11f5893" class="outline-3">
+<h3 id="org11f5893">showclip</h3>
+<div class="outline-text-3" id="text-org11f5893">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">Display contents of selection via dunst if running.</span>
 <span class="linenr">2: </span>
@@ -798,7 +798,7 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 <div id="postamble" class="status">
 <p class="date">Date: 2024-03-12 Tue 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-04-28 Mon 10:14</p>
+<p class="date">Created: 2025-04-28 Mon 10:16</p>
 </div>
 </body>
 </html>
