@@ -141,6 +141,10 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
                   "inactive")
                       [ -n "${DISPLAY}" ] && systemctl --user start dunst
                       ;;
+                  "active")
+                      # Restart if active
+                      [ -n "${DISPLAY}" ] && systemctl --user restart dunst
+                      ;;
               esac
               ;;
       esac
