@@ -320,7 +320,7 @@ fi
   fi
   [ -f /etc/xprofile ] && . /etc/xprofile
   [ -f "${HOME}"/.xprofile ] && . "${HOME}"/.xprofile
-  [ -z ${DESKTOP_SESSION} ] && export DESKTOP_SESSION=${1:-exwm}
+  [ -z ${DESKTOP_SESSION} ] && export DESKTOP_SESSION=${1:-i3}
   # for archlinux
   [ -d /usr/share/backgrounds/archlinux/ ] &&
       feh -zr --bg-fill /usr/share/backgrounds/archlinux/
