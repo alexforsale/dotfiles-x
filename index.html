@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-10 Sat 03:38 -->
+<!-- 2025-07-26 Sat 09:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X11 Configuration Files</title>
@@ -28,92 +28,92 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org31e8c94">About</a></li>
-<li><a href="#org31b151a">Xprofile</a>
+<li><a href="#orgcdaa090">About</a></li>
+<li><a href="#org15a5645">Xprofile</a>
 <ul>
-<li><a href="#org0392a45">.xprofile</a></li>
+<li><a href="#orgb224fe5">.xprofile</a></li>
 </ul>
 </li>
-<li><a href="#orgfb9b82f">Xinit</a>
+<li><a href="#org162c2d6">Xinit</a>
 <ul>
-<li><a href="#org9f15278">.xinitrc</a></li>
+<li><a href="#org8ce3ce1">.xinitrc</a></li>
 </ul>
 </li>
-<li><a href="#orgde6a271">Xresources</a>
+<li><a href="#orgc826f2f">Xresources</a>
 <ul>
-<li><a href="#org48d0022">.Xresouces</a></li>
-<li><a href="#org5fa7859">Modules</a>
+<li><a href="#orgb2bfd61">.Xresouces</a></li>
+<li><a href="#org822a02e">Modules</a>
 <ul>
-<li><a href="#org57155b4">xterm</a></li>
-<li><a href="#orgbe73206">URxvt</a></li>
-<li><a href="#orge1be094">x11-ssh-askpass</a></li>
-<li><a href="#orge946ada">xcalc</a></li>
-<li><a href="#org1a0232c">xclock</a></li>
-<li><a href="#org5daccb9">xscreensaver</a></li>
-<li><a href="#org563e4f4">colors</a></li>
+<li><a href="#orgbc6cd0c">xterm</a></li>
+<li><a href="#orgef0e4c3">URxvt</a></li>
+<li><a href="#orgca059ef">x11-ssh-askpass</a></li>
+<li><a href="#org32838c5">xcalc</a></li>
+<li><a href="#org9f93df5">xclock</a></li>
+<li><a href="#org3160d4a">xscreensaver</a></li>
+<li><a href="#org3c109c2">colors</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc2d5cfd">Xsettingsd</a></li>
-<li><a href="#org75bdbb1">Scripts</a>
+<li><a href="#org58a1137">Xsettingsd</a></li>
+<li><a href="#orge729fe1">Scripts</a>
 <ul>
-<li><a href="#orgdd08dac">monitor-setup</a></li>
-<li><a href="#org4bbc280">showclip</a></li>
+<li><a href="#org567df82">monitor-setup</a></li>
+<li><a href="#orgd9928e5">showclip</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org31e8c94" class="outline-2">
-<h2 id="org31e8c94">About</h2>
+<div id="outline-container-orgcdaa090" class="outline-2">
+<h2 id="orgcdaa090">About</h2>
 </div>
-<div id="outline-container-org31b151a" class="outline-2">
-<h2 id="org31b151a">Xprofile</h2>
-<div class="outline-text-2" id="text-org31b151a">
+<div id="outline-container-org15a5645" class="outline-2">
+<h2 id="org15a5645">Xprofile</h2>
+<div class="outline-text-2" id="text-org15a5645">
 </div>
-<div id="outline-container-org0392a45" class="outline-3">
-<h3 id="org0392a45">.xprofile</h3>
-<div class="outline-text-3" id="text-org0392a45">
+<div id="outline-container-orgb224fe5" class="outline-3">
+<h3 id="orgb224fe5">.xprofile</h3>
+<div class="outline-text-3" id="text-orgb224fe5">
 <p>
 This file (and also <code>/etc/xprofile</code> if exists) will be executed at the beginning of X user session, before the window manager starts.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xprofile</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">user X session startup file.</span>
-<span class="linenr"> 3: </span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a></span>
-<span class="linenr"> 4: </span>
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xprofile
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">user X session startup file.
+<span class="linenr"> 3: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a>
+<span class="linenr"> 4: </span></span>
 <span class="linenr"> 5: </span><span style="color: #4169e1;">if</span> [ -d <span style="color: #bc8f8f;">"${HOME}/.config/xprofile.d"</span> ]; <span style="color: #4169e1;">then</span>
 <span class="linenr"> 6: </span>    <span style="color: #4169e1;">for</span> xfiles<span style="color: #4169e1;"> in</span> <span style="color: #bc8f8f;">"${HOME}"</span>/.config/xprofile.d/*.sh; <span style="color: #4169e1;">do</span>
-<span class="linenr"> 7: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1090</span>
-<span class="linenr"> 8: </span>        . <span style="color: #bc8f8f;">"${xfiles}"</span>
+<span class="linenr"> 7: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1090
+<span class="linenr"> 8: </span></span>        <span style="color: #00008b;">.</span> <span style="color: #bc8f8f;">"${xfiles}"</span>
 <span class="linenr"> 9: </span>    <span style="color: #4169e1;">done</span>
 <span class="linenr">10: </span>    <span style="color: #00008b;">unset</span> xfiles
 <span class="linenr">11: </span><span style="color: #4169e1;">fi</span>
 <span class="linenr">12: </span>
-<span class="linenr">13: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1091</span>
-<span class="linenr">14: </span>[ -f <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/xprofile.local ] &amp;&amp; . <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/xprofile.local
-<span class="linenr">15: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1091</span>
-<span class="linenr">16: </span>[ -f <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile.local ] &amp;&amp; . <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile.local
+<span class="linenr">13: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1091
+<span class="linenr">14: </span></span>[ -f <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/xprofile.local ] &amp;&amp; <span style="color: #00008b;">.</span> <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/xprofile.local
+<span class="linenr">15: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1091
+<span class="linenr">16: </span></span>[ -f <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile.local ] &amp;&amp; <span style="color: #00008b;">.</span> <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile.local
 </pre>
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="orgb90c380"></a>Modules<br />
+<li><a id="orgce3de4b"></a>Modules<br />
 <ul class="org-ul">
-<li><a id="org757886a"></a>00-security.sh<br />
-<div class="outline-text-6" id="text-org757886a">
+<li><a id="org833af01"></a>00-security.sh<br />
+<div class="outline-text-6" id="text-org833af01">
 <p>
 This script will set up any security-related environment variables, start various programs and <i>dbus</i>-related settings.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui-related security settings</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a></span>
-<span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(command -v gnome-keyring-daemon)"</span> ] &amp;&amp;
-<span class="linenr"> 5: </span>       [ ! $(pgrep -u ${<span style="color: #b8860b;">USER</span>} -x gnome-keyring-d) ];<span style="color: #4169e1;">then</span>
-<span class="linenr"> 6: </span>    <span style="color: #00008b;">eval</span> <span style="color: #bc8f8f;">"$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"</span> &gt;/dev/null 2&gt;&amp;1
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui-related security settings
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a>
+<span class="linenr"> 3: </span></span>
+<span class="linenr"> 4: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">command -v gnome-keyring-daemon</span><span style="color: #bc8f8f;">)"</span> ] &amp;&amp;
+<span class="linenr"> 5: </span>       [ ! $(<span style="font-weight: bold;">pgrep -u ${USER} -x gnome-keyring-d</span>) ];<span style="color: #4169e1;">then</span>
+<span class="linenr"> 6: </span>    <span style="color: #00008b;">eval</span> <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">gnome-keyring-daemon --start --components=pkcs11,secrets,ssh</span><span style="color: #bc8f8f;">)"</span> &gt;/dev/null 2&gt;&amp;1
 <span class="linenr"> 7: </span>    <span style="color: #00008b;">export</span> SSH_AUTH_SOCK GNOME_KEYRING_CONTROL
 <span class="linenr"> 8: </span><span style="color: #4169e1;">fi</span>
 <span class="linenr"> 9: </span><span style="color: #4169e1;">case</span> <span style="color: #bc8f8f;">"${DISTRO}"</span><span style="color: #4169e1;"> in</span>
@@ -122,8 +122,8 @@ This script will set up any security-related environment variables, start variou
 <span class="linenr">12: </span>            <span style="color: #00008b;">export</span> <span style="color: #b8860b;">SSH_ASKPASS</span>=/usr/bin/x11-ssh-askpass &amp;&amp;
 <span class="linenr">13: </span>            <span style="color: #00008b;">export</span> <span style="color: #b8860b;">SUDO_ASKPASS</span>=/usr/bin/x11-ssh-askpass
 <span class="linenr">14: </span>
-<span class="linenr">15: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">polkit</span>
-<span class="linenr">16: </span>        <span style="color: #4169e1;">if</span> [ ! <span style="color: #bc8f8f;">"$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)"</span> ];<span style="color: #4169e1;">then</span>
+<span class="linenr">15: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">polkit
+<span class="linenr">16: </span></span>        <span style="color: #4169e1;">if</span> [ ! <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1</span><span style="color: #bc8f8f;">)"</span> ];<span style="color: #4169e1;">then</span>
 <span class="linenr">17: </span>            sleep 1 &amp;&amp; /usr/libexec/polkit-kde-authentication-agent-1 &amp;
 <span class="linenr">18: </span>        <span style="color: #4169e1;">fi</span>
 <span class="linenr">19: </span>        ;;
@@ -134,13 +134,13 @@ This script will set up any security-related environment variables, start variou
 <span class="linenr">24: </span>            <span style="color: #00008b;">export</span> <span style="color: #b8860b;">SSH_ASKPASS</span>=ssh-askpass
 <span class="linenr">25: </span>            <span style="color: #00008b;">export</span> <span style="color: #b8860b;">SUDO_ASKPASS</span>=<span style="color: #bc8f8f;">"${HOME}"</span>/.local/bin/ssh-askpass
 <span class="linenr">26: </span>        <span style="color: #4169e1;">fi</span>
-<span class="linenr">27: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">polkit</span>
-<span class="linenr">28: </span>        <span style="color: #4169e1;">if</span> [ ! <span style="color: #bc8f8f;">"$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)"</span> ];<span style="color: #4169e1;">then</span>
+<span class="linenr">27: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">polkit
+<span class="linenr">28: </span></span>        <span style="color: #4169e1;">if</span> [ ! <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1</span><span style="color: #bc8f8f;">)"</span> ];<span style="color: #4169e1;">then</span>
 <span class="linenr">29: </span>            sleep 1 &amp;&amp; /usr/lib/polkit-kde-authentication-agent-1 &amp;
 <span class="linenr">30: </span>        <span style="color: #4169e1;">fi</span>
 <span class="linenr">31: </span>
-<span class="linenr">32: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">keyring</span>
-<span class="linenr">33: </span>        [ <span style="color: #bc8f8f;">"$(command -v dbus-update-activation-environment)"</span> ] &amp;&amp;
+<span class="linenr">32: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">keyring
+<span class="linenr">33: </span></span>        [ <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">command -v dbus-update-activation-environment</span><span style="color: #bc8f8f;">)"</span> ] &amp;&amp;
 <span class="linenr">34: </span>            dbus-update-activation-environment --systemd DISPLAY
 <span class="linenr">35: </span>        ;;
 <span class="linenr">36: </span>    freebsd)
@@ -148,13 +148,13 @@ This script will set up any security-related environment variables, start variou
 <span class="linenr">38: </span>            <span style="color: #00008b;">export</span> <span style="color: #b8860b;">SSH_ASKPASS</span>=/usr/local/bin/x11-ssh-askpass &amp;&amp;
 <span class="linenr">39: </span>            <span style="color: #00008b;">export</span> <span style="color: #b8860b;">SUDO_ASKPASS</span>=/usr/local/bin/x11-ssh-askpass
 <span class="linenr">40: </span>
-<span class="linenr">41: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">polkit</span>
-<span class="linenr">42: </span>        <span style="color: #4169e1;">if</span> [ ! <span style="color: #bc8f8f;">"$(pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1)"</span> ];<span style="color: #4169e1;">then</span>
+<span class="linenr">41: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">polkit
+<span class="linenr">42: </span></span>        <span style="color: #4169e1;">if</span> [ ! <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">pgrep -f -u ${USER} -x polkit-kde-authentication-agent-1</span><span style="color: #bc8f8f;">)"</span> ];<span style="color: #4169e1;">then</span>
 <span class="linenr">43: </span>            sleep 1 &amp;&amp; /usr/local/libexec/polkit-kde-authentication-agent-1 &amp;
 <span class="linenr">44: </span>        <span style="color: #4169e1;">fi</span>
 <span class="linenr">45: </span>
-<span class="linenr">46: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">keyring</span>
-<span class="linenr">47: </span>        [ <span style="color: #bc8f8f;">"$(command -v dbus-update-activation-environment)"</span> ] &amp;&amp;
+<span class="linenr">46: </span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">keyring
+<span class="linenr">47: </span></span>        [ <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">command -v dbus-update-activation-environment</span><span style="color: #bc8f8f;">)"</span> ] &amp;&amp;
 <span class="linenr">48: </span>            dbus-update-activation-environment DISPLAY
 <span class="linenr">49: </span>        ;;
 <span class="linenr">50: </span><span style="color: #4169e1;">esac</span>
@@ -162,17 +162,17 @@ This script will set up any security-related environment variables, start variou
 </div>
 </div>
 </li>
-<li><a id="orgef3d2e8"></a>01-gtk-path.sh<br />
-<div class="outline-text-6" id="text-orgef3d2e8">
+<li><a id="org57b448b"></a>01-gtk-path.sh<br />
+<div class="outline-text-6" id="text-org57b448b">
 <p>
 Most <i>GTK</i> settings uses the <code>gsetting</code> command, but some application still uses environment variable when looking for <i>GTK</i> theme. And for <i>GTK-2.0</i>, sets the configuration to the <code>/.config/</code> directory.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/01-gtk-path.sh</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">set new location for GTK and GTK2</span>
-<span class="linenr"> 3: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">https://wiki.archlinux.org/title/XDG_Base_Directory</span>
-<span class="linenr"> 4: </span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a></span>
-<span class="linenr"> 5: </span>
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/01-gtk-path.sh
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">set new location for GTK and GTK2
+<span class="linenr"> 3: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">https://wiki.archlinux.org/title/XDG_Base_Directory
+<span class="linenr"> 4: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a>
+<span class="linenr"> 5: </span></span>
 <span class="linenr"> 6: </span><span style="color: #00008b;">export</span> <span style="color: #b8860b;">GTK_RC_FILES</span>=<span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/gtk-1.0/gtkrc
 <span class="linenr"> 7: </span>[ -d <span style="color: #bc8f8f;">"${GTK_RC_FILES%%/gtkrc}"</span> ] &amp;&amp; mkdir -p <span style="color: #bc8f8f;">"${GTK_RC_FILES%%/gtkrc}"</span>
 <span class="linenr"> 8: </span><span style="color: #00008b;">export</span> <span style="color: #b8860b;">GTK2_RC_FILES</span>=<span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/gtk-2.0/gtkrc
@@ -183,27 +183,27 @@ Most <i>GTK</i> settings uses the <code>gsetting</code> command, but some applic
 </div>
 </div>
 </li>
-<li><a id="orga962801"></a>02-notification.sh<br />
-<div class="outline-text-6" id="text-orga962801">
+<li><a id="org25fbb1c"></a>02-notification.sh<br />
+<div class="outline-text-6" id="text-org25fbb1c">
 <p>
 For most distribution that uses <i>systemd</i>, to avoid race with dbus. For those who doesn't, it should be set in their own init.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/02-notification.sh</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">notification settings</span>
-<span class="linenr"> 3: </span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a></span>
-<span class="linenr"> 4: </span>
-<span class="linenr"> 5: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">dunst</span>
-<span class="linenr"> 6: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(command -v dunst)"</span> ];<span style="color: #4169e1;">then</span>
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/02-notification.sh
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">notification settings
+<span class="linenr"> 3: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a>
+<span class="linenr"> 4: </span></span>
+<span class="linenr"> 5: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">dunst
+<span class="linenr"> 6: </span></span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">command -v dunst</span><span style="color: #bc8f8f;">)"</span> ];<span style="color: #4169e1;">then</span>
 <span class="linenr"> 7: </span>    <span style="color: #4169e1;">case</span> <span style="color: #bc8f8f;">"${DISTRO}"</span><span style="color: #4169e1;"> in</span>
 <span class="linenr"> 8: </span>        arch)
-<span class="linenr"> 9: </span>            <span style="color: #4169e1;">case</span> <span style="color: #bc8f8f;">"$(systemctl --user is-active dunst)"</span><span style="color: #4169e1;"> in</span>
+<span class="linenr"> 9: </span>            <span style="color: #4169e1;">case</span> <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">systemctl --user is-active dunst</span><span style="color: #bc8f8f;">)"</span><span style="color: #4169e1;"> in</span>
 <span class="linenr">10: </span>                <span style="color: #bc8f8f;">"inactive"</span>)
 <span class="linenr">11: </span>                    [ -n <span style="color: #bc8f8f;">"${DISPLAY}"</span> ] &amp;&amp; systemctl --user start dunst
 <span class="linenr">12: </span>                    ;;
 <span class="linenr">13: </span>                <span style="color: #bc8f8f;">"active"</span>)
-<span class="linenr">14: </span>                    <span style="color: #b22222;"># </span><span style="color: #b22222;">Restart if active</span>
-<span class="linenr">15: </span>                    [ -n <span style="color: #bc8f8f;">"${DISPLAY}"</span> ] &amp;&amp; systemctl --user restart dunst
+<span class="linenr">14: </span>                    <span style="color: #b22222;"># </span><span style="color: #b22222;">Restart if active
+<span class="linenr">15: </span></span>                    [ -n <span style="color: #bc8f8f;">"${DISPLAY}"</span> ] &amp;&amp; systemctl --user restart dunst
 <span class="linenr">16: </span>                    ;;
 <span class="linenr">17: </span>            <span style="color: #4169e1;">esac</span>
 <span class="linenr">18: </span>            ;;
@@ -213,22 +213,22 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org6f1f140"></a>03-sxhkd.sh<br />
-<div class="outline-text-6" id="text-org6f1f140">
+<li><a id="org43ce047"></a>03-sxhkd.sh<br />
+<div class="outline-text-6" id="text-org43ce047">
 <p>
 <i>sxhkd</i> is a simple X hotkey daemon. It will react to input events by executing commands.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/03-sxhkd.sh</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">sxhkd settings</span>
-<span class="linenr"> 3: </span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a></span>
-<span class="linenr"> 4: </span>
-<span class="linenr"> 5: </span><span style="color: #4169e1;">if</span> [ -z <span style="color: #bc8f8f;">"${_NO_SXHKD}"</span> ] &amp;&amp; [ ! $(pgrep -u ${<span style="color: #b8860b;">USER</span>} -x sxhkd) ] &amp;&amp;
-<span class="linenr"> 6: </span>       [ $(command -v sxhkd) ]; <span style="color: #4169e1;">then</span>
-<span class="linenr"> 7: </span>    <span style="color: #4169e1;">if</span> [ -e <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc.local ];<span style="color: #4169e1;">then</span> <span style="color: #b22222;"># </span><span style="color: #b22222;">per-user configuration</span>
-<span class="linenr"> 8: </span>        sxhkd -c <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc.local &amp;
-<span class="linenr"> 9: </span>    <span style="color: #4169e1;">elif</span> [ -e <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc-<span style="color: #bc8f8f;">"${DISTRO}"</span> ];<span style="color: #4169e1;">then</span> <span style="color: #b22222;"># </span><span style="color: #b22222;">per-distro configuration, i.e. sxhkdrc-arch</span>
-<span class="linenr">10: </span>        sxhkd -c <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc-<span style="color: #bc8f8f;">"${DISTRO}"</span> &amp;
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/03-sxhkd.sh
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">sxhkd settings
+<span class="linenr"> 3: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a>
+<span class="linenr"> 4: </span></span>
+<span class="linenr"> 5: </span><span style="color: #4169e1;">if</span> [ -z <span style="color: #bc8f8f;">"${_NO_SXHKD}"</span> ] &amp;&amp; [ ! $(<span style="font-weight: bold;">pgrep -u ${USER} -x sxhkd</span>) ] &amp;&amp;
+<span class="linenr"> 6: </span>       [ $(<span style="font-weight: bold;">command -v sxhkd</span>) ]; <span style="color: #4169e1;">then</span>
+<span class="linenr"> 7: </span>    <span style="color: #4169e1;">if</span> [ -e <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc.local ];<span style="color: #4169e1;">then</span> <span style="color: #b22222;"># </span><span style="color: #b22222;">per-user configuration
+<span class="linenr"> 8: </span></span>        sxhkd -c <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc.local &amp;
+<span class="linenr"> 9: </span>    <span style="color: #4169e1;">elif</span> [ -e <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc-<span style="color: #bc8f8f;">"${DISTRO}"</span> ];<span style="color: #4169e1;">then</span> <span style="color: #b22222;"># </span><span style="color: #b22222;">per-distro configuration, i.e. sxhkdrc-arch
+<span class="linenr">10: </span></span>        sxhkd -c <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc-<span style="color: #bc8f8f;">"${DISTRO}"</span> &amp;
 <span class="linenr">11: </span>    <span style="color: #4169e1;">else</span>
 <span class="linenr">12: </span>        sxhkd -c <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/sxhkd/sxhkdrc &amp;
 <span class="linenr">13: </span>    <span style="color: #4169e1;">fi</span>
@@ -237,24 +237,24 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org7739655"></a>05-network.sh<br />
-<div class="outline-text-6" id="text-org7739655">
+<li><a id="org8bc7ca0"></a>05-network.sh<br />
+<div class="outline-text-6" id="text-org8bc7ca0">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/05-network.sh</span>
-<span class="linenr">2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various networking app</span>
+<pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/05-network.sh
+<span class="linenr">2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">various networking app</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orgd681a14"></a>06-ui.sh<br />
-<div class="outline-text-6" id="text-orgd681a14">
+<li><a id="orge3018b6"></a>06-ui.sh<br />
+<div class="outline-text-6" id="text-orge3018b6">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/06-ui.sh</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui settings</span>
-<span class="linenr"> 3: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">monitor</span>
-<span class="linenr"> 4: </span><span style="color: #b8860b;">_count</span>=0
-<span class="linenr"> 5: </span><span style="color: #4169e1;">for</span> i<span style="color: #4169e1;"> in</span> $(xrandr | grep <span style="color: #bc8f8f;">" connected"</span>| awk <span style="color: #bc8f8f;">'{print $1}'</span>);<span style="color: #4169e1;">do</span>
-<span class="linenr"> 6: </span>    <span style="color: #b8860b;">_count</span>=$((_count+1))
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/06-ui.sh
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui settings
+<span class="linenr"> 3: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">monitor
+<span class="linenr"> 4: </span></span><span style="color: #b8860b;">_count</span>=0
+<span class="linenr"> 5: </span><span style="color: #4169e1;">for</span> i<span style="color: #4169e1;"> in</span> $(<span style="font-weight: bold;">xrandr | grep " connected"| awk '{print $1}'</span>);<span style="color: #4169e1;">do</span>
+<span class="linenr"> 6: </span>    <span style="color: #b8860b;">_count</span>=$(<span style="font-weight: bold;">(_count+1</span>))
 <span class="linenr"> 7: </span>    <span style="color: #00008b;">export</span> MONITOR${<span style="color: #b8860b;">_count</span>}=${<span style="color: #b8860b;">i</span>}
 <span class="linenr"> 8: </span><span style="color: #4169e1;">done</span>
 <span class="linenr"> 9: </span><span style="color: #00008b;">unset</span> _count
@@ -274,20 +274,20 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org3d632d0"></a>07-filemanager.sh<br />
-<div class="outline-text-6" id="text-org3d632d0">
+<li><a id="orge702f88"></a>07-filemanager.sh<br />
+<div class="outline-text-6" id="text-orge702f88">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/07-filemanager.sh</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">file manager configuration</span>
-<span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>[ <span style="color: #bc8f8f;">"$(command -v udiskie)"</span> ] &amp;&amp;
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/07-filemanager.sh
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">file manager configuration
+<span class="linenr"> 3: </span></span>
+<span class="linenr"> 4: </span>[ <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">command -v udiskie</span><span style="color: #bc8f8f;">)"</span> ] &amp;&amp;
 <span class="linenr"> 5: </span>    udiskie &amp;
 <span class="linenr"> 6: </span>
 <span class="linenr"> 7: </span>[ <span style="color: #bc8f8f;">"${_WM}"</span> = <span style="color: #bc8f8f;">"i3"</span> ] &amp;&amp;
 <span class="linenr"> 8: </span>    <span style="color: #00008b;">export</span> <span style="color: #b8860b;">_NO_PCMANFM</span>=1
 <span class="linenr"> 9: </span>
-<span class="linenr">10: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">pcmanfm</span>
-<span class="linenr">11: </span><span style="color: #4169e1;">if</span> [ $(command -v pcmanfm) ] &amp;&amp;
+<span class="linenr">10: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">pcmanfm
+<span class="linenr">11: </span></span><span style="color: #4169e1;">if</span> [ $(<span style="font-weight: bold;">command -v pcmanfm</span>) ] &amp;&amp;
 <span class="linenr">12: </span>       [ -z ${<span style="color: #b8860b;">_NO_PCMANFM</span>} ]; <span style="color: #4169e1;">then</span>
 <span class="linenr">13: </span>    pcmanfm --desktop -d &amp;
 <span class="linenr">14: </span><span style="color: #4169e1;">fi</span>
@@ -295,26 +295,26 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org928c43e"></a>08-multimedia.sh<br />
-<div class="outline-text-6" id="text-org928c43e">
+<li><a id="org93efdbd"></a>08-multimedia.sh<br />
+<div class="outline-text-6" id="text-org93efdbd">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/08-multimedia.sh</span>
-<span class="linenr">2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">various multimedia app</span>
-<span class="linenr">3: </span>
-<span class="linenr">4: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">mpd</span>
-<span class="linenr">5: </span><span style="color: #4169e1;">if</span> [ $(command -v mpd) ] &amp;&amp; [ ! $(pgrep -u ${<span style="color: #b8860b;">USER</span>} mpd) ];<span style="color: #4169e1;">then</span>
+<pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/08-multimedia.sh
+<span class="linenr">2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">various multimedia app
+<span class="linenr">3: </span></span>
+<span class="linenr">4: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">mpd
+<span class="linenr">5: </span></span><span style="color: #4169e1;">if</span> [ $(<span style="font-weight: bold;">command -v mpd</span>) ] &amp;&amp; [ ! $(<span style="font-weight: bold;">pgrep -u ${USER} mpd</span>) ];<span style="color: #4169e1;">then</span>
 <span class="linenr">6: </span>    [ ! -e <span style="color: #bc8f8f;">"${XDG_CONFIG_HOME}"</span>/mpd/pid ] &amp;&amp; mpd <span style="color: #bc8f8f;">"${mpd_conf_file}"</span> &amp;
 <span class="linenr">7: </span><span style="color: #4169e1;">fi</span>
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org25f58c4"></a>09-x0vnc.sh<br />
-<div class="outline-text-6" id="text-org25f58c4">
+<li><a id="orgd1ecaf4"></a>09-x0vnc.sh<br />
+<div class="outline-text-6" id="text-orgd1ecaf4">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/09-x0vnc.sh</span>
-<span style="color: #b22222;"># </span><span style="color: #b22222;">x0vnc</span>
-
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/09-x0vnc.sh
+</span><span style="color: #b22222;"># </span><span style="color: #b22222;">x0vnc
+</span>
 <span style="color: #4169e1;">case</span> <span style="color: #bc8f8f;">"${HOSTNAME}"</span><span style="color: #4169e1;"> in</span>
     <span style="color: #bc8f8f;">"tanzania"</span>)
         x0vncserver -rfbauth ~/.vnc/passwd -UseIPv6 -rfbport 5912 &amp;
@@ -324,12 +324,12 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org230c8de"></a>99-ddgr.sh<br />
-<div class="outline-text-6" id="text-org230c8de">
+<li><a id="org2877187"></a>99-ddgr.sh<br />
+<div class="outline-text-6" id="text-org2877187">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/99-ddgr.sh</span>
-<span style="color: #b22222;"># </span><span style="color: #b22222;">duckduckgo rofi</span>
-<span style="color: #4169e1;">if</span> [ $(command -v ddgr) ] &amp;&amp; [ $(command -v rofi-search) ]; <span style="color: #4169e1;">then</span>
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/99-ddgr.sh
+</span><span style="color: #b22222;"># </span><span style="color: #b22222;">duckduckgo rofi
+</span><span style="color: #4169e1;">if</span> [ $(<span style="font-weight: bold;">command -v ddgr</span>) ] &amp;&amp; [ $(<span style="font-weight: bold;">command -v rofi-search</span>) ]; <span style="color: #4169e1;">then</span>
     <span style="color: #00008b;">export</span> <span style="color: #b8860b;">ROFI_SEARCH</span>=ddgr
 <span style="color: #4169e1;">fi</span>
 </pre>
@@ -341,20 +341,20 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfb9b82f" class="outline-2">
-<h2 id="orgfb9b82f">Xinit</h2>
-<div class="outline-text-2" id="text-orgfb9b82f">
+<div id="outline-container-org162c2d6" class="outline-2">
+<h2 id="org162c2d6">Xinit</h2>
+<div class="outline-text-2" id="text-org162c2d6">
 </div>
-<div id="outline-container-org9f15278" class="outline-3">
-<h3 id="org9f15278">.xinitrc</h3>
-<div class="outline-text-3" id="text-org9f15278">
+<div id="outline-container-org8ce3ce1" class="outline-3">
+<h3 id="org8ce3ce1">.xinitrc</h3>
+<div class="outline-text-3" id="text-org8ce3ce1">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xinitrc</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">Configuration script for manual X session.</span>
-<span class="linenr"> 3: </span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a></span>
-<span class="linenr"> 4: </span><span style="color: #b8860b;">userresources</span>=${<span style="color: #b8860b;">HOME</span>}/.Xresources
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xinitrc
+<span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">Configuration script for manual X session.
+<span class="linenr"> 3: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;"><a href="mailto:alexforsale%40yahoo.com">&lt;alexforsale@yahoo.com&gt;</a>
+<span class="linenr"> 4: </span></span><span style="color: #b8860b;">userresources</span>=${<span style="color: #b8860b;">HOME</span>}/.Xresources
 <span class="linenr"> 5: </span><span style="color: #b8860b;">usermodmap</span>=${<span style="color: #b8860b;">HOME</span>}/.Xmodmap
-<span class="linenr"> 6: </span><span style="color: #b8860b;">OS</span>=$(uname -s)
+<span class="linenr"> 6: </span><span style="color: #b8860b;">OS</span>=$(<span style="font-weight: bold;">uname -s</span>)
 <span class="linenr"> 7: </span>
 <span class="linenr"> 8: </span><span style="color: #4169e1;">case</span> <span style="color: #bc8f8f;">"${OS}"</span><span style="color: #4169e1;"> in</span>
 <span class="linenr"> 9: </span>    <span style="color: #bc8f8f;">"Linux"</span>)
@@ -382,21 +382,21 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 <span class="linenr">31: </span>
 <span class="linenr">32: </span>[ -f <span style="color: #bc8f8f;">"${usermodmap}"</span> ] &amp;&amp;
 <span class="linenr">33: </span>    xmodmap <span style="color: #bc8f8f;">"${usermodmap}"</span>
-<span class="linenr">34: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1090</span>
-<span class="linenr">35: </span><span style="color: #4169e1;">if</span> [ -d /etc/X11/xinit/xinitrc.d ] ; <span style="color: #4169e1;">then</span>
+<span class="linenr">34: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">shellcheck disable=1090
+<span class="linenr">35: </span></span><span style="color: #4169e1;">if</span> [ -d /etc/X11/xinit/xinitrc.d ] ; <span style="color: #4169e1;">then</span>
 <span class="linenr">36: </span>    <span style="color: #4169e1;">for</span> f<span style="color: #4169e1;"> in</span> /etc/X11/xinit/xinitrc.d/?*.sh ; <span style="color: #4169e1;">do</span>
-<span class="linenr">37: </span>        [ -x <span style="color: #bc8f8f;">"${f}"</span> ] &amp;&amp; . <span style="color: #bc8f8f;">"${f}"</span>
+<span class="linenr">37: </span>        [ -x <span style="color: #bc8f8f;">"${f}"</span> ] &amp;&amp; <span style="color: #00008b;">.</span> <span style="color: #bc8f8f;">"${f}"</span>
 <span class="linenr">38: </span>    <span style="color: #4169e1;">done</span>
 <span class="linenr">39: </span>    <span style="color: #00008b;">unset</span> f
 <span class="linenr">40: </span><span style="color: #4169e1;">fi</span>
-<span class="linenr">41: </span>[ -f /etc/xprofile ] &amp;&amp; . /etc/xprofile
-<span class="linenr">42: </span>[ -f <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile ] &amp;&amp; . <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile
-<span class="linenr">43: </span>[ -z ${<span style="color: #b8860b;">DESKTOP_SESSION</span>} ] &amp;&amp; <span style="color: #00008b;">export</span> <span style="color: #b8860b;">DESKTOP_SESSION</span>=${<span style="color: #b8860b;">1</span>:-exwm}
-<span class="linenr">44: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">for archlinux</span>
-<span class="linenr">45: </span>[ -d /usr/share/backgrounds/archlinux/ ] &amp;&amp;
+<span class="linenr">41: </span>[ -f /etc/xprofile ] &amp;&amp; <span style="color: #00008b;">.</span> /etc/xprofile
+<span class="linenr">42: </span>[ -f <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile ] &amp;&amp; <span style="color: #00008b;">.</span> <span style="color: #bc8f8f;">"${HOME}"</span>/.xprofile
+<span class="linenr">43: </span>[ -z ${<span style="color: #b8860b;">DESKTOP_SESSION</span>} ] &amp;&amp; <span style="color: #00008b;">export</span> <span style="color: #b8860b;">DESKTOP_SESSION</span>=${<span style="color: #b8860b;">1</span>:-i3}
+<span class="linenr">44: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">for archlinux
+<span class="linenr">45: </span></span>[ -d /usr/share/backgrounds/archlinux/ ] &amp;&amp;
 <span class="linenr">46: </span>    feh -zr --bg-fill /usr/share/backgrounds/archlinux/
-<span class="linenr">47: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">FreeBSD</span>
-<span class="linenr">48: </span>[ -d /usr/local/share/wallpapers/freebsd-8k-wallpapers/ ] &amp;&amp;
+<span class="linenr">47: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">FreeBSD
+<span class="linenr">48: </span></span>[ -d /usr/local/share/wallpapers/freebsd-8k-wallpapers/ ] &amp;&amp;
 <span class="linenr">49: </span>    feh -zr --bg-fill /usr/local/share/wallpapers/freebsd-8k-wallpapers/
 <span class="linenr">50: </span><span style="color: #4169e1;">for</span> chemacs_profile<span style="color: #4169e1;"> in</span> ~/.emacs-profile ~/.config/chemacs/profile; <span style="color: #4169e1;">do</span>
 <span class="linenr">51: </span>    <span style="color: #4169e1;">if</span> [ -e ${<span style="color: #b8860b;">chemacs_profile</span>} ]; <span style="color: #4169e1;">then</span>
@@ -415,9 +415,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 <span class="linenr">64: </span>        <span style="color: #4169e1;">exec</span> qtile start
 <span class="linenr">65: </span>        ;;
 <span class="linenr">66: </span>    <span style="color: #bc8f8f;">"stumpwm"</span>)
-<span class="linenr">67: </span>        <span style="color: #4169e1;">if</span> [ $(command -v ros) ]; <span style="color: #4169e1;">then</span>
+<span class="linenr">67: </span>        <span style="color: #4169e1;">if</span> [ $(<span style="font-weight: bold;">command -v ros</span>) ]; <span style="color: #4169e1;">then</span>
 <span class="linenr">68: </span>            <span style="color: #4169e1;">exec</span> ros run -- --load /usr/local/bin/startstumpwm
-<span class="linenr">69: </span>        <span style="color: #4169e1;">elif</span> [ $(command -v sbcl) ]; <span style="color: #4169e1;">then</span>
+<span class="linenr">69: </span>        <span style="color: #4169e1;">elif</span> [ $(<span style="font-weight: bold;">command -v sbcl</span>) ]; <span style="color: #4169e1;">then</span>
 <span class="linenr">70: </span>            <span style="color: #4169e1;">exec</span> sbcl --load /usr/local/bin/startstumpwm
 <span class="linenr">71: </span>        <span style="color: #4169e1;">fi</span>
 <span class="linenr">72: </span>        ;;
@@ -430,22 +430,22 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgde6a271" class="outline-2">
-<h2 id="orgde6a271">Xresources</h2>
-<div class="outline-text-2" id="text-orgde6a271">
+<div id="outline-container-orgc826f2f" class="outline-2">
+<h2 id="orgc826f2f">Xresources</h2>
+<div class="outline-text-2" id="text-orgc826f2f">
 </div>
-<div id="outline-container-org48d0022" class="outline-3">
-<h3 id="org48d0022">.Xresouces</h3>
-<div class="outline-text-3" id="text-org48d0022">
+<div id="outline-container-orgb2bfd61" class="outline-3">
+<h3 id="orgb2bfd61">.Xresouces</h3>
+<div class="outline-text-3" id="text-orgb2bfd61">
 <div class="org-src-container">
-<pre class="src src-conf"><span class="linenr"> 1: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xterm"</span>
-<span class="linenr"> 2: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/URxvt"</span>
-<span class="linenr"> 3: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/x11-ssh-askpass"</span>
-<span class="linenr"> 4: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xcalc"</span>
-<span class="linenr"> 5: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xclock"</span>
-<span class="linenr"> 6: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xscreensaver"</span>
-<span class="linenr"> 7: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/colors"</span>
-<span class="linenr"> 8: </span>
+<pre class="src src-conf"><span class="linenr"> 1: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xterm"
+<span class="linenr"> 2: </span></span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/URxvt"
+<span class="linenr"> 3: </span></span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/x11-ssh-askpass"
+<span class="linenr"> 4: </span></span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xcalc"
+<span class="linenr"> 5: </span></span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xclock"
+<span class="linenr"> 6: </span></span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xscreensaver"
+<span class="linenr"> 7: </span></span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/colors"
+<span class="linenr"> 8: </span></span>
 <span class="linenr"> 9: </span>! cursor theme
 <span class="linenr">10: </span>Xcursor.theme: Bibata-Modern-Classic
 <span class="linenr">11: </span>Xcursor.size: 24
@@ -460,13 +460,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org5fa7859" class="outline-3">
-<h3 id="org5fa7859">Modules</h3>
-<div class="outline-text-3" id="text-org5fa7859">
+<div id="outline-container-org822a02e" class="outline-3">
+<h3 id="org822a02e">Modules</h3>
+<div class="outline-text-3" id="text-org822a02e">
 </div>
-<div id="outline-container-org57155b4" class="outline-4">
-<h4 id="org57155b4">xterm</h4>
-<div class="outline-text-4" id="text-org57155b4">
+<div id="outline-container-orgbc6cd0c" class="outline-4">
+<h4 id="orgbc6cd0c">xterm</h4>
+<div class="outline-text-4" id="text-orgbc6cd0c">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xterm*termName: xterm-256color
 <span class="linenr"> 2: </span>xterm.vt100.geometry: 80x24
@@ -477,8 +477,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 <span class="linenr"> 7: </span>xterm*scrollTtyOutput: False
 <span class="linenr"> 8: </span>xterm.selectToClipboard: true
 <span class="linenr"> 9: </span>xterm.*backarrowKey: false
-<span class="linenr">10: </span>xterm*translations: <span style="color: #b22222;">#</span><span style="color: #b22222;">override \</span>
-<span class="linenr">11: </span>Ctrl Shift &lt;KeyPress&gt; C: copy-selection(CLIPBOARD) \n\
+<span class="linenr">10: </span>xterm*translations: <span style="color: #b22222;">#</span><span style="color: #b22222;">override \
+<span class="linenr">11: </span></span>Ctrl Shift &lt;KeyPress&gt; C: copy-selection(CLIPBOARD) \n\
 <span class="linenr">12: </span>Ctrl Shift &lt;KeyPress&gt; V: insert-selection(CLIPBOARD) \n\
 <span class="linenr">13: </span>Ctrl &lt;Btn1Up&gt;: exec-formatted(<span style="color: #bc8f8f;">"xdg-open '%t'"</span>, PRIMARY) \n\
 <span class="linenr">14: </span>~Meta Shift&lt;Key&gt;Tab: string(\033[Z) \n\
@@ -496,9 +496,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgbe73206" class="outline-4">
-<h4 id="orgbe73206">URxvt</h4>
-<div class="outline-text-4" id="text-orgbe73206">
+<div id="outline-container-orgef0e4c3" class="outline-4">
+<h4 id="orgef0e4c3">URxvt</h4>
+<div class="outline-text-4" id="text-orgef0e4c3">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! arch package (aur): urxvt-resize-font-git
 <span class="linenr"> 2: </span>URxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
@@ -527,77 +527,77 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orge1be094" class="outline-4">
-<h4 id="orge1be094">x11-ssh-askpass</h4>
-<div class="outline-text-4" id="text-orge1be094">
+<div id="outline-container-orgca059ef" class="outline-4">
+<h4 id="orgca059ef">x11-ssh-askpass</h4>
+<div class="outline-text-4" id="text-orgca059ef">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>! -*- eval: (rainbow-mode 1) -*-
-<span class="linenr">2: </span>x11-ssh-askpass*background:             <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">3: </span>x11-ssh-askpass*foreground:             <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff</span>
-<span class="linenr">4: </span>x11-ssh-askpass.Button*background:      <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">5: </span>x11-ssh-askpass.Indicator*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">ff9900</span>
-<span class="linenr">6: </span>x11-ssh-askpass.Indicator*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">090909</span>
-<span class="linenr">7: </span>x11-ssh-askpass*topShadowColor:         <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">8: </span>x11-ssh-askpass*bottomShadowColor:      <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">9: </span>x11-ssh-askpass.*borderWidth:           1
+<span class="linenr">2: </span>x11-ssh-askpass*background:             <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">3: </span></span>x11-ssh-askpass*foreground:             <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff
+<span class="linenr">4: </span></span>x11-ssh-askpass.Button*background:      <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">5: </span></span>x11-ssh-askpass.Indicator*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">ff9900
+<span class="linenr">6: </span></span>x11-ssh-askpass.Indicator*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">090909
+<span class="linenr">7: </span></span>x11-ssh-askpass*topShadowColor:         <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">8: </span></span>x11-ssh-askpass*bottomShadowColor:      <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">9: </span></span>x11-ssh-askpass.*borderWidth:           1
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orge946ada" class="outline-4">
-<h4 id="orge946ada">xcalc</h4>
-<div class="outline-text-4" id="text-orge946ada">
+<div id="outline-container-org32838c5" class="outline-4">
+<h4 id="org32838c5">xcalc</h4>
+<div class="outline-text-4" id="text-org32838c5">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval: (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>xcalc*geometry:                        200x275
-<span class="linenr"> 3: </span>xcalc.ti.bevel.background:             <span style="color: #b22222;">#</span><span style="color: #b22222;">111111</span>
-<span class="linenr"> 4: </span>xcalc.ti.bevel.screen.background:      <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr"> 5: </span>xcalc.ti.bevel.screen.DEG.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr"> 6: </span>xcalc.ti.bevel.screen.DEG.foreground:  LightSeaGreen
-<span class="linenr"> 7: </span>xcalc.ti.bevel.screen.GRAD.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr"> 8: </span>xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
-<span class="linenr"> 9: </span>xcalc.ti.bevel.screen.RAD.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">10: </span>xcalc.ti.bevel.screen.RAD.foreground:  LightSeaGreen
-<span class="linenr">11: </span>xcalc.ti.bevel.screen.INV.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">12: </span>xcalc.ti.bevel.screen.INV.foreground:  Red
-<span class="linenr">13: </span>xcalc.ti.bevel.screen.LCD.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">14: </span>xcalc.ti.bevel.screen.LCD.foreground:  LightSeaGreen
+<span class="linenr"> 3: </span>xcalc.ti.bevel.background:             <span style="color: #b22222;">#</span><span style="color: #b22222;">111111
+<span class="linenr"> 4: </span></span>xcalc.ti.bevel.screen.background:      <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr"> 5: </span></span>xcalc.ti.bevel.screen.DEG.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr"> 6: </span></span>xcalc.ti.bevel.screen.DEG.foreground:  LightSeaGreen
+<span class="linenr"> 7: </span>xcalc.ti.bevel.screen.GRAD.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr"> 8: </span></span>xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
+<span class="linenr"> 9: </span>xcalc.ti.bevel.screen.RAD.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">10: </span></span>xcalc.ti.bevel.screen.RAD.foreground:  LightSeaGreen
+<span class="linenr">11: </span>xcalc.ti.bevel.screen.INV.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">12: </span></span>xcalc.ti.bevel.screen.INV.foreground:  Red
+<span class="linenr">13: </span>xcalc.ti.bevel.screen.LCD.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">14: </span></span>xcalc.ti.bevel.screen.LCD.foreground:  LightSeaGreen
 <span class="linenr">15: </span>xcalc.ti.bevel.screen.LCD.shadowWidth: 0
-<span class="linenr">16: </span>xcalc.ti.bevel.screen.M.background:    <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">17: </span>xcalc.ti.bevel.screen.M.foreground:    LightSeaGreen
-<span class="linenr">18: </span>xcalc.ti.bevel.screen.P.background:    <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">19: </span>xcalc.ti.bevel.screen.P.foreground:    Yellow
+<span class="linenr">16: </span>xcalc.ti.bevel.screen.M.background:    <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">17: </span></span>xcalc.ti.bevel.screen.M.foreground:    LightSeaGreen
+<span class="linenr">18: </span>xcalc.ti.bevel.screen.P.background:    <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">19: </span></span>xcalc.ti.bevel.screen.P.foreground:    Yellow
 <span class="linenr">20: </span>xcalc.ti.Command.foreground:  White
-<span class="linenr">21: </span>xcalc.ti.Command.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">777777</span>
-<span class="linenr">22: </span>xcalc.ti.button5.background:  Orange3
-<span class="linenr">23: </span>xcalc.ti.button19.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">611161</span>
-<span class="linenr">24: </span>xcalc.ti.button18.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">611161</span>
-<span class="linenr">25: </span>xcalc.ti.button20.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">611111</span>
-<span class="linenr">26: </span>xcalc.ti.button25.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">722222</span>
-<span class="linenr">27: </span>xcalc.ti.button30.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">833333</span>
-<span class="linenr">28: </span>xcalc.ti.button35.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">944444</span>
-<span class="linenr">29: </span>xcalc.ti.button40.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">a55555</span>
-<span class="linenr">30: </span>xcalc.ti.button22.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">222262</span>
-<span class="linenr">31: </span>xcalc.ti.button23.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">222262</span>
-<span class="linenr">32: </span>xcalc.ti.button24.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">222272</span>
-<span class="linenr">33: </span>xcalc.ti.button27.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">333373</span>
-<span class="linenr">34: </span>xcalc.ti.button28.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">333373</span>
-<span class="linenr">35: </span>xcalc.ti.button29.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">333373</span>
-<span class="linenr">36: </span>xcalc.ti.button32.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">444484</span>
-<span class="linenr">37: </span>xcalc.ti.button33.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">444484</span>
-<span class="linenr">38: </span>xcalc.ti.button34.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">444484</span>
-<span class="linenr">39: </span>xcalc.ti.button37.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">555595</span>
-<span class="linenr">40: </span>xcalc.ti.button38.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">555595</span>
-<span class="linenr">41: </span>xcalc.ti.button39.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">555595</span>
-<span class="linenr">42: </span>XCalc*Cursor:                 hand2
+<span class="linenr">21: </span>xcalc.ti.Command.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">777777
+<span class="linenr">22: </span></span>xcalc.ti.button5.background:  Orange3
+<span class="linenr">23: </span>xcalc.ti.button19.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">611161
+<span class="linenr">24: </span></span>xcalc.ti.button18.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">611161
+<span class="linenr">25: </span></span>xcalc.ti.button20.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">611111
+<span class="linenr">26: </span></span>xcalc.ti.button25.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">722222
+<span class="linenr">27: </span></span>xcalc.ti.button30.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">833333
+<span class="linenr">28: </span></span>xcalc.ti.button35.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">944444
+<span class="linenr">29: </span></span>xcalc.ti.button40.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">a55555
+<span class="linenr">30: </span></span>xcalc.ti.button22.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">222262
+<span class="linenr">31: </span></span>xcalc.ti.button23.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">222262
+<span class="linenr">32: </span></span>xcalc.ti.button24.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">222272
+<span class="linenr">33: </span></span>xcalc.ti.button27.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">333373
+<span class="linenr">34: </span></span>xcalc.ti.button28.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">333373
+<span class="linenr">35: </span></span>xcalc.ti.button29.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">333373
+<span class="linenr">36: </span></span>xcalc.ti.button32.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">444484
+<span class="linenr">37: </span></span>xcalc.ti.button33.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">444484
+<span class="linenr">38: </span></span>xcalc.ti.button34.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">444484
+<span class="linenr">39: </span></span>xcalc.ti.button37.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">555595
+<span class="linenr">40: </span></span>xcalc.ti.button38.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">555595
+<span class="linenr">41: </span></span>xcalc.ti.button39.background: <span style="color: #b22222;">#</span><span style="color: #b22222;">555595
+<span class="linenr">42: </span></span>XCalc*Cursor:                 hand2
 <span class="linenr">43: </span>XCalc*ShapeStyle:             rectangle
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org1a0232c" class="outline-4">
-<h4 id="org1a0232c">xclock</h4>
-<div class="outline-text-4" id="text-org1a0232c">
+<div id="outline-container-org9f93df5" class="outline-4">
+<h4 id="org9f93df5">xclock</h4>
+<div class="outline-text-4" id="text-org9f93df5">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>xclock*update:            1
 <span class="linenr">2: </span>xclock*analog:            false
@@ -607,9 +607,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org5daccb9" class="outline-4">
-<h4 id="org5daccb9">xscreensaver</h4>
-<div class="outline-text-4" id="text-org5daccb9">
+<div id="outline-container-org3160d4a" class="outline-4">
+<h4 id="org3160d4a">xscreensaver</h4>
+<div class="outline-text-4" id="text-org3160d4a">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
 <span class="linenr"> 2: </span>xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
@@ -618,92 +618,92 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 <span class="linenr"> 5: </span>xscreensaver.Dialog.buttonFont:         -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
 <span class="linenr"> 6: </span>xscreensaver.Dialog.dateFont:           -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
 <span class="linenr"> 7: </span>xscreensaver.passwd.passwdFont:         -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
-<span class="linenr"> 8: </span>xscreensaver.Dialog.foreground:         <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff</span>
-<span class="linenr"> 9: </span>xscreensaver.Dialog.background:         <span style="color: #b22222;">#</span><span style="color: #b22222;">111111</span>
-<span class="linenr">10: </span>xscreensaver.Dialog.topShadowColor:     <span style="color: #b22222;">#</span><span style="color: #b22222;">111111</span>
-<span class="linenr">11: </span>xscreensaver.Dialog.bottomShadowColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">111111</span>
-<span class="linenr">12: </span>xscreensaver.Dialog.Button.foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">666666</span>
-<span class="linenr">13: </span>xscreensaver.Dialog.Button.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff</span>
-<span class="linenr">14: </span>!username/password input box and date text colour
-<span class="linenr">15: </span>xscreensaver.Dialog.text.foreground:    <span style="color: #b22222;">#</span><span style="color: #b22222;">666666</span>
-<span class="linenr">16: </span>xscreensaver.Dialog.text.background:    <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff</span>
-<span class="linenr">17: </span>xscreensaver.Dialog.internalBorderWidth:24
+<span class="linenr"> 8: </span>xscreensaver.Dialog.foreground:         <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff
+<span class="linenr"> 9: </span></span>xscreensaver.Dialog.background:         <span style="color: #b22222;">#</span><span style="color: #b22222;">111111
+<span class="linenr">10: </span></span>xscreensaver.Dialog.topShadowColor:     <span style="color: #b22222;">#</span><span style="color: #b22222;">111111
+<span class="linenr">11: </span></span>xscreensaver.Dialog.bottomShadowColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">111111
+<span class="linenr">12: </span></span>xscreensaver.Dialog.Button.foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">666666
+<span class="linenr">13: </span></span>xscreensaver.Dialog.Button.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff
+<span class="linenr">14: </span></span>!username/password input box and date text colour
+<span class="linenr">15: </span>xscreensaver.Dialog.text.foreground:    <span style="color: #b22222;">#</span><span style="color: #b22222;">666666
+<span class="linenr">16: </span></span>xscreensaver.Dialog.text.background:    <span style="color: #b22222;">#</span><span style="color: #b22222;">ffffff
+<span class="linenr">17: </span></span>xscreensaver.Dialog.internalBorderWidth:24
 <span class="linenr">18: </span>xscreensaver.Dialog.borderWidth:        20
 <span class="linenr">19: </span>xscreensaver.Dialog.shadowThickness:    2
-<span class="linenr">20: </span>xscreensaver.passwd.thermometer.foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">ff0000</span>
-<span class="linenr">21: </span>xscreensaver.passwd.thermometer.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000</span>
-<span class="linenr">22: </span>xscreensaver.passwd.thermometer.width:       8
+<span class="linenr">20: </span>xscreensaver.passwd.thermometer.foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">ff0000
+<span class="linenr">21: </span></span>xscreensaver.passwd.thermometer.background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
+<span class="linenr">22: </span></span>xscreensaver.passwd.thermometer.width:       8
 <span class="linenr">23: </span>xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org563e4f4" class="outline-4">
-<h4 id="org563e4f4">colors</h4>
-<div class="outline-text-4" id="text-org563e4f4">
+<div id="outline-container-org3c109c2" class="outline-4">
+<h4 id="org3c109c2">colors</h4>
+<div class="outline-text-4" id="text-org3c109c2">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval: (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>! X colors.
 <span class="linenr"> 3: </span>! Generated by <span style="color: #bc8f8f;">'wal'</span>
-<span class="linenr"> 4: </span>*foreground:        <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3</span>
-<span class="linenr"> 5: </span>*background:        <span style="color: #b22222;">#</span><span style="color: #b22222;">292d3e</span>
-<span class="linenr"> 6: </span>*.foreground:       <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3</span>
-<span class="linenr"> 7: </span>*.background:       <span style="color: #b22222;">#</span><span style="color: #b22222;">292d3e</span>
-<span class="linenr"> 8: </span>emacs*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3</span>
-<span class="linenr"> 9: </span>emacs*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">10: </span>URxvt*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3</span>
-<span class="linenr">11: </span>XTerm*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3</span>
-<span class="linenr">12: </span>UXTerm*foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3</span>
-<span class="linenr">13: </span>URxvt*background:   [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">14: </span>XTerm*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">15: </span>UXTerm*background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">16: </span>URxvt*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f</span>
-<span class="linenr">17: </span>XTerm*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f</span>
-<span class="linenr">18: </span>UXTerm*cursorColor: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f</span>
-<span class="linenr">19: </span>URxvt*borderColor:  [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">20: </span>
+<span class="linenr"> 4: </span>*foreground:        <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr"> 5: </span></span>*background:        <span style="color: #b22222;">#</span><span style="color: #b22222;">292d3e
+<span class="linenr"> 6: </span></span>*.foreground:       <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr"> 7: </span></span>*.background:       <span style="color: #b22222;">#</span><span style="color: #b22222;">292d3e
+<span class="linenr"> 8: </span></span>emacs*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr"> 9: </span></span>emacs*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">10: </span></span>URxvt*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr">11: </span></span>XTerm*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr">12: </span></span>UXTerm*foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr">13: </span></span>URxvt*background:   [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">14: </span></span>XTerm*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">15: </span></span>UXTerm*background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">16: </span></span>URxvt*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
+<span class="linenr">17: </span></span>XTerm*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
+<span class="linenr">18: </span></span>UXTerm*cursorColor: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
+<span class="linenr">19: </span></span>URxvt*borderColor:  [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">20: </span></span>
 <span class="linenr">21: </span>! Colors 0-15.
-<span class="linenr">22: </span>*.color0: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">23: </span>*color0:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">24: </span>*.color1: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f</span>
-<span class="linenr">25: </span>*color1:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f</span>
-<span class="linenr">26: </span>*.color2: <span style="color: #b22222;">#</span><span style="color: #b22222;">859900</span>
-<span class="linenr">27: </span>*color2:  <span style="color: #b22222;">#</span><span style="color: #b22222;">859900</span>
-<span class="linenr">28: </span>*.color3: <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900</span>
-<span class="linenr">29: </span>*color3:  <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900</span>
-<span class="linenr">30: </span>*.color4: <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2</span>
-<span class="linenr">31: </span>*color4:  <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2</span>
-<span class="linenr">32: </span>*.color5: <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682</span>
-<span class="linenr">33: </span>*color5:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682</span>
-<span class="linenr">34: </span>*.color6: <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198</span>
-<span class="linenr">35: </span>*color6:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198</span>
-<span class="linenr">36: </span>*.color7: <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5</span>
-<span class="linenr">37: </span>*color7:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5</span>
-<span class="linenr">38: </span>*.color8: <span style="color: #b22222;">#</span><span style="color: #b22222;">6c7c80</span>
-<span class="linenr">39: </span>*color8:  <span style="color: #b22222;">#</span><span style="color: #b22222;">6c7c80</span>
-<span class="linenr">40: </span>*.color9: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f</span>
-<span class="linenr">41: </span>*color9:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f</span>
-<span class="linenr">42: </span>*.color10: <span style="color: #b22222;">#</span><span style="color: #b22222;">859900</span>
-<span class="linenr">43: </span>*color10:  <span style="color: #b22222;">#</span><span style="color: #b22222;">859900</span>
-<span class="linenr">44: </span>*.color11: <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900</span>
-<span class="linenr">45: </span>*color11:  <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900</span>
-<span class="linenr">46: </span>*.color12: <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2</span>
-<span class="linenr">47: </span>*color12:  <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2</span>
-<span class="linenr">48: </span>*.color13: <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682</span>
-<span class="linenr">49: </span>*color13:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682</span>
-<span class="linenr">50: </span>*.color14: <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198</span>
-<span class="linenr">51: </span>*color14:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198</span>
-<span class="linenr">52: </span>*.color15: <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5</span>
-<span class="linenr">53: </span>*color15:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5</span>
-<span class="linenr">54: </span>
+<span class="linenr">22: </span>*.color0: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">23: </span></span>*color0:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">24: </span></span>*.color1: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
+<span class="linenr">25: </span></span>*color1:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
+<span class="linenr">26: </span></span>*.color2: <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
+<span class="linenr">27: </span></span>*color2:  <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
+<span class="linenr">28: </span></span>*.color3: <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
+<span class="linenr">29: </span></span>*color3:  <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
+<span class="linenr">30: </span></span>*.color4: <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
+<span class="linenr">31: </span></span>*color4:  <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
+<span class="linenr">32: </span></span>*.color5: <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
+<span class="linenr">33: </span></span>*color5:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
+<span class="linenr">34: </span></span>*.color6: <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
+<span class="linenr">35: </span></span>*color6:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
+<span class="linenr">36: </span></span>*.color7: <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
+<span class="linenr">37: </span></span>*color7:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
+<span class="linenr">38: </span></span>*.color8: <span style="color: #b22222;">#</span><span style="color: #b22222;">6c7c80
+<span class="linenr">39: </span></span>*color8:  <span style="color: #b22222;">#</span><span style="color: #b22222;">6c7c80
+<span class="linenr">40: </span></span>*.color9: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
+<span class="linenr">41: </span></span>*color9:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
+<span class="linenr">42: </span></span>*.color10: <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
+<span class="linenr">43: </span></span>*color10:  <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
+<span class="linenr">44: </span></span>*.color11: <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
+<span class="linenr">45: </span></span>*color11:  <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
+<span class="linenr">46: </span></span>*.color12: <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
+<span class="linenr">47: </span></span>*color12:  <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
+<span class="linenr">48: </span></span>*.color13: <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
+<span class="linenr">49: </span></span>*color13:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
+<span class="linenr">50: </span></span>*.color14: <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
+<span class="linenr">51: </span></span>*color14:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
+<span class="linenr">52: </span></span>*.color15: <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
+<span class="linenr">53: </span></span>*color15:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
+<span class="linenr">54: </span></span>
 <span class="linenr">55: </span>! Black color that will not be affected by bold highlighting.
-<span class="linenr">56: </span>*.color66: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">57: </span>*color66:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">58: </span>
+<span class="linenr">56: </span>*.color66: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">57: </span></span>*color66:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">58: </span></span>
 <span class="linenr">59: </span>! Xclock colors.
-<span class="linenr">60: </span>XClock*foreground: <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3</span>
-<span class="linenr">61: </span>XClock*background: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642</span>
-<span class="linenr">62: </span>XClock*majorColor:  rgba:ee/e8/d5/ff
+<span class="linenr">60: </span>XClock*foreground: <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr">61: </span></span>XClock*background: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">62: </span></span>XClock*majorColor:  rgba:ee/e8/d5/ff
 <span class="linenr">63: </span>XClock*minorColor:  rgba:ee/e8/d5/ff
 <span class="linenr">64: </span>XClock*hourColor:   rgba:ee/e8/d5/ff
 <span class="linenr">65: </span>XClock*minuteColor: rgba:ee/e8/d5/ff
@@ -717,9 +717,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgc2d5cfd" class="outline-2">
-<h2 id="orgc2d5cfd">Xsettingsd</h2>
-<div class="outline-text-2" id="text-orgc2d5cfd">
+<div id="outline-container-org58a1137" class="outline-2">
+<h2 id="org58a1137">Xsettingsd</h2>
+<div class="outline-text-2" id="text-org58a1137">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>Gtk/CursorThemeName <span style="color: #bc8f8f;">"Bibata-Modern-Classic"</span>
 <span class="linenr"> 2: </span>Gtk/CursorThemeSize 24
@@ -750,27 +750,27 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </ul>
 </div>
 </div>
-<div id="outline-container-org75bdbb1" class="outline-2">
-<h2 id="org75bdbb1">Scripts</h2>
-<div class="outline-text-2" id="text-org75bdbb1">
+<div id="outline-container-orge729fe1" class="outline-2">
+<h2 id="orge729fe1">Scripts</h2>
+<div class="outline-text-2" id="text-orge729fe1">
 </div>
-<div id="outline-container-orgdd08dac" class="outline-3">
-<h3 id="orgdd08dac">monitor-setup</h3>
-<div class="outline-text-3" id="text-orgdd08dac">
+<div id="outline-container-org567df82" class="outline-3">
+<h3 id="org567df82">monitor-setup</h3>
+<div class="outline-text-3" id="text-org567df82">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(command -v hostnamectl)"</span> ]; <span style="color: #4169e1;">then</span>
-<span class="linenr"> 2: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"$(hostnamectl hostname)"</span>
+<pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">command -v hostnamectl</span><span style="color: #bc8f8f;">)"</span> ]; <span style="color: #4169e1;">then</span>
+<span class="linenr"> 2: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">hostnamectl hostname</span><span style="color: #bc8f8f;">)"</span>
 <span class="linenr"> 3: </span><span style="color: #4169e1;">elif</span> [ -n <span style="color: #bc8f8f;">"${HOSTNAME}"</span> ]; <span style="color: #4169e1;">then</span>
 <span class="linenr"> 4: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"${HOSTNAME}"</span>
 <span class="linenr"> 5: </span><span style="color: #4169e1;">elif</span> [ -f /etc/hostname ]; <span style="color: #4169e1;">then</span>
-<span class="linenr"> 6: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"$(cat /etc/hostname)"</span>
+<span class="linenr"> 6: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">cat /etc/hostname</span><span style="color: #bc8f8f;">)"</span>
 <span class="linenr"> 7: </span><span style="color: #4169e1;">fi</span>
 <span class="linenr"> 8: </span>
 <span class="linenr"> 9: </span><span style="color: #4169e1;">case</span> ${<span style="color: #b8860b;">_HOSTNAME</span>} <span style="color: #4169e1;">in</span>
 <span class="linenr">10: </span>    liberia*)
 <span class="linenr">11: </span>        <span style="color: #b8860b;">extern</span>=HDMI-2
 <span class="linenr">12: </span>        <span style="color: #b8860b;">intern</span>=eDP-1
-<span class="linenr">13: </span>        <span style="color: #4169e1;">if</span> [ $(xrandr |grep -q <span style="color: #bc8f8f;">"${extern} disconnected"</span>) ]; <span style="color: #4169e1;">then</span>
+<span class="linenr">13: </span>        <span style="color: #4169e1;">if</span> [ $(<span style="font-weight: bold;">xrandr |grep -q "${extern} disconnected"</span>) ]; <span style="color: #4169e1;">then</span>
 <span class="linenr">14: </span>            xrandr --output <span style="color: #bc8f8f;">"${extern}"</span> --off output <span style="color: #bc8f8f;">"${intern}"</span> --auto
 <span class="linenr">15: </span>        <span style="color: #4169e1;">else</span>
 <span class="linenr">16: </span>            xrandr --output <span style="color: #bc8f8f;">"${intern}"</span> --auto --scale 1.25x1.25 --output <span style="color: #bc8f8f;">"${extern}"</span> --auto --left-of <span style="color: #bc8f8f;">"${intern}"</span>
@@ -782,14 +782,14 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org4bbc280" class="outline-3">
-<h3 id="org4bbc280">showclip</h3>
-<div class="outline-text-3" id="text-org4bbc280">
+<div id="outline-container-orgd9928e5" class="outline-3">
+<h3 id="orgd9928e5">showclip</h3>
+<div class="outline-text-3" id="text-orgd9928e5">
 <div class="org-src-container">
-<pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">Display contents of selection via dunst if running.</span>
-<span class="linenr">2: </span>
-<span class="linenr">3: </span><span style="color: #b8860b;">clip</span>=$(xclip -o -selection clipboard)
-<span class="linenr">4: </span><span style="color: #b8860b;">prim</span>=$(xclip -o -selection primary)
+<pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">Display contents of selection via dunst if running.
+<span class="linenr">2: </span></span>
+<span class="linenr">3: </span><span style="color: #b8860b;">clip</span>=$(<span style="font-weight: bold;">xclip -o -selection clipboard</span>)
+<span class="linenr">4: </span><span style="color: #b8860b;">prim</span>=$(<span style="font-weight: bold;">xclip -o -selection primary</span>)
 <span class="linenr">5: </span>
 <span class="linenr">6: </span>[ -n <span style="color: #bc8f8f;">"$clip"</span> ] &amp;&amp; notify-send -t 1000 <span style="color: #bc8f8f;">"Clipboard:"</span> <span style="color: #bc8f8f;">"$clip"</span>
 <span class="linenr">7: </span>[ -n <span style="color: #bc8f8f;">"$prim"</span> ] &amp;&amp; notify-send -t 1000 <span style="color: #bc8f8f;">"Primary:"</span> <span style="color: #bc8f8f;">"$prim"</span>
@@ -802,7 +802,7 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 <div id="postamble" class="status">
 <p class="date">Date: 2024-03-12 Tue 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-05-10 Sat 03:38</p>
+<p class="date">Created: 2025-07-26 Sat 09:43</p>
 </div>
 </body>
 </html>
