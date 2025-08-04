@@ -39,6 +39,11 @@ This file (and also =/etc/xprofile= if exists) will be executed at the beginning
       unset xfiles
   fi
 
+  # set XDG_SESSION_TYPE here making sure it's points to x11
+  if [ -n "${XDG_SESSION_TYPE}" ] || [ "${XDG_SESSION_TYPE}" != "x11" ]; then
+      export XDG_SESSION_TYPE="x11"
+  fi
+
   # shellcheck disable=1091
   [ -f "${XDG_CONFIG_HOME}"/xprofile.local ] && . "${XDG_CONFIG_HOME}"/xprofile.local
   # shellcheck disable=1091
