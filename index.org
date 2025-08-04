@@ -694,7 +694,8 @@ fi
 :header-args: :tangle .local/bin/showclip :shebang #!/bin/sh :mkdirp t
 :END:
 
-#+begin_src sh -n
+This is now replaced by a [[https://github.com/alexforsale/showclip][small Rust program that I wrote]].
+#+begin_src sh -n :tangle no
   # Display contents of selection via dunst if running.
 
   clip=$(xclip -o -selection clipboard)
