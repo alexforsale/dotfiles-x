@@ -115,17 +115,17 @@ This script will set up any security-related environment variables, start variou
 
 Most /GTK/ settings uses the =gsetting= command, but some application still uses environment variable when looking for /GTK/ theme. And for /GTK-2.0/, sets the configuration to the ~/.config/~ directory.
 #+begin_src sh -n
-# ~/.config/xprofile.d/01-gtk-path.sh
-# set new location for GTK and GTK2
-# https://wiki.archlinux.org/title/XDG_Base_Directory
-# <alexforsale@yahoo.com>
+  # ~/.config/xprofile.d/01-gtk-path.sh
+  # set new location for GTK and GTK2
+  # https://wiki.archlinux.org/title/XDG_Base_Directory
+  # <alexforsale@yahoo.com>
 
-export GTK_RC_FILES="${XDG_CONFIG_HOME}"/gtk-1.0/gtkrc
-[ -d "${GTK_RC_FILES%%/gtkrc}" ] && mkdir -p "${GTK_RC_FILES%%/gtkrc}"
-export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
-[ -d "${GTK2_RC_FILES%%/gtkrc}" ] && mkdir -p "${GTK2_RC_FILES%%/gtkrc}"
+  export GTK_RC_FILES="${XDG_CONFIG_HOME}"/gtk-1.0/gtkrc
+  [ -d "${GTK_RC_FILES%%/gtkrc}" ] && mkdir -p "${GTK_RC_FILES%%/gtkrc}"
+  export GTK2_RC_FILES="${XDG_CONFIG_HOME}"/gtk-2.0/gtkrc
+  [ -d "${GTK2_RC_FILES%%/gtkrc}" ] && mkdir -p "${GTK2_RC_FILES%%/gtkrc}"
 
-[ -z "${GTK_THEME}" ] && export GTK_THEME=Breeze-Dark
+  [ -z "${GTK_THEME}" ] && export GTK_THEME=Breeze-Dark
 #+end_src
 ***** 02-notification.sh
 :PROPERTIES:
@@ -162,20 +162,20 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
 
 /sxhkd/ is a simple X hotkey daemon. It will react to input events by executing commands.
 #+begin_src sh -n
-# ~/.config/xprofile.d/03-sxhkd.sh
-# sxhkd settings
-# <alexforsale@yahoo.com>
+  # ~/.config/xprofile.d/03-sxhkd.sh
+  # sxhkd settings
+  # <alexforsale@yahoo.com>
 
-if [ -z "${_NO_SXHKD}" ] && [ ! $(pgrep -u ${USER} -x sxhkd) ] &&
-       [ $(command -v sxhkd) ]; then
-    if [ -e "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc.local ];then # per-user configuration
-        sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc.local &
-    elif [ -e "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc-"${DISTRO}" ];then # per-distro configuration, i.e. sxhkdrc-arch
-        sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc-"${DISTRO}" &
-    else
-        sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc &
-    fi
-fi
+  if [ -z "${_NO_SXHKD}" ] && [ ! $(pgrep -u ${USER} -x sxhkd) ] &&
+         [ $(command -v sxhkd) ]; then
+      if [ -e "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc.local ];then # per-user configuration
+          sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc.local &
+      elif [ -e "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc-"${DISTRO}" ];then # per-distro configuration, i.e. sxhkdrc-arch
+          sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc-"${DISTRO}" &
+      else
+          sxhkd -c "${XDG_CONFIG_HOME}"/sxhkd/sxhkdrc &
+      fi
+  fi
 #+end_src
 ***** 05-network.sh
 :PROPERTIES:
@@ -183,8 +183,8 @@ fi
 :END:
 
 #+begin_src sh -n
-# ~/.config/xprofile.d/05-network.sh
-# various networking app
+  # ~/.config/xprofile.d/05-network.sh
+  # various networking app
 #+end_src
 ***** 06-ui.sh
 :PROPERTIES:
@@ -192,27 +192,27 @@ fi
 :END:
 
 #+begin_src sh -n
-# ~/.config/xprofile.d/06-ui.sh
-# various ui settings
-# monitor
-_count=0
-for i in $(xrandr | grep " connected"| awk '{print $1}');do
-    _count=$((_count+1))
-    export MONITOR${_count}=${i}
-done
-unset _count
+  # ~/.config/xprofile.d/06-ui.sh
+  # various ui settings
+  # monitor
+  _count=0
+  for i in $(xrandr | grep " connected"| awk '{print $1}');do
+      _count=$((_count+1))
+      export MONITOR${_count}=${i}
+  done
+  unset _count
 
-if [[ -z "${XCURSOR_THEME}" ]]; then
-    export XCURSOR_THEME="Bibata-Modern-Classic"
-fi
+  if [[ -z "${XCURSOR_THEME}" ]]; then
+      export XCURSOR_THEME="Bibata-Modern-Classic"
+  fi
 
-if [[ -z "${XCURSOR_SIZE}" ]]; then
-    export XCURSOR_SIZE=24
-fi
+  if [[ -z "${XCURSOR_SIZE}" ]]; then
+      export XCURSOR_SIZE=24
+  fi
 
-if [[ -z "${XCURSOR_PATH}" ]]; then
-    export XCURSOR_PATH=${XCURSOR_PATH}:/usr/share/icons:~/.local/share/icons
-fi
+  if [[ -z "${XCURSOR_PATH}" ]]; then
+      export XCURSOR_PATH=${XCURSOR_PATH}:/usr/share/icons:~/.local/share/icons
+  fi
 #+end_src
 ***** 07-filemanager.sh
 :PROPERTIES:
@@ -220,20 +220,21 @@ fi
 :END:
 
 #+begin_src sh -n
-# ~/.config/xprofile.d/07-filemanager.sh
-# file manager configuration
+  # ~/.config/xprofile.d/07-filemanager.sh
+  # file manager configuration
 
-[ "$(command -v udiskie)" ] &&
-    udiskie &
+  if [ $(command -v udiskie) ]; then
+      udiskie &
+  fi
 
-[ "${_WM}" = "i3" ] &&
-    export _NO_PCMANFM=1
+  [ "${_WM}" = "i3" ] &&
+      export _NO_PCMANFM=1
 
-# pcmanfm
-if [ $(command -v pcmanfm) ] &&
-       [ -z ${_NO_PCMANFM} ]; then
-    pcmanfm --desktop -d &
-fi
+  # pcmanfm
+  if [ $(command -v pcmanfm) ] &&
+         [ -z ${_NO_PCMANFM} ]; then
+      pcmanfm --desktop -d &
+  fi
 #+end_src
 ***** 08-multimedia.sh
 :PROPERTIES:
@@ -241,13 +242,15 @@ fi
 :END:
 
 #+begin_src sh -n
-# ~/.config/xprofile.d/08-multimedia.sh
-# various multimedia app
+  # ~/.config/xprofile.d/08-multimedia.sh
+  # various multimedia app
 
-# mpd
-if [ $(command -v mpd) ] && [ ! $(pgrep -u ${USER} mpd) ];then
-    [ ! -e "${XDG_CONFIG_HOME}"/mpd/pid ] && mpd "${mpd_conf_file}" &
-fi
+  # mpd
+  if [ $(command -v mpd) ]; then
+      if [ ! $(pgrep -c -u $USER mpd) ]; then
+        mpd &
+      fi
+  fi
 #+end_src
 ***** 09-x0vnc.sh
 :PROPERTIES:
@@ -255,14 +258,14 @@ fi
 :END:
 
 #+begin_src sh
-# ~/.config/xprofile.d/09-x0vnc.sh
-# x0vnc
+  # ~/.config/xprofile.d/09-x0vnc.sh
+  # x0vnc
 
-case "${HOSTNAME}" in
-    "tanzania")
-        x0vncserver -rfbauth ~/.vnc/passwd -UseIPv6 -rfbport 5912 &
-        ;;
-esac
+  case "${HOSTNAME}" in
+      "tanzania")
+          x0vncserver -rfbauth ~/.vnc/passwd -UseIPv6 -rfbport 5912 &
+          ;;
+  esac
 #+end_src
 ***** 99-ddgr.sh
 :PROPERTIES:
@@ -270,11 +273,11 @@ esac
 :END:
 
 #+begin_src sh
-# ~/.config/xprofile.d/99-ddgr.sh
-# duckduckgo rofi
-if [ $(command -v ddgr) ] && [ $(command -v rofi-search) ]; then
-    export ROFI_SEARCH=ddgr
-fi
+  # ~/.config/xprofile.d/99-ddgr.sh
+  # duckduckgo rofi
+  if [ $(command -v ddgr) ] && [ $(command -v rofi-search) ]; then
+      export ROFI_SEARCH=ddgr
+  fi
 #+end_src
 * Xinit
 ** .xinitrc
