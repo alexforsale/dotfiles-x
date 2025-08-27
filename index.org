@@ -49,8 +49,8 @@ This file (and also =/etc/xprofile= if exists) will be executed at the beginning
   # shellcheck disable=1091
   [ -f "${HOME}"/.xprofile.local ] && . "${HOME}"/.xprofile.local
 #+end_src
-**** Modules
-***** 00-security.sh
+*** Modules
+**** 00-security.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/00-security.sh :shebang #!/bin/sh :mkdirp t
 :END:
@@ -108,7 +108,7 @@ This script will set up any security-related environment variables, start variou
           ;;
   esac
 #+end_src
-***** 01-gtk-path.sh
+**** 01-gtk-path.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/01-gtk-path.sh :shebang #!/bin/sh
 :END:
@@ -127,7 +127,7 @@ Most /GTK/ settings uses the =gsetting= command, but some application still uses
 
   [ -z "${GTK_THEME}" ] && export GTK_THEME=Breeze-Dark
 #+end_src
-***** 02-notification.sh
+**** 02-notification.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/02-notification.sh :shebang #!/bin/sh
 :END:
@@ -155,7 +155,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
       esac
   fi
 #+end_src
-***** 03-sxhkd.sh
+**** 03-sxhkd.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/03-sxhkd.sh :shebang #!/bin/sh
 :END:
@@ -177,7 +177,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
       fi
   fi
 #+end_src
-***** 05-network.sh
+**** 05-network.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/05-network.sh :shebang #!/bin/sh
 :END:
@@ -186,7 +186,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
   # ~/.config/xprofile.d/05-network.sh
   # various networking app
 #+end_src
-***** 06-ui.sh
+**** 06-ui.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/06-ui.sh :shebang #!/bin/sh
 :END:
@@ -214,7 +214,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
       export XCURSOR_PATH=${XCURSOR_PATH}:/usr/share/icons:~/.local/share/icons
   fi
 #+end_src
-***** 07-filemanager.sh
+**** 07-filemanager.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/07-filemanager.sh :shebang #!/bin/sh
 :END:
@@ -236,7 +236,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
       pcmanfm --desktop -d &
   fi
 #+end_src
-***** 08-multimedia.sh
+**** 08-multimedia.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/08-multimedia.sh :shebang #!/bin/sh
 :END:
@@ -252,7 +252,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
       fi
   fi
 #+end_src
-***** 09-x0vnc.sh
+**** 09-x0vnc.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/09-x0vnc.sh :shebang #!/bin/sh
 :END:
@@ -267,7 +267,7 @@ For most distribution that uses /systemd/, to avoid race with dbus. For those wh
           ;;
   esac
 #+end_src
-***** 99-ddgr.sh
+**** 99-ddgr.sh
 :PROPERTIES:
 :header-args: :tangle .config/xprofile.d/99-ddgr.sh :shebang #!/bin/sh
 :END:
