@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-08-27 Wed 14:51 -->
+<!-- 2025-09-23 Tue 09:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>X11 Configuration Files</title>
@@ -11,12 +11,14 @@
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
 <style> #content{max-width:1800px;}</style>
 <style> p{max-width:800px;}</style>
 <style> li{max-width:800px;}</style>
@@ -28,58 +30,58 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge557227">About</a></li>
-<li><a href="#org26e05c4">Xprofile</a>
+<li><a href="#orgb586c31">About</a></li>
+<li><a href="#orgedadeba">Xprofile</a>
 <ul>
-<li><a href="#org041a5c9">.xprofile</a>
+<li><a href="#orgfe91451">.xprofile</a>
 <ul>
-<li><a href="#org4daf3a3">Modules</a></li>
+<li><a href="#org79688e2">Modules</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org0f89aa0">Xinit</a>
+<li><a href="#org2e1d5cc">Xinit</a>
 <ul>
-<li><a href="#org97a373f">.xinitrc</a></li>
+<li><a href="#orgcdf6eef">.xinitrc</a></li>
 </ul>
 </li>
-<li><a href="#orgb38e31f">Xresources</a>
+<li><a href="#org42edd38">Xresources</a>
 <ul>
-<li><a href="#org75588c8">.Xresouces</a></li>
-<li><a href="#orgc589990">Modules</a>
+<li><a href="#org7111613">.Xresouces</a></li>
+<li><a href="#orge366a59">Modules</a>
 <ul>
-<li><a href="#org05d544d">xterm</a></li>
-<li><a href="#org2db8a35">URxvt</a></li>
-<li><a href="#orgd684d51">x11-ssh-askpass</a></li>
-<li><a href="#org15304c2">xcalc</a></li>
-<li><a href="#orgb946100">xclock</a></li>
-<li><a href="#org276bbbd">xscreensaver</a></li>
-<li><a href="#orgba04af6">colors</a></li>
+<li><a href="#org2369180">xterm</a></li>
+<li><a href="#org205563e">URxvt</a></li>
+<li><a href="#org18542d2">x11-ssh-askpass</a></li>
+<li><a href="#org50bdd7a">xcalc</a></li>
+<li><a href="#org59bf6c4">xclock</a></li>
+<li><a href="#org994a3e2">xscreensaver</a></li>
+<li><a href="#org0d7fca7">colors</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb233a4d">Xsettingsd</a></li>
-<li><a href="#orgc23fb8f">Scripts</a>
+<li><a href="#orgb05e828">Xsettingsd</a></li>
+<li><a href="#orgd324ee0">Scripts</a>
 <ul>
-<li><a href="#org069995c">monitor-setup</a></li>
-<li><a href="#orgcf1df12">showclip</a></li>
+<li><a href="#orgbb7b1bf">monitor-setup</a></li>
+<li><a href="#orgdb0d92f">showclip</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge557227" class="outline-2">
-<h2 id="orge557227">About</h2>
+<div id="outline-container-orgb586c31" class="outline-2">
+<h2 id="orgb586c31">About</h2>
 </div>
-<div id="outline-container-org26e05c4" class="outline-2">
-<h2 id="org26e05c4">Xprofile</h2>
-<div class="outline-text-2" id="text-org26e05c4">
+<div id="outline-container-orgedadeba" class="outline-2">
+<h2 id="orgedadeba">Xprofile</h2>
+<div class="outline-text-2" id="text-orgedadeba">
 </div>
-<div id="outline-container-org041a5c9" class="outline-3">
-<h3 id="org041a5c9">.xprofile</h3>
-<div class="outline-text-3" id="text-org041a5c9">
+<div id="outline-container-orgfe91451" class="outline-3">
+<h3 id="orgfe91451">.xprofile</h3>
+<div class="outline-text-3" id="text-orgfe91451">
 <p>
 This file (and also <code>/etc/xprofile</code> if exists) will be executed at the beginning of X user session, before the window manager starts.
 </p>
@@ -108,13 +110,13 @@ This file (and also <code>/etc/xprofile</code> if exists) will be executed at th
 </pre>
 </div>
 </div>
-<div id="outline-container-org4daf3a3" class="outline-4">
-<h4 id="org4daf3a3">Modules</h4>
-<div class="outline-text-4" id="text-org4daf3a3">
+<div id="outline-container-org79688e2" class="outline-4">
+<h4 id="org79688e2">Modules</h4>
+<div class="outline-text-4" id="text-org79688e2">
 </div>
 <ul class="org-ul">
-<li><a id="orge43c27b"></a>00-security.sh<br />
-<div class="outline-text-5" id="text-orge43c27b">
+<li><a id="org9453ff3"></a>00-security.sh<br />
+<div class="outline-text-5" id="text-org9453ff3">
 <p>
 This script will set up any security-related environment variables, start various programs and <i>dbus</i>-related settings.
 </p>
@@ -173,8 +175,8 @@ This script will set up any security-related environment variables, start variou
 </div>
 </div>
 </li>
-<li><a id="org463e8b5"></a>01-gtk-path.sh<br />
-<div class="outline-text-5" id="text-org463e8b5">
+<li><a id="orgb7db235"></a>01-gtk-path.sh<br />
+<div class="outline-text-5" id="text-orgb7db235">
 <p>
 Most <i>GTK</i> settings uses the <code>gsetting</code> command, but some application still uses environment variable when looking for <i>GTK</i> theme. And for <i>GTK-2.0</i>, sets the configuration to the <code>/.config/</code> directory.
 </p>
@@ -194,8 +196,8 @@ Most <i>GTK</i> settings uses the <code>gsetting</code> command, but some applic
 </div>
 </div>
 </li>
-<li><a id="org575f33b"></a>02-notification.sh<br />
-<div class="outline-text-5" id="text-org575f33b">
+<li><a id="org6104ffb"></a>02-notification.sh<br />
+<div class="outline-text-5" id="text-org6104ffb">
 <p>
 For most distribution that uses <i>systemd</i>, to avoid race with dbus. For those who doesn't, it should be set in their own init.
 </p>
@@ -224,8 +226,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org4d8ca6b"></a>03-sxhkd.sh<br />
-<div class="outline-text-5" id="text-org4d8ca6b">
+<li><a id="orgfad5cd7"></a>03-sxhkd.sh<br />
+<div class="outline-text-5" id="text-orgfad5cd7">
 <p>
 <i>sxhkd</i> is a simple X hotkey daemon. It will react to input events by executing commands.
 </p>
@@ -248,8 +250,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org87f0e46"></a>05-network.sh<br />
-<div class="outline-text-5" id="text-org87f0e46">
+<li><a id="org13ec632"></a>05-network.sh<br />
+<div class="outline-text-5" id="text-org13ec632">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/05-network.sh
 <span class="linenr">2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">various networking app</span>
@@ -257,8 +259,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="orge42603c"></a>06-ui.sh<br />
-<div class="outline-text-5" id="text-orge42603c">
+<li><a id="org7200d3f"></a>06-ui.sh<br />
+<div class="outline-text-5" id="text-org7200d3f">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/06-ui.sh
 <span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">various ui settings
@@ -285,8 +287,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org2335bf9"></a>07-filemanager.sh<br />
-<div class="outline-text-5" id="text-org2335bf9">
+<li><a id="org83b313d"></a>07-filemanager.sh<br />
+<div class="outline-text-5" id="text-org83b313d">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/07-filemanager.sh
 <span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">file manager configuration
@@ -307,8 +309,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="orgc188052"></a>08-multimedia.sh<br />
-<div class="outline-text-5" id="text-orgc188052">
+<li><a id="org19df55e"></a>08-multimedia.sh<br />
+<div class="outline-text-5" id="text-org19df55e">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/08-multimedia.sh
 <span class="linenr">2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">various multimedia app
@@ -323,8 +325,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="orgfaee7cf"></a>09-x0vnc.sh<br />
-<div class="outline-text-5" id="text-orgfaee7cf">
+<li><a id="org5ce31b6"></a>09-x0vnc.sh<br />
+<div class="outline-text-5" id="text-org5ce31b6">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/09-x0vnc.sh
 </span><span style="color: #b22222;"># </span><span style="color: #b22222;">x0vnc
@@ -338,8 +340,8 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </li>
-<li><a id="org27af670"></a>99-ddgr.sh<br />
-<div class="outline-text-5" id="text-org27af670">
+<li><a id="orgc63c2db"></a>99-ddgr.sh<br />
+<div class="outline-text-5" id="text-orgc63c2db">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.config/xprofile.d/99-ddgr.sh
 </span><span style="color: #b22222;"># </span><span style="color: #b22222;">duckduckgo rofi
@@ -354,13 +356,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org0f89aa0" class="outline-2">
-<h2 id="org0f89aa0">Xinit</h2>
-<div class="outline-text-2" id="text-org0f89aa0">
+<div id="outline-container-org2e1d5cc" class="outline-2">
+<h2 id="org2e1d5cc">Xinit</h2>
+<div class="outline-text-2" id="text-org2e1d5cc">
 </div>
-<div id="outline-container-org97a373f" class="outline-3">
-<h3 id="org97a373f">.xinitrc</h3>
-<div class="outline-text-3" id="text-org97a373f">
+<div id="outline-container-orgcdf6eef" class="outline-3">
+<h3 id="orgcdf6eef">.xinitrc</h3>
+<div class="outline-text-3" id="text-orgcdf6eef">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">~/.xinitrc
 <span class="linenr"> 2: </span></span><span style="color: #b22222;"># </span><span style="color: #b22222;">Configuration script for manual X session.
@@ -443,13 +445,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgb38e31f" class="outline-2">
-<h2 id="orgb38e31f">Xresources</h2>
-<div class="outline-text-2" id="text-orgb38e31f">
+<div id="outline-container-org42edd38" class="outline-2">
+<h2 id="org42edd38">Xresources</h2>
+<div class="outline-text-2" id="text-org42edd38">
 </div>
-<div id="outline-container-org75588c8" class="outline-3">
-<h3 id="org75588c8">.Xresouces</h3>
-<div class="outline-text-3" id="text-org75588c8">
+<div id="outline-container-org7111613" class="outline-3">
+<h3 id="org7111613">.Xresouces</h3>
+<div class="outline-text-3" id="text-org7111613">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/xterm"
 <span class="linenr"> 2: </span></span><span style="color: #b22222;">#</span><span style="color: #b22222;">include ".config/Xresources.d/URxvt"
@@ -473,13 +475,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgc589990" class="outline-3">
-<h3 id="orgc589990">Modules</h3>
-<div class="outline-text-3" id="text-orgc589990">
+<div id="outline-container-orge366a59" class="outline-3">
+<h3 id="orge366a59">Modules</h3>
+<div class="outline-text-3" id="text-orge366a59">
 </div>
-<div id="outline-container-org05d544d" class="outline-4">
-<h4 id="org05d544d">xterm</h4>
-<div class="outline-text-4" id="text-org05d544d">
+<div id="outline-container-org2369180" class="outline-4">
+<h4 id="org2369180">xterm</h4>
+<div class="outline-text-4" id="text-org2369180">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xterm*termName: xterm-256color
 <span class="linenr"> 2: </span>xterm.vt100.geometry: 80x24
@@ -509,9 +511,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org2db8a35" class="outline-4">
-<h4 id="org2db8a35">URxvt</h4>
-<div class="outline-text-4" id="text-org2db8a35">
+<div id="outline-container-org205563e" class="outline-4">
+<h4 id="org205563e">URxvt</h4>
+<div class="outline-text-4" id="text-org205563e">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! arch package (aur): urxvt-resize-font-git
 <span class="linenr"> 2: </span>URxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
@@ -540,9 +542,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgd684d51" class="outline-4">
-<h4 id="orgd684d51">x11-ssh-askpass</h4>
-<div class="outline-text-4" id="text-orgd684d51">
+<div id="outline-container-org18542d2" class="outline-4">
+<h4 id="org18542d2">x11-ssh-askpass</h4>
+<div class="outline-text-4" id="text-org18542d2">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>! -*- eval: (rainbow-mode 1) -*-
 <span class="linenr">2: </span>x11-ssh-askpass*background:             <span style="color: #b22222;">#</span><span style="color: #b22222;">000000
@@ -557,9 +559,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org15304c2" class="outline-4">
-<h4 id="org15304c2">xcalc</h4>
-<div class="outline-text-4" id="text-org15304c2">
+<div id="outline-container-org50bdd7a" class="outline-4">
+<h4 id="org50bdd7a">xcalc</h4>
+<div class="outline-text-4" id="text-org50bdd7a">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval: (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>xcalc*geometry:                        200x275
@@ -608,9 +610,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgb946100" class="outline-4">
-<h4 id="orgb946100">xclock</h4>
-<div class="outline-text-4" id="text-orgb946100">
+<div id="outline-container-org59bf6c4" class="outline-4">
+<h4 id="org59bf6c4">xclock</h4>
+<div class="outline-text-4" id="text-org59bf6c4">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr">1: </span>xclock*update:            1
 <span class="linenr">2: </span>xclock*analog:            false
@@ -620,9 +622,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-org276bbbd" class="outline-4">
-<h4 id="org276bbbd">xscreensaver</h4>
-<div class="outline-text-4" id="text-org276bbbd">
+<div id="outline-container-org994a3e2" class="outline-4">
+<h4 id="org994a3e2">xscreensaver</h4>
+<div class="outline-text-4" id="text-org994a3e2">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
 <span class="linenr"> 2: </span>xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
@@ -651,71 +653,71 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgba04af6" class="outline-4">
-<h4 id="orgba04af6">colors</h4>
-<div class="outline-text-4" id="text-orgba04af6">
+<div id="outline-container-org0d7fca7" class="outline-4">
+<h4 id="org0d7fca7">colors</h4>
+<div class="outline-text-4" id="text-org0d7fca7">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>! -*- eval: (rainbow-mode 1) -*-
 <span class="linenr"> 2: </span>! X colors.
 <span class="linenr"> 3: </span>! Generated by <span style="color: #bc8f8f;">'wal'</span>
-<span class="linenr"> 4: </span>*foreground:        <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr"> 4: </span>*foreground:        <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
 <span class="linenr"> 5: </span></span>*background:        <span style="color: #b22222;">#</span><span style="color: #b22222;">292d3e
-<span class="linenr"> 6: </span></span>*.foreground:       <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
+<span class="linenr"> 6: </span></span>*.foreground:       <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
 <span class="linenr"> 7: </span></span>*.background:       <span style="color: #b22222;">#</span><span style="color: #b22222;">292d3e
-<span class="linenr"> 8: </span></span>emacs*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
-<span class="linenr"> 9: </span></span>emacs*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
-<span class="linenr">10: </span></span>URxvt*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
-<span class="linenr">11: </span></span>XTerm*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
-<span class="linenr">12: </span></span>UXTerm*foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
-<span class="linenr">13: </span></span>URxvt*background:   [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">073642
-<span class="linenr">14: </span></span>XTerm*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
-<span class="linenr">15: </span></span>UXTerm*background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
-<span class="linenr">16: </span></span>URxvt*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
-<span class="linenr">17: </span></span>XTerm*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
-<span class="linenr">18: </span></span>UXTerm*cursorColor: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
-<span class="linenr">19: </span></span>URxvt*borderColor:  [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr"> 8: </span></span>emacs*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
+<span class="linenr"> 9: </span></span>emacs*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
+<span class="linenr">10: </span></span>URxvt*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
+<span class="linenr">11: </span></span>XTerm*foreground:   <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
+<span class="linenr">12: </span></span>UXTerm*foreground:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
+<span class="linenr">13: </span></span>URxvt*background:   [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
+<span class="linenr">14: </span></span>XTerm*background:   <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
+<span class="linenr">15: </span></span>UXTerm*background:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
+<span class="linenr">16: </span></span>URxvt*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">81a1c1
+<span class="linenr">17: </span></span>XTerm*cursorColor:  <span style="color: #b22222;">#</span><span style="color: #b22222;">81a1c1
+<span class="linenr">18: </span></span>UXTerm*cursorColor: <span style="color: #b22222;">#</span><span style="color: #b22222;">81a1c1
+<span class="linenr">19: </span></span>URxvt*borderColor:  [100]<span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
 <span class="linenr">20: </span></span>
 <span class="linenr">21: </span>! Colors 0-15.
-<span class="linenr">22: </span>*.color0: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
-<span class="linenr">23: </span></span>*color0:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
-<span class="linenr">24: </span></span>*.color1: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
-<span class="linenr">25: </span></span>*color1:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
-<span class="linenr">26: </span></span>*.color2: <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
-<span class="linenr">27: </span></span>*color2:  <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
-<span class="linenr">28: </span></span>*.color3: <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
-<span class="linenr">29: </span></span>*color3:  <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
-<span class="linenr">30: </span></span>*.color4: <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
-<span class="linenr">31: </span></span>*color4:  <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
-<span class="linenr">32: </span></span>*.color5: <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
-<span class="linenr">33: </span></span>*color5:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
-<span class="linenr">34: </span></span>*.color6: <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
-<span class="linenr">35: </span></span>*color6:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
-<span class="linenr">36: </span></span>*.color7: <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
-<span class="linenr">37: </span></span>*color7:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
-<span class="linenr">38: </span></span>*.color8: <span style="color: #b22222;">#</span><span style="color: #b22222;">6c7c80
-<span class="linenr">39: </span></span>*color8:  <span style="color: #b22222;">#</span><span style="color: #b22222;">6c7c80
-<span class="linenr">40: </span></span>*.color9: <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
-<span class="linenr">41: </span></span>*color9:  <span style="color: #b22222;">#</span><span style="color: #b22222;">dc322f
-<span class="linenr">42: </span></span>*.color10: <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
-<span class="linenr">43: </span></span>*color10:  <span style="color: #b22222;">#</span><span style="color: #b22222;">859900
-<span class="linenr">44: </span></span>*.color11: <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
-<span class="linenr">45: </span></span>*color11:  <span style="color: #b22222;">#</span><span style="color: #b22222;">b58900
-<span class="linenr">46: </span></span>*.color12: <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
-<span class="linenr">47: </span></span>*color12:  <span style="color: #b22222;">#</span><span style="color: #b22222;">268bd2
-<span class="linenr">48: </span></span>*.color13: <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
-<span class="linenr">49: </span></span>*color13:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d33682
-<span class="linenr">50: </span></span>*.color14: <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
-<span class="linenr">51: </span></span>*color14:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2aa198
-<span class="linenr">52: </span></span>*.color15: <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
-<span class="linenr">53: </span></span>*color15:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eee8d5
+<span class="linenr">22: </span>*.color0: <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
+<span class="linenr">23: </span></span>*color0:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
+<span class="linenr">24: </span></span>*.color1: <span style="color: #b22222;">#</span><span style="color: #b22222;">3b4252
+<span class="linenr">25: </span></span>*color1:  <span style="color: #b22222;">#</span><span style="color: #b22222;">3b4252
+<span class="linenr">26: </span></span>*.color2: <span style="color: #b22222;">#</span><span style="color: #b22222;">434c5e
+<span class="linenr">27: </span></span>*color2:  <span style="color: #b22222;">#</span><span style="color: #b22222;">434c5e
+<span class="linenr">28: </span></span>*.color3: <span style="color: #b22222;">#</span><span style="color: #b22222;">4c566a
+<span class="linenr">29: </span></span>*color3:  <span style="color: #b22222;">#</span><span style="color: #b22222;">4c566a
+<span class="linenr">30: </span></span>*.color4: <span style="color: #b22222;">#</span><span style="color: #b22222;">d8dee9
+<span class="linenr">31: </span></span>*color4:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d8dee9
+<span class="linenr">32: </span></span>*.color5: <span style="color: #b22222;">#</span><span style="color: #b22222;">e5e9f0
+<span class="linenr">33: </span></span>*color5:  <span style="color: #b22222;">#</span><span style="color: #b22222;">e5e9f0
+<span class="linenr">34: </span></span>*.color6: <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
+<span class="linenr">35: </span></span>*color6:  <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
+<span class="linenr">36: </span></span>*.color7: <span style="color: #b22222;">#</span><span style="color: #b22222;">8fbcbb
+<span class="linenr">37: </span></span>*color7:  <span style="color: #b22222;">#</span><span style="color: #b22222;">8fbcbb
+<span class="linenr">38: </span></span>*.color8: <span style="color: #b22222;">#</span><span style="color: #b22222;">88c0d0
+<span class="linenr">39: </span></span>*color8:  <span style="color: #b22222;">#</span><span style="color: #b22222;">88c0d0
+<span class="linenr">40: </span></span>*.color9: <span style="color: #b22222;">#</span><span style="color: #b22222;">81a1c1
+<span class="linenr">41: </span></span>*color9:  <span style="color: #b22222;">#</span><span style="color: #b22222;">81a1c1
+<span class="linenr">42: </span></span>*.color10: <span style="color: #b22222;">#</span><span style="color: #b22222;">5e81ac
+<span class="linenr">43: </span></span>*color10:  <span style="color: #b22222;">#</span><span style="color: #b22222;">5e81ac
+<span class="linenr">44: </span></span>*.color11: <span style="color: #b22222;">#</span><span style="color: #b22222;">bf616a
+<span class="linenr">45: </span></span>*color11:  <span style="color: #b22222;">#</span><span style="color: #b22222;">bf616a
+<span class="linenr">46: </span></span>*.color12: <span style="color: #b22222;">#</span><span style="color: #b22222;">d08770
+<span class="linenr">47: </span></span>*color12:  <span style="color: #b22222;">#</span><span style="color: #b22222;">d08770
+<span class="linenr">48: </span></span>*.color13: <span style="color: #b22222;">#</span><span style="color: #b22222;">ebcb8b
+<span class="linenr">49: </span></span>*color13:  <span style="color: #b22222;">#</span><span style="color: #b22222;">ebcb8b
+<span class="linenr">50: </span></span>*.color14: <span style="color: #b22222;">#</span><span style="color: #b22222;">a3be8c
+<span class="linenr">51: </span></span>*color14:  <span style="color: #b22222;">#</span><span style="color: #b22222;">a3be8c
+<span class="linenr">52: </span></span>*.color15: <span style="color: #b22222;">#</span><span style="color: #b22222;">b48ead
+<span class="linenr">53: </span></span>*color15:  <span style="color: #b22222;">#</span><span style="color: #b22222;">b48ead
 <span class="linenr">54: </span></span>
 <span class="linenr">55: </span>! Black color that will not be affected by bold highlighting.
-<span class="linenr">56: </span>*.color66: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
-<span class="linenr">57: </span></span>*color66:  <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">56: </span>*.color66: <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
+<span class="linenr">57: </span></span>*color66:  <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
 <span class="linenr">58: </span></span>
 <span class="linenr">59: </span>! Xclock colors.
-<span class="linenr">60: </span>XClock*foreground: <span style="color: #b22222;">#</span><span style="color: #b22222;">fdf6e3
-<span class="linenr">61: </span></span>XClock*background: <span style="color: #b22222;">#</span><span style="color: #b22222;">073642
+<span class="linenr">60: </span>XClock*foreground: <span style="color: #b22222;">#</span><span style="color: #b22222;">eceff4
+<span class="linenr">61: </span></span>XClock*background: <span style="color: #b22222;">#</span><span style="color: #b22222;">2e3440
 <span class="linenr">62: </span></span>XClock*majorColor:  rgba:ee/e8/d5/ff
 <span class="linenr">63: </span>XClock*minorColor:  rgba:ee/e8/d5/ff
 <span class="linenr">64: </span>XClock*hourColor:   rgba:ee/e8/d5/ff
@@ -730,9 +732,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgb233a4d" class="outline-2">
-<h2 id="orgb233a4d">Xsettingsd</h2>
-<div class="outline-text-2" id="text-orgb233a4d">
+<div id="outline-container-orgb05e828" class="outline-2">
+<h2 id="orgb05e828">Xsettingsd</h2>
+<div class="outline-text-2" id="text-orgb05e828">
 <div class="org-src-container">
 <pre class="src src-conf"><span class="linenr"> 1: </span>Gtk/CursorThemeName <span style="color: #bc8f8f;">"Bibata-Modern-Classic"</span>
 <span class="linenr"> 2: </span>Gtk/CursorThemeSize 24
@@ -763,13 +765,13 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc23fb8f" class="outline-2">
-<h2 id="orgc23fb8f">Scripts</h2>
-<div class="outline-text-2" id="text-orgc23fb8f">
+<div id="outline-container-orgd324ee0" class="outline-2">
+<h2 id="orgd324ee0">Scripts</h2>
+<div class="outline-text-2" id="text-orgd324ee0">
 </div>
-<div id="outline-container-org069995c" class="outline-3">
-<h3 id="org069995c">monitor-setup</h3>
-<div class="outline-text-3" id="text-org069995c">
+<div id="outline-container-orgbb7b1bf" class="outline-3">
+<h3 id="orgbb7b1bf">monitor-setup</h3>
+<div class="outline-text-3" id="text-orgbb7b1bf">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span><span style="color: #4169e1;">if</span> [ <span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">command -v hostnamectl</span><span style="color: #bc8f8f;">)"</span> ]; <span style="color: #4169e1;">then</span>
 <span class="linenr"> 2: </span>    <span style="color: #b8860b;">_HOSTNAME</span>=<span style="color: #bc8f8f;">"$(</span><span style="font-weight: bold;">hostnamectl hostname</span><span style="color: #bc8f8f;">)"</span>
@@ -795,9 +797,9 @@ For most distribution that uses <i>systemd</i>, to avoid race with dbus. For tho
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf1df12" class="outline-3">
-<h3 id="orgcf1df12">showclip</h3>
-<div class="outline-text-3" id="text-orgcf1df12">
+<div id="outline-container-orgdb0d92f" class="outline-3">
+<h3 id="orgdb0d92f">showclip</h3>
+<div class="outline-text-3" id="text-orgdb0d92f">
 <p>
 This is now replaced by a <a href="https://github.com/alexforsale/showclip">small Rust program that I wrote</a>.
 </p>
@@ -818,7 +820,7 @@ This is now replaced by a <a href="https://github.com/alexforsale/showclip">smal
 <div id="postamble" class="status">
 <p class="date">Date: 2024-03-12 Tue 00:00</p>
 <p class="author">Author: Kristian Alexander P</p>
-<p class="date">Created: 2025-08-27 Wed 14:51</p>
+<p class="date">Created: 2025-09-23 Tue 09:01</p>
 </div>
 </body>
 </html>
